@@ -30,7 +30,7 @@ jobs:
         id: source
         run: |
           if [ ! -f package.json ] && [ -f research-source.zip ]; then
-            echo 'f609d67c290aa4f285a2b1d78126a6b1f100d935a8cba3dd2e38025db19727ef  research-source.zip' | sha256sum -c -
+            echo '401d961f975815d58eaea100a580d8f55feb4e2b6284a6c1b01fe412f7bd8c92  research-source.zip' | sha256sum -c -
             unzip -q research-source.zip
           fi
           if [ -f package.json ]; then
