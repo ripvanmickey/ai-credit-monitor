@@ -31,7 +31,7 @@ jobs:
         run: |
           if [ ! -f package.json ] && [ -f research-source.zip ]; then
             echo '401d961f975815d58eaea100a580d8f55feb4e2b6284a6c1b01fe412f7bd8c92  research-source.zip' | sha256sum -c -
-            unzip -q research-source.zip
+            unzip -nq research-source.zip
           fi
           if [ -f package.json ]; then
             echo 'ready=true' >> "$GITHUB_OUTPUT"
