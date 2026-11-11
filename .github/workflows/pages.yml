@@ -1,0 +1,62 @@
+name: Publish research snapshots
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+  schedule:
+    - cron: '17 0,3,6,9,12,15,18,21 * * *'
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Prepare source
+        id: source
+        run: |
+          if [ ! -f package.json ] && [ -f research-source.zip ]; then
+            echo 'f609d67c290aa4f285a2b1d78126a6b1f100d935a8cba3dd2e38025db19727ef  research-source.zip' | sha256sum -c -
+            unzip -q research-source.zip
+          fi
+          if [ -f package.json ]; then
+            echo 'ready=true' >> "$GITHUB_OUTPUT"
+          fi
+      - uses: pnpm/action-setup@v4
+        if: steps.source.outputs.ready == 'true'
+        with:
+          version: 10
+      - uses: actions/setup-node@v4
+        if: steps.source.outputs.ready == 'true'
+        with:
+          node-version: 24
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+        if: steps.source.outputs.ready == 'true'
+      - run: node scripts/build-pages.mjs
+        if: steps.source.outputs.ready == 'true'
+        env:
+          PAGES_BASE_PATH: /${{ github.event.repository.name }}
+      - uses: actions/configure-pages@v5
+        if: steps.source.outputs.ready == 'true'
+      - uses: actions/upload-pages-artifact@v3
+        if: steps.source.outputs.ready == 'true'
+        with:
+          path: dist/pages
+      - uses: actions/deploy-pages@v4
+        if: steps.source.outputs.ready == 'true'
+        id: deploy
