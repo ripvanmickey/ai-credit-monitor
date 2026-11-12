@@ -1,5 +1,4 @@
 const etfStartDate = '2015-01-01';
-const fee = 0.0005;
 
 export function indicators(bars) {
   const close = bars.map(bar => bar[2]);
@@ -70,55 +69,44 @@ export function tradeStats(trades) {
   };
 }
 
-export function backtest(bars, entrySignal, exitSignal, { execution = 'open', startDate = etfStartDate } = {}) {
-  const atClose = execution === 'close';
+export function backtest(bars, entrySignal, exitSignal, { startDate = etfStartDate } = {}) {
   const features = indicators(bars);
   const trades = [];
   const equity = [];
-  let cash = 1;
+  let capital = 1;
   let holding = null;
-  let pending = null;
-  let benchmarkShares;
+  let benchmarkClose;
   let exposed = 0;
-  for (let i = 0; i < bars.length; i++) {
-    const [date, open, close] = bars[i];
-    if (date < startDate || (atClose && i < 220)) {
-      if (atClose && i === 219) {
-        const mode = entrySignal(features[i]);
-        if (mode) pending = { side: 'entry', mode, date };
-      }
-      continue;
-    }
-    const fill = atClose ? close : open;
-    const boughtAtClose = atClose && pending?.side === 'entry';
-    benchmarkShares ??= 1 / (fill * (1 + fee));
 
-    if (pending?.side === 'exit') {
-      cash = holding.shares * fill * (1 - fee);
-      trades.push({
-        ...holding.trade, sellSignal: pending.date, sellDate: date, sellPrice: fill,
-        sellIndex: i, reason: pending.reason, days: i - holding.index,
-        return: cash / holding.capital - 1,
-      });
-      holding = null;
-    } else if (pending?.side === 'entry') {
-      holding = {
-        index: i, capital: cash, shares: cash / (fill * (1 + fee)),
-        trade: { mode: pending.mode, buySignal: pending.date, buyDate: date, buyPrice: fill, buyIndex: i },
-      };
-      cash = 0;
-    }
+  // The 200-day average needs another 20 observations for the trend comparison.
+  for (let i = 219; i < bars.length; i++) {
+    const [date, , close] = bars[i];
+    if (date < startDate) continue;
+    benchmarkClose ??= close;
 
-    const mode = entrySignal(features[i]);
     if (holding) {
       exposed++;
-      const heldDays = i - holding.index + 1;
-      const reason = boughtAtClose ? null : exitSignal(features[i], close / holding.trade.buyPrice - 1, heldDays);
-      pending = reason ? { side: 'exit', reason, date } : null;
+      const days = i - holding.buyIndex;
+      const gain = close / holding.buyPrice - 1;
+      const reason = exitSignal(features[i], gain, days);
+      if (reason) {
+        capital *= 1 + gain;
+        trades.push({
+          ...holding, sellSignal: date, sellDate: date, sellPrice: close,
+          sellIndex: i, reason, days, return: gain,
+        });
+        holding = null;
+      }
     } else {
-      pending = mode ? { side: 'entry', mode, date } : null;
+      const mode = entrySignal(features[i]);
+      if (mode) holding = { mode, buySignal: date, buyDate: date, buyPrice: close, buyIndex: i };
     }
-    equity.push({ date, strategy: cash + (holding ? holding.shares * close * (1 - fee) : 0), benchmark: benchmarkShares * close * (1 - fee) });
+
+    equity.push({
+      date,
+      strategy: holding ? capital * (close / holding.buyPrice) : capital,
+      benchmark: close / benchmarkClose,
+    });
   }
 
   function performance(key) {
@@ -134,9 +122,9 @@ export function backtest(bars, entrySignal, exitSignal, { execution = 'open', st
   }
 
   return {
-    features, trades, pending, holding: holding?.trade ?? null,
+    features, trades, holding,
     ...tradeStats(trades), strategy: performance('strategy'), benchmark: performance('benchmark'),
-    exposure: exposed / equity.length, from: equity[0].date, to: equity.at(-1).date,
+    exposure: equity.length > 1 ? exposed / (equity.length - 1) : 0, from: equity[0].date, to: equity.at(-1).date,
   };
 }
 

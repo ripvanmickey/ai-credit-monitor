@@ -24,6 +24,7 @@
   </div>
   <h2 class="timing-subtitle">文主任的买入条件</h2>
   <div id="timing-status" class="timing-status" role="status">正在读取回测数据…</div>
+  <p class="timing-muted">按信号当日收盘价模拟买卖 · 手续费为零</p>
   <div id="timing-signals" class="timing-signals" aria-label="入场条件"></div>
   <div class="table-wrap timing-table">
     <table><caption>两大指数对照 · 当前止盈规则</caption><thead><tr><th scope="col">指数</th><th scope="col">当前入场信号</th><th scope="col">已完成</th><th scope="col">胜率 ≥ 70%</th><th scope="col">赔率 ≥ 1.00×</th><th scope="col">年化：策略 / 买入持有</th><th scope="col">最大回撤：策略 / 买入持有</th></tr></thead><tbody id="timing-index-comparison"></tbody></table>
@@ -38,20 +39,20 @@
     <table><caption>策略与基准</caption><thead><tr><th scope="col">组合</th><th scope="col">累计收益</th><th scope="col">年化收益</th><th scope="col">最大回撤</th><th scope="col">持仓时间占比</th></tr></thead><tbody id="timing-performance"></tbody></table>
   </div>
   <h3>历史买卖点</h3>
-  <p class="timing-muted">先列信号日，再列成交日和成交价。点击买入日期可查看对应走势。</p>
+  <p class="timing-muted">买卖日期和价格均对应信号当日收盘。点击买入日期可查看对应走势。</p>
   <div class="table-wrap timing-table timing-trades" tabindex="0" aria-label="历史交易表">
     <table><thead><tr><th scope="col">进场模式</th><th scope="col">买入</th><th scope="col">卖出</th><th scope="col">持有交易日</th><th scope="col">离场原因</th><th scope="col">净收益</th></tr></thead><tbody id="timing-trade-rows"></tbody></table>
   </div>
   <details class="timing-method"><summary>规则和数据口径</summary><div id="timing-method">
     <p><b>原视频。</b>文主任《如何做一个美股量化交易策略》在 04:56 和 06:32 讲两类入场，在 07:49 讲离场，在 09:23 展示回测。原表基准参数的胜率／赔率为纳斯达克综合 77%／1.65、标普 500 指数 81%／1.47、QQQ 78%／1.23。<a href="https://www.rednote.com/discovery/item/6af48b54000000002a025056" target="_blank" rel="noopener noreferrer">查看原视频 ↗</a></p>
     <p><b>入场。</b>两类都要求 200 日均线高于 20 个交易日前。牛市急跌要求收盘仍在线上，并且 5 日累计跌幅大于 2 倍波动。视频没有给出波动率的精确公式，本回测固定用此前 20 个交易日的滚动 5 日收益样本标准差，不把当日变动计入波动估计。深 V 的对数偏离 = 100 × ln(收盘价 ÷ 200 日均线)。对数偏离 ≤ −10 时达到门槛，等价于收盘比均线低约 9.52%。</p>
-    <p><b>离场。</b>默认收盘高于 5 日均线即发出退出信号。固定浮盈 +2% 和 +5% 是两种独立对照。三种规则均保留收盘亏损 15% 或持满 20 个交易日退出。隔夜跳空会改变实际成交收益。</p>
-    <p><b>指数。</b>行情来自 Yahoo Finance 的 <a href="https://finance.yahoo.com/quote/%5EGSPC/history/">标普 500</a> 和 <a href="https://finance.yahoo.com/quote/%5EIXIC/history/">纳斯达克综合</a>。分别从 <a href="https://www.spglobal.com/spdji/en/indices/equity/sp-500/">1957-03-04</a> 和 <a href="https://www.nasdaq.com/articles/nasdaq-composite-indextm%3A-50th-anniversary-brings-new-records-and-further-optimism">1971-02-05</a> 起纳入日线，前 220 个观测日用于计算均线和趋势，第 220 日可发出首个信号。因早期开盘报价不一致，指数按下一交易日收盘模拟成交。价格指数不含股息，不能直接交易。</p>
-    <p><b>ETF。</b>保留 <a href="https://finance.yahoo.com/quote/QQQ/history/">QQQ</a> 与 <a href="https://finance.yahoo.com/quote/SPY/history/">SPY</a> 的复权日线，2014 年预热、2015 年起计算，下一交易日开盘成交。QQQ 跟踪纳斯达克 100。</p>
-    <p><b>基准。</b>买入持有使用同一标的、起始日、成交口径和单边 5 bp 成本。择时每次只持有一笔，空仓现金收益按零。未平仓计入净值，排除在胜率和赔率之外。赔率 = 平均盈利 ÷ 平均亏损绝对值。胜率 ≥70%、赔率 ≥1.00×取自视频回测表的标示条件；历史达标不保证本次盈利。</p>
+    <p><b>离场。</b>默认收盘高于 5 日均线即发出退出信号。固定浮盈 +2% 和 +5% 是两种独立对照。三种规则均保留收盘亏损 15% 或持满 20 个交易日退出。从买入后的下一交易日起判断离场。</p>
+    <p><b>指数。</b>行情来自 Yahoo Finance 的 <a href="https://finance.yahoo.com/quote/%5EGSPC/history/">标普 500</a> 和 <a href="https://finance.yahoo.com/quote/%5EIXIC/history/">纳斯达克综合</a>。分别从 <a href="https://www.spglobal.com/spdji/en/indices/equity/sp-500/">1957-03-04</a> 和 <a href="https://www.nasdaq.com/articles/nasdaq-composite-indextm%3A-50th-anniversary-brings-new-records-and-further-optimism">1971-02-05</a> 起纳入日线，前 220 个观测日用于计算均线和趋势，第 220 日可发出首个信号。价格指数不含股息，不能直接交易。</p>
+    <p><b>ETF。</b>保留 <a href="https://finance.yahoo.com/quote/QQQ/history/">QQQ</a> 与 <a href="https://finance.yahoo.com/quote/SPY/history/">SPY</a> 的复权日线，2014 年预热、2015 年起计算。QQQ 跟踪纳斯达克 100。</p>
+    <p><b>成交和基准。</b>信号按最终收盘价确认，回测假定可以用同一收盘价成交，手续费为零。买入持有以同一标的和样本首日收盘价为起点。择时每次只持有一笔，空仓现金收益按零。未平仓计入净值，排除在胜率和赔率之外。赔率 = 平均盈利 ÷ 平均亏损绝对值。胜率 ≥70%、赔率 ≥1.00×取自视频回测表的标示条件；历史达标不保证本次盈利。</p>
   </div></details>
 </section>
 </main>
-<script type="module" src="timing.js?v=3"></script>
+<script type="module" src="timing.js?v=4"></script>
 </body>
 </html>

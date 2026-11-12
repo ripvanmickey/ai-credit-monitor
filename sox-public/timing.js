@@ -1,4 +1,4 @@
-import { deepLogThreshold, entryChecks, reference, runTiming, timingEntry, tradeStats } from './timing-model.js?v=3';
+import { deepLogThreshold, entryChecks, reference, runTiming, timingEntry, tradeStats } from './timing-model.js?v=4';
 
 const panel = document.querySelector('#timing');
 const asset = panel.querySelector('#timing-asset');
@@ -100,7 +100,7 @@ function drawChart() {
 function getResult(key) {
   const id = key + ':' + mode.value;
   if (!cache.has(id)) {
-    const options = isIndex(key) ? { execution: 'close', startDate: histories[key][0][0] } : undefined;
+    const options = isIndex(key) ? { startDate: histories[key][0][0] } : undefined;
     cache.set(id, runTiming(histories[key], mode.value, options));
   }
   return cache.get(id);
@@ -123,18 +123,24 @@ function render() {
   const checks = entryChecks(latest);
   const byMode = signal ? tradeStats(result.trades.filter(trade => trade.mode === signal)) : null;
   const modePassed = byMode && meets(byMode.winRate, reference.winRate) && meets(byMode.payoff, reference.payoff);
-  const buyAction = result.pending?.side === 'exit' ? '持仓出现离场信号'
-    : result.holding ? '已有模拟持仓，按规则不加仓'
-    : !signal ? '短线建议：等待，未触发买入'
-    : !modePassed ? '短线建议：触发信号，暂只观察'
-    : '短线建议：规则允许列入抄底观察';
-  const fillLabel = isIndex(asset.value) ? '次一交易日收盘' : '次一交易日开盘';
-  const detail = result.pending?.side === 'exit' ? names[result.pending.reason] + '，拟于' + fillLabel + '模拟离场'
-    : result.holding ? '入场于 ' + result.holding.buyDate
-    : !signal ? '两种入场模式均未同时满足各自条件。'
-    : names[signal] + ' · 同模式历史 ' + byMode.count + ' 笔，胜率 ' + pct(byMode.winRate) + '，赔率 ' + ratio(byMode.payoff) +
-      '。' + (modePassed ? '两项达标，模型按' + fillLabel + '模拟成交。' : '历史门槛未全部达到或样本不足。');
-  status.innerHTML = '<strong>' + buyAction + '</strong><span>' + result.to + ' 收盘 · ' + detail + '</span>';
+  const sold = result.trades.at(-1);
+  const soldToday = sold?.sellDate === result.to;
+  const boughtToday = result.holding?.buyDate === result.to;
+  let action = '短线建议：等待，未触发买入';
+  let detail = '两种入场模式均未同时满足各自条件。';
+  if (soldToday) {
+    action = '当日收盘已模拟离场';
+    detail = names[sold.reason] + ' · 成交价 ' + price(sold.sellPrice);
+  } else if (boughtToday) {
+    action = modePassed ? '当日收盘已模拟买入 · 可列入短线观察'
+      : '当日收盘已模拟买入 · 历史门槛未全部达到';
+    detail = names[result.holding.mode] + ' · 成交价 ' + price(result.holding.buyPrice) +
+      ' · 同模式历史 ' + byMode.count + ' 笔，胜率 ' + pct(byMode.winRate) + '，赔率 ' + ratio(byMode.payoff);
+  } else if (result.holding) {
+    action = '已有模拟持仓，按规则不加仓';
+    detail = '入场于 ' + result.holding.buyDate;
+  }
+  status.innerHTML = '<strong>' + action + '</strong><span>' + result.to + ' 收盘 · ' + detail + '</span>';
   const rules = (name, entry, rows) => '<article><h3>' + name + '</h3><p class="timing-muted">' +
     (signal === entry ? '已触发' : '未触发') + ' · 下列条件须同时满足</p><ul>' +
     rows.map(([rule, current, pass]) => '<li><span>' + rule + '<small>' + current + '</small></span>' +
@@ -168,8 +174,8 @@ function render() {
     ['买入并持有', result.benchmark, '100.00%'],
   ].map(([label, data, exposure]) => '<tr><th scope="row">' + label + '</th><td>' + pct(data.total) + '</td><td>' + pct(data.annualized) + '</td><td>' + pct(data.drawdown) + '</td><td>' + exposure + '</td></tr>').join('');
   tradeRows.innerHTML = result.trades.slice().reverse().map(trade => '<tr><td>' + names[trade.mode] +
-    '</td><td><small>' + trade.buySignal + '</small><br><button type="button" data-trade="' + trade.buyIndex + '">' +
-    trade.buyDate + '</button> · ' + price(trade.buyPrice) + '</td><td><small>' + trade.sellSignal + '</small><br>' +
+    '</td><td><button type="button" data-trade="' + trade.buyIndex + '">' +
+    trade.buyDate + '</button> · ' + price(trade.buyPrice) + '</td><td>' +
     trade.sellDate + ' · ' + price(trade.sellPrice) + '</td><td>' + trade.days + '</td><td>' +
     names[trade.reason] + '</td><td>' + pct(trade.return) + '</td></tr>').join('') ||
     '<tr><td colspan="6">样本期内没有已完成交易</td></tr>';
