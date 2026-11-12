@@ -9,7 +9,7 @@
   <link rel="preload" href="/cycle/geist-sans.woff2?v=2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/cycle/design.css?v=playfair-display1">
   <link rel="stylesheet" href="dashboard.css?v=5">
-  <link rel="stylesheet" href="timing.css?v=2">
+  <link rel="stylesheet" href="timing.css?v=4">
   <script type="module" src="/cycle/design.js?v=timing-page1"></script>
 </head>
 <body>
@@ -22,12 +22,20 @@
       <label>止盈规则 <select id="timing-exit"><option value="ma">5日均线</option><option value="target2">固定 +2%</option><option value="target5">固定 +5%</option><option value="maOr2">5 日均线或浮盈 +2%</option><option value="maOr5">5 日均线或浮盈 +5%</option></select></label>
     </div>
   </div>
-  <h2 class="timing-subtitle">文主任的买入条件</h2>
+  <h2 class="timing-subtitle">买入条件</h2>
   <div id="timing-status" class="timing-status" role="status">正在读取回测数据…</div>
   <p class="timing-muted">按信号当日收盘价模拟买卖 · 手续费为零</p>
   <div id="timing-signals" class="timing-signals" aria-label="入场条件"></div>
   <div class="table-wrap timing-table">
     <table><caption>两大指数对照 · 当前止盈规则</caption><thead><tr><th scope="col">指数</th><th scope="col">当前入场信号</th><th scope="col">已完成</th><th scope="col">胜率 ≥ 70%</th><th scope="col">赔率 ≥ 1.00×</th><th scope="col">年化收益</th><th scope="col">最大回撤</th></tr></thead><tbody id="timing-index-comparison"></tbody></table>
+  </div>
+  <h2 class="timing-subtitle" id="timing-exit-comparison-title">分入场信号对比止盈规则</h2>
+  <p class="timing-muted" id="timing-exit-comparison-note">15% 收盘止损 · 最长持有 20 个交易日 · 每格依次为胜率 / 赔率 / 已平仓笔数。<span id="timing-exit-as-of"></span></p>
+  <div class="table-wrap timing-table" tabindex="0" role="region" aria-labelledby="timing-exit-comparison-title">
+    <table aria-labelledby="timing-exit-comparison-title" aria-describedby="timing-exit-comparison-note">
+      <thead><tr><th scope="col">标的与入场信号</th><th scope="col">收盘高于 5 日线</th><th scope="col">固定 +2%</th><th scope="col">固定 +5%</th><th scope="col">5 日线或 +2%</th><th scope="col">5 日线或 +5%</th></tr></thead>
+      <tbody id="timing-exit-comparison"></tbody>
+    </table>
   </div>
   <h2 class="timing-subtitle">所选标的的历史表现</h2>
   <div id="timing-summary" class="timing-summary"></div>
@@ -46,13 +54,13 @@
   <details class="timing-method"><summary>规则和数据口径</summary><div id="timing-method">
     <p><b>原视频。</b>文主任《如何做一个美股量化交易策略》在 04:56 和 06:32 讲两类入场，在 07:49 讲离场，在 09:23 展示回测。原表基准参数的胜率／赔率为纳斯达克综合 77%／1.65、标普 500 指数 81%／1.47、QQQ 78%／1.23。<a href="https://www.rednote.com/discovery/item/6af48b54000000002a025056" target="_blank" rel="noopener noreferrer">查看原视频 ↗</a></p>
     <p><b>入场。</b>两类都要求 200 日均线高于 20 个交易日前。牛市急跌要求收盘仍在线上，且 5 日收益率低于 −2 × 日波动 × √5。按作者补充的 60 日口径，日波动为最近 60 个单日收盘收益率的样本标准差。本回测的窗口截至信号前一交易日。深 V 的对数偏离 = 100 × ln(收盘价 ÷ 200 日均线)。对数偏离 ≤ −10 时达到门槛，等价于收盘比均线低约 9.52%。</p>
-    <p><b>离场。</b>默认收盘高于 5 日均线即发出退出信号。可以单独测试固定浮盈 +2% 或 +5%，也可以与 5 日均线组合，满足任一条件即退出。所有选项都在收盘亏损达到 15% 或持满 20 个交易日时退出。从买入后的下一交易日起判断离场。</p>
+    <p><b>离场。</b>从买入后的下一交易日起判断。止盈可采用收盘高于 5 日均线、固定浮盈 +2% 或 +5%，组合规则达到任一条件即退出。所选标的回测采用 5% 收盘止损，分入场信号对照采用 15% 收盘止损。持满 20 个交易日按收盘价退出。</p>
     <p><b>指数。</b>行情来自 Yahoo Finance 的 <a href="https://finance.yahoo.com/quote/%5EGSPC/history/">标普 500</a> 和 <a href="https://finance.yahoo.com/quote/%5EIXIC/history/">纳斯达克综合</a>。分别从 <a href="https://www.spglobal.com/spdji/en/indices/equity/sp-500/">1957-03-04</a> 和 <a href="https://www.nasdaq.com/articles/nasdaq-composite-indextm%3A-50th-anniversary-brings-new-records-and-further-optimism">1971-02-05</a> 起纳入日线，前 220 个观测日用于计算均线和趋势，第 220 日可发出首个信号。价格指数不含股息，不能直接交易。</p>
     <p><b>ETF。</b>保留 <a href="https://finance.yahoo.com/quote/QQQ/history/">QQQ</a> 与 <a href="https://finance.yahoo.com/quote/SPY/history/">SPY</a> 的复权日线，2014 年预热、2015 年起计算。QQQ 跟踪纳斯达克 100。</p>
     <p><b>成交和统计。</b>信号按最终收盘价确认，回测假定可以用同一收盘价成交，手续费为零。择时每次只持有一笔，空仓现金收益按零。未平仓计入净值，排除在胜率和赔率之外。赔率 = 平均盈利 ÷ 平均亏损绝对值。胜率 ≥70%、赔率 ≥1.00×取自视频回测表的标示条件；历史达标不保证本次盈利。</p>
   </div></details>
 </section>
 </main>
-<script type="module" src="timing.js?v=7"></script>
+<script type="module" src="timing.js?v=12"></script>
 </body>
 </html>

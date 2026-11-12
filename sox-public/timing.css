@@ -67,3 +67,5 @@
 .timing-signals small { display: block; color: var(--muted-foreground); font-variant-numeric: tabular-nums; }
 .timing-flag { display: inline-block; padding: 1px 6px; border-radius: 4px; font-size: 11px; white-space: nowrap; color: var(--muted-foreground); background: var(--muted); }
 .timing-flag[data-pass="true"] { color: #166534; background: #dcfce7; }
+.timing-highlight { color: #166534; background: #dcfce7; border-radius: 4px; padding: 1px 4px; font-weight: 600; }
+.timing-highlight[data-both-pass="false"] { color: #854d0e; background: #fef3c7; }

@@ -1,4 +1,4 @@
-import { deepLogThreshold, entryChecks, reference, runTiming, timingEntry, tradeStats } from './timing-model.js?v=7';
+import { deepLogThreshold, entryChecks, reference, runTiming, timingEntry, tradeStats } from './timing-model.js?v=9';
 
 const panel = document.querySelector('#timing');
 const asset = panel.querySelector('#timing-asset');
@@ -97,13 +97,37 @@ function drawChart() {
   ctx.fillText(bars[end][0], width - pad.right, height - 10);
 }
 
-function getResult(key) {
-  const id = key + ':' + mode.value;
+function getResult(key, policy = mode.value, signal, stopLoss = 0.05) {
+  const id = [key, policy, signal, stopLoss].join(':');
   if (!cache.has(id)) {
-    const options = isIndex(key) ? { startDate: histories[key][0][0] } : undefined;
-    cache.set(id, runTiming(histories[key], mode.value, options));
+    const startDate = isIndex(key) ? histories[key][0][0] : undefined;
+    cache.set(id, runTiming(histories[key], policy, { startDate, signal, stopLoss }));
   }
   return cache.get(id);
+}
+
+function renderExitComparison() {
+  const highlight = (value, passes, bothPass) => passes
+    ? '<strong class="timing-highlight" data-both-pass="' + bothPass + '">' + value + '</strong>'
+    : value;
+  const policies = ['ma', 'target2', 'target5', 'maOr2', 'maOr5'];
+  const keys = [...Object.keys(indexNames), 'QQQ'];
+  const dates = keys.map(key => histories[key].at(-1)[0]);
+  panel.querySelector('#timing-exit-as-of').textContent =
+    dates.every(date => date === dates[0]) ? '行情截至 ' + dates[0] : '';
+  panel.querySelector('#timing-exit-comparison').innerHTML = keys.flatMap(key =>
+    ['dip', 'deep'].map(signal => {
+      const cells = policies.map(policy => {
+        const stats = getResult(key, policy, signal, 0.15);
+        const winRatePasses = stats.winRate > reference.winRate;
+        const payoffPasses = stats.payoff > reference.payoff;
+        const bothPass = winRatePasses && payoffPasses;
+        return '<td>' + highlight(pct(stats.winRate), winRatePasses, bothPass) +
+          ' / ' + highlight(ratio(stats.payoff), payoffPasses, bothPass) + ' / ' + stats.count + '</td>';
+      }).join('');
+      return '<tr><th scope="row">' + (indexNames[key] ?? key) + ' · ' + names[signal] + '</th>' + cells + '</tr>';
+    }),
+  ).join('');
 }
 
 function flag(pass, noData = '样本不足') {
@@ -206,6 +230,7 @@ try {
   });
   new ResizeObserver(drawChart).observe(canvas);
   render();
+  renderExitComparison();
 } catch (error) {
   status.textContent = '回测数据加载失败，请刷新页面。';
   console.error(error);

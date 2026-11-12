@@ -49,8 +49,8 @@ export function timingEntry(features) {
   return !rising ? null : deep ? 'deep' : above && sudden ? 'dip' : null;
 }
 
-export function timingExit(features, gain, days, policy) {
-  if (gain <= -0.15) return 'stop';
+export function timingExit(features, gain, days, policy, stopLoss = 0.05) {
+  if (gain <= -stopLoss) return 'stop';
   const useMovingAverage = policy === 'ma' || policy === 'maOr2' || policy === 'maOr5';
   if (useMovingAverage && features.close > features.ma5) return 'ma';
   if ((policy === 'target2' || policy === 'maOr2') && gain >= 0.02) return 'target';
@@ -125,6 +125,10 @@ export function backtest(bars, entrySignal, exitSignal, { startDate = etfStartDa
   };
 }
 
-export function runTiming(bars, policy = 'ma', options) {
-  return backtest(bars, timingEntry, (features, gain, days) => timingExit(features, gain, days, policy), options);
+export function runTiming(bars, policy = 'ma', { signal, stopLoss, startDate } = {}) {
+  const entry = features => {
+    const mode = timingEntry(features);
+    return signal && mode !== signal ? null : mode;
+  };
+  return backtest(bars, entry, (features, gain, days) => timingExit(features, gain, days, policy, stopLoss), { startDate });
 }
