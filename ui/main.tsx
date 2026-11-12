@@ -36,11 +36,15 @@ function Shell({path,closeMobile,locale}:{path:string;closeMobile:React.MutableR
   }
   return()=>document.body.classList.remove('sidebar-expanded','has-sidebar');
  },[open]);
- const links=[
-  {name:'CDS 与信用利差监测',url:'/',icon:Activity,active:!path.startsWith('/sox')&&!path.startsWith('/cycle')},
-  {name:'半导体指数回测',url:'/sox/',icon:ChartNoAxesCombined,active:path.startsWith('/sox')&&path!=='/sox/timing.html'},
-  {name:'量化抄底策略',url:'/sox/timing.html',icon:TrendingUp,active:path==='/sox/timing.html'},
-  {name:'AI 建设见顶信号',url:'/cycle/',icon:Layers,active:path.startsWith('/cycle')},
+ const linkGroups=[
+  [
+   {name:'CDS 与信用利差监测',url:'/',icon:Activity,active:!path.startsWith('/sox')&&!path.startsWith('/cycle')},
+   {name:'AI 建设见顶信号',url:'/cycle/',icon:Layers,active:path.startsWith('/cycle')},
+  ],
+  [
+   {name:'半导体指数回测',url:'/sox/',icon:ChartNoAxesCombined,active:path.startsWith('/sox')&&path!=='/sox/timing.html'},
+   {name:'量化抄底策略',url:'/sox/timing.html',icon:TrendingUp,active:path==='/sox/timing.html'},
+  ],
  ];
  const toggleLabel=open?'收起左侧菜单':'展开左侧菜单';
  return <>
@@ -55,12 +59,14 @@ function Shell({path,closeMobile,locale}:{path:string;closeMobile:React.MutableR
      <PanelLeft size={18}/>
     </Button>
    </div>
-   <nav className="ui-sidebar-modules" aria-label="研究模块">
-    {links.map(link=><a key={link.url} href={researchPath(link.url)} className="ui-sidebar-module"
-     aria-label={link.name} aria-current={link.active?'page':undefined} title={open?undefined:link.name}>
-     <span className="ui-sidebar-module-media"><link.icon size={17} aria-hidden="true"/></span>
-     {open&&<span className="ui-sidebar-module-title">{link.name}</span>}
-    </a>)}
+   <nav className="ui-sidebar-modules" style={{gap:16}} aria-label="研究模块">
+    {linkGroups.map(links=><div className="ui-sidebar-modules" key={links[0].url}>
+     {links.map(link=><a key={link.url} href={researchPath(link.url)} className="ui-sidebar-module"
+      aria-label={link.name} aria-current={link.active?'page':undefined} title={open?undefined:link.name}>
+      <span className="ui-sidebar-module-media"><link.icon size={17} aria-hidden="true"/></span>
+      {open&&<span className="ui-sidebar-module-title">{link.name}</span>}
+     </a>)}
+    </div>)}
    </nav>
    <div className="ui-sidebar-foot">
     {open?<><span>公开来源 · 保留原始口径</span>{locale!=='zh'&&<small style={{whiteSpace:'normal',marginTop:8}}>指标名称沿用原始披露口径，分析说明随语言切换。</small>}</>:'研究'}
