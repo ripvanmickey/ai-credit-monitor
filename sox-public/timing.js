@@ -1,4 +1,4 @@
-import { entryChecks, reference, runTiming, timingEntry, tradeStats } from './timing-model.js?v=2';
+import { deepLogThreshold, entryChecks, reference, runTiming, timingEntry, tradeStats } from './timing-model.js?v=3';
 
 const panel = document.querySelector('#timing');
 const asset = panel.querySelector('#timing-asset');
@@ -140,10 +140,11 @@ function render() {
     rows.map(([rule, current, pass]) => '<li><span>' + rule + '<small>' + current + '</small></span>' +
       flag(pass, '未就绪') + '</li>').join('') + '</ul></article>';
   const trend = ['200 日均线高于 20 个交易日前', price(latest.ma200) + ' 对比 ' + price(latest.priorMa200), checks.rising];
+  const logDeviation = latest.logDeviation == null ? '—' : latest.logDeviation.toFixed(2);
   panel.querySelector('#timing-signals').innerHTML =
-    rules(names.dip, 'dip', [trend, ['收盘高于 200 日均线', '当前偏离 ' + pct(latest.deviation), checks.above],
+    rules(names.dip, 'dip', [trend, ['收盘高于 200 日均线', '当前对数偏离 ' + logDeviation, checks.above],
       ['近 5 日收益低于 −2 倍波动', pct(latest.change5) + '，门槛 ' + pct(checks.threshold), checks.sudden]]) +
-    rules(names.deep, 'deep', [trend, ['收盘低于 200 日均线至少 10%', '当前偏离 ' + pct(latest.deviation), checks.deep]]);
+    rules(names.deep, 'deep', [trend, ['200 日均线对数偏离 ≤ ' + deepLogThreshold, '当前对数偏离 ' + logDeviation, checks.deep]]);
   const versus = (a, b) => pct(a) + ' / ' + pct(b) + ' · ' +
     (a > b ? '策略占优' : a < b ? '基准占优' : '持平');
   panel.querySelector('#timing-index-comparison').innerHTML = Object.entries(indexNames).map(([key, name]) => {

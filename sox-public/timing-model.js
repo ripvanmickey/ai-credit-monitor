@@ -15,7 +15,7 @@ export function indicators(bars) {
     ma200: ma200[i],
     priorMa200: ma200[i - 20] ?? null,
     rising: i >= 219 && ma200[i] > ma200[i - 20],
-    deviation: ma200[i] === null ? null : value / ma200[i] - 1,
+    logDeviation: ma200[i] === null ? null : 100 * Math.log(value / ma200[i]),
     change5: change5[i],
     volatility5: i < 25 ? null : sampleDeviation(change5.slice(i - 20, i)),
   }));
@@ -26,15 +26,17 @@ function sampleDeviation(values) {
   return Math.sqrt(values.reduce((sum, value) => sum + (value - mean) ** 2, 0) / (values.length - 1));
 }
 
+export const deepLogThreshold = -10;
+
 export const reference = { winRate: 0.70, payoff: 1 };
 
 export function entryChecks(features) {
   const threshold = features.volatility5 === null ? null : -2 * features.volatility5;
   return {
     rising: features.priorMa200 === null ? null : features.rising,
-    above: features.deviation === null ? null : features.deviation > 0,
+    above: features.logDeviation === null ? null : features.logDeviation > 0,
     sudden: threshold === null ? null : features.change5 < threshold,
-    deep: features.deviation === null ? null : features.deviation <= -0.10,
+    deep: features.logDeviation === null ? null : features.logDeviation <= deepLogThreshold,
     threshold,
   };
 }
