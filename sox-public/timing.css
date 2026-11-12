@@ -51,3 +51,19 @@
 }
 .timing-signals strong { color: var(--foreground); }
 .timing-method a { text-decoration: underline; text-underline-offset: 3px; }
+
+.timing-panel .timing-subtitle { margin: 26px 0 10px; }
+.timing-panel .timing-status { align-items: flex-start; flex-direction: column; gap: 4px; }
+.timing-panel .timing-signals {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 310px), 1fr));
+  align-items: start;
+  gap: 12px;
+}
+.timing-signals article { padding: 16px; border: 1px solid var(--border); border-radius: var(--radius); }
+.timing-signals h3, .timing-signals p { margin: 0 0 6px; }
+.timing-signals ul { list-style: none; margin: 0; padding: 0; }
+.timing-signals li { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 8px 0; border-top: 1px solid var(--border); color: var(--foreground); }
+.timing-signals small { display: block; color: var(--muted-foreground); font-variant-numeric: tabular-nums; }
+.timing-flag { display: inline-block; padding: 1px 6px; border-radius: 4px; font-size: 11px; white-space: nowrap; color: var(--muted-foreground); background: var(--muted); }
+.timing-flag[data-pass="true"] { color: #166534; background: #dcfce7; }

@@ -1,4 +1,4 @@
-import { runTiming, timingEntry } from './timing-model.js';
+import { entryChecks, reference, runTiming, timingEntry, tradeStats } from './timing-model.js?v=2';
 
 const panel = document.querySelector('#timing');
 const asset = panel.querySelector('#timing-asset');
@@ -7,7 +7,10 @@ const canvas = panel.querySelector('canvas');
 const status = panel.querySelector('#timing-status');
 const summary = panel.querySelector('#timing-summary');
 const range = panel.querySelector('#timing-range');
-const tradeRows = panel.querySelector('tbody');
+const tradeRows = panel.querySelector('#timing-trade-rows');
+const indexNames = { GSPC: '标普 500', IXIC: '纳斯达克综合' };
+const isIndex = key => Object.hasOwn(indexNames, key);
+const cache = new Map();
 const pct = value => value == null ? '—' : (value * 100).toFixed(2) + '%';
 const price = value => value.toFixed(2);
 const ratio = value => value == null ? '—' : value.toFixed(2) + '×';
@@ -64,7 +67,13 @@ function drawChart() {
     ctx.lineWidth = key === 'close' ? 2 : 1;
     ctx.setLineDash(key === 'ma200' ? [5, 4] : []);
     ctx.beginPath();
-    visible.forEach((f, i) => i ? ctx.lineTo(x(start + i), y(f[key])) : ctx.moveTo(x(start + i), y(f[key])));
+    let started = false;
+    visible.forEach((f, i) => {
+      if (!Number.isFinite(f[key])) return;
+      if (started) ctx.lineTo(x(start + i), y(f[key]));
+      else ctx.moveTo(x(start + i), y(f[key]));
+      started = true;
+    });
     ctx.stroke();
   }
   ctx.setLineDash([]);
@@ -88,32 +97,64 @@ function drawChart() {
   ctx.fillText(bars[end][0], width - pad.right, height - 10);
 }
 
+function getResult(key) {
+  const id = key + ':' + mode.value;
+  if (!cache.has(id)) {
+    const options = isIndex(key) ? { execution: 'close', startDate: histories[key][0][0] } : undefined;
+    cache.set(id, runTiming(histories[key], mode.value, options));
+  }
+  return cache.get(id);
+}
+
+function flag(pass, noData = '样本不足') {
+  if (pass == null) return '<span class="timing-flag">' + noData + '</span>';
+  return '<span class="timing-flag" data-pass="' + pass + '">' + (pass ? '达标' : '未达标') + '</span>';
+}
+
+const meets = (value, target) => value == null ? null : value >= target;
+
 function render() {
   bars = histories[asset.value];
-  result = runTiming(bars, mode.value);
+  result = getResult(asset.value);
   selectedTrade = null;
-  range.textContent = result.from + ' — ' + result.to;
+  range.textContent = '行情覆盖 ' + bars[0][0] + ' — ' + result.to + ' · 绩效自 ' + result.from + ' 起';
   const latest = result.features.at(-1);
-  const action = result.pending?.side === 'entry' ? '入场触发'
-    : result.pending?.side === 'exit' ? '离场触发'
-    : result.holding ? '持仓中，未触发离场' : '未触发入场';
-  const detail = result.pending?.side === 'entry' ? names[result.pending.mode]
-    : result.pending?.side === 'exit' ? names[result.pending.reason]
-    : result.holding ? result.holding.buyDate : '';
-  status.replaceChildren();
-  const title = document.createElement('strong');
-  title.textContent = action;
-  title.dataset.active = String(Boolean(result.pending));
-  const context = document.createElement('span');
-  context.textContent = [result.to, detail, '距200日均线 ' + pct(latest.deviation)].filter(Boolean).join(' · ');
-  status.append(title, context);
   const signal = timingEntry(latest);
-  panel.querySelector('#timing-signals').innerHTML = [
-    ['200日均线', latest.rising ? '上行' : '未上行'],
-    ['牛市急跌', signal === 'dip' ? '触发' : '未触发'],
-    ['深 V 偏离', signal === 'deep' ? '触发' : '未触发'],
-    ['5日涨跌 / 急跌门槛', pct(latest.change5) + ' / ' + pct(-2 * latest.volatility5)],
-  ].map(([label, value]) => '<span>' + label + ' <strong>' + value + '</strong></span>').join('');
+  const checks = entryChecks(latest);
+  const byMode = signal ? tradeStats(result.trades.filter(trade => trade.mode === signal)) : null;
+  const modePassed = byMode && meets(byMode.winRate, reference.winRate) && meets(byMode.payoff, reference.payoff);
+  const buyAction = result.pending?.side === 'exit' ? '持仓出现离场信号'
+    : result.holding ? '已有模拟持仓，按规则不加仓'
+    : !signal ? '短线建议：等待，未触发买入'
+    : !modePassed ? '短线建议：触发信号，暂只观察'
+    : '短线建议：规则允许列入抄底观察';
+  const fillLabel = isIndex(asset.value) ? '次一交易日收盘' : '次一交易日开盘';
+  const detail = result.pending?.side === 'exit' ? names[result.pending.reason] + '，拟于' + fillLabel + '模拟离场'
+    : result.holding ? '入场于 ' + result.holding.buyDate
+    : !signal ? '两种入场模式均未同时满足各自条件。'
+    : names[signal] + ' · 同模式历史 ' + byMode.count + ' 笔，胜率 ' + pct(byMode.winRate) + '，赔率 ' + ratio(byMode.payoff) +
+      '。' + (modePassed ? '两项达标，模型按' + fillLabel + '模拟成交。' : '历史门槛未全部达到或样本不足。');
+  status.innerHTML = '<strong>' + buyAction + '</strong><span>' + result.to + ' 收盘 · ' + detail + '</span>';
+  const rules = (name, entry, rows) => '<article><h3>' + name + '</h3><p class="timing-muted">' +
+    (signal === entry ? '已触发' : '未触发') + ' · 下列条件须同时满足</p><ul>' +
+    rows.map(([rule, current, pass]) => '<li><span>' + rule + '<small>' + current + '</small></span>' +
+      flag(pass, '未就绪') + '</li>').join('') + '</ul></article>';
+  const trend = ['200 日均线高于 20 个交易日前', price(latest.ma200) + ' 对比 ' + price(latest.priorMa200), checks.rising];
+  panel.querySelector('#timing-signals').innerHTML =
+    rules(names.dip, 'dip', [trend, ['收盘高于 200 日均线', '当前偏离 ' + pct(latest.deviation), checks.above],
+      ['近 5 日收益低于 −2 倍波动', pct(latest.change5) + '，门槛 ' + pct(checks.threshold), checks.sudden]]) +
+    rules(names.deep, 'deep', [trend, ['收盘低于 200 日均线至少 10%', '当前偏离 ' + pct(latest.deviation), checks.deep]]);
+  const versus = (a, b) => pct(a) + ' / ' + pct(b) + ' · ' +
+    (a > b ? '策略占优' : a < b ? '基准占优' : '持平');
+  panel.querySelector('#timing-index-comparison').innerHTML = Object.entries(indexNames).map(([key, name]) => {
+    const r = getResult(key);
+    const current = timingEntry(r.features.at(-1));
+    return '<tr><th scope="row">' + name + '</th><td>' + (names[current] || '未触发') +
+      '</td><td>' + r.count + '</td><td>' + pct(r.winRate) + ' ' + flag(meets(r.winRate, reference.winRate)) +
+      '</td><td>' + ratio(r.payoff) + ' ' + flag(meets(r.payoff, reference.payoff)) +
+      '</td><td>' + versus(r.strategy.annualized, r.benchmark.annualized) +
+      '</td><td>' + versus(r.strategy.drawdown, r.benchmark.drawdown) + '</td></tr>';
+  }).join('');
   const cards = [
     ['已完成交易', result.count],
     ['胜率', pct(result.winRate)],
@@ -135,9 +176,17 @@ function render() {
 }
 
 try {
-  const response = await fetch('./timing-prices.json');
-  if (!response.ok) throw new Error('price data unavailable');
-  histories = await response.json();
+  const load = async (file, compressed = false) => {
+    const response = await fetch(new URL(file, import.meta.url));
+    if (!response.ok) throw new Error(file + ': HTTP ' + response.status);
+    if (!compressed || response.headers.get('content-encoding')?.includes('gzip')) return response.json();
+    return new Response(response.body.pipeThrough(new DecompressionStream('gzip'))).json();
+  };
+  const [etfs, gspc, ixic] = await Promise.all([
+    load('timing-prices.json'), load('timing-gspc.json.gz', true), load('timing-ixic.json.gz', true),
+  ]);
+  const toBars = rows => rows.map(([date, cents]) => [date, null, cents / 100]);
+  histories = { ...etfs, GSPC: toBars(gspc), IXIC: toBars(ixic) };
   asset.addEventListener('change', render);
   mode.addEventListener('change', render);
   tradeRows.addEventListener('click', event => {

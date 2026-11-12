@@ -1,4 +1,4 @@
-const startDate = '2015-01-01';
+const etfStartDate = '2015-01-01';
 const fee = 0.0005;
 
 export function indicators(bars) {
@@ -13,6 +13,7 @@ export function indicators(bars) {
     close: value,
     ma5: mean(i, 5),
     ma200: ma200[i],
+    priorMa200: ma200[i - 20] ?? null,
     rising: i >= 219 && ma200[i] > ma200[i - 20],
     deviation: ma200[i] === null ? null : value / ma200[i] - 1,
     change5: change5[i],
@@ -25,12 +26,22 @@ function sampleDeviation(values) {
   return Math.sqrt(values.reduce((sum, value) => sum + (value - mean) ** 2, 0) / (values.length - 1));
 }
 
+export const reference = { winRate: 0.70, payoff: 1 };
+
+export function entryChecks(features) {
+  const threshold = features.volatility5 === null ? null : -2 * features.volatility5;
+  return {
+    rising: features.priorMa200 === null ? null : features.rising,
+    above: features.deviation === null ? null : features.deviation > 0,
+    sudden: threshold === null ? null : features.change5 < threshold,
+    deep: features.deviation === null ? null : features.deviation <= -0.10,
+    threshold,
+  };
+}
+
 export function timingEntry(features) {
-  if (!features.rising) return null;
-  if (features.deviation <= -0.10) return 'deep';
-  if (features.deviation > 0 && features.volatility5 !== null &&
-      features.change5 < -2 * features.volatility5) return 'dip';
-  return null;
+  const { rising, deep, above, sudden } = entryChecks(features);
+  return !rising ? null : deep ? 'deep' : above && sudden ? 'dip' : null;
 }
 
 export function timingExit(features, gain, days, policy) {
@@ -57,7 +68,8 @@ export function tradeStats(trades) {
   };
 }
 
-export function backtest(bars, entrySignal, exitSignal) {
+export function backtest(bars, entrySignal, exitSignal, { execution = 'open', startDate = etfStartDate } = {}) {
+  const atClose = execution === 'close';
   const features = indicators(bars);
   const trades = [];
   const equity = [];
@@ -68,21 +80,29 @@ export function backtest(bars, entrySignal, exitSignal) {
   let exposed = 0;
   for (let i = 0; i < bars.length; i++) {
     const [date, open, close] = bars[i];
-    if (date < startDate) continue;
-    benchmarkShares ??= 1 / (open * (1 + fee));
+    if (date < startDate || (atClose && i < 220)) {
+      if (atClose && i === 219) {
+        const mode = entrySignal(features[i]);
+        if (mode) pending = { side: 'entry', mode, date };
+      }
+      continue;
+    }
+    const fill = atClose ? close : open;
+    const boughtAtClose = atClose && pending?.side === 'entry';
+    benchmarkShares ??= 1 / (fill * (1 + fee));
 
     if (pending?.side === 'exit') {
-      cash = holding.shares * open * (1 - fee);
+      cash = holding.shares * fill * (1 - fee);
       trades.push({
-        ...holding.trade, sellSignal: pending.date, sellDate: date, sellPrice: open,
+        ...holding.trade, sellSignal: pending.date, sellDate: date, sellPrice: fill,
         sellIndex: i, reason: pending.reason, days: i - holding.index,
         return: cash / holding.capital - 1,
       });
       holding = null;
     } else if (pending?.side === 'entry') {
       holding = {
-        index: i, capital: cash, shares: cash / (open * (1 + fee)),
-        trade: { mode: pending.mode, buySignal: pending.date, buyDate: date, buyPrice: open, buyIndex: i },
+        index: i, capital: cash, shares: cash / (fill * (1 + fee)),
+        trade: { mode: pending.mode, buySignal: pending.date, buyDate: date, buyPrice: fill, buyIndex: i },
       };
       cash = 0;
     }
@@ -91,7 +111,7 @@ export function backtest(bars, entrySignal, exitSignal) {
     if (holding) {
       exposed++;
       const heldDays = i - holding.index + 1;
-      const reason = exitSignal(features[i], close / holding.trade.buyPrice - 1, heldDays);
+      const reason = boughtAtClose ? null : exitSignal(features[i], close / holding.trade.buyPrice - 1, heldDays);
       pending = reason ? { side: 'exit', reason, date } : null;
     } else {
       pending = mode ? { side: 'entry', mode, date } : null;
@@ -118,6 +138,6 @@ export function backtest(bars, entrySignal, exitSignal) {
   };
 }
 
-export function runTiming(bars, policy = 'ma') {
-  return backtest(bars, timingEntry, (features, gain, days) => timingExit(features, gain, days, policy));
+export function runTiming(bars, policy = 'ma', options) {
+  return backtest(bars, timingEntry, (features, gain, days) => timingExit(features, gain, days, policy), options);
 }
