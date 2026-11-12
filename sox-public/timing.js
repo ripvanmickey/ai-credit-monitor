@@ -1,4 +1,4 @@
-import { deepLogThreshold, entryChecks, reference, runTiming, timingEntry, tradeStats } from './timing-model.js?v=5';
+import { deepLogThreshold, entryChecks, reference, runTiming, timingEntry, tradeStats } from './timing-model.js?v=6';
 
 const panel = document.querySelector('#timing');
 const asset = panel.querySelector('#timing-asset');

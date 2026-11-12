@@ -47,9 +47,10 @@ export function timingEntry(features) {
 
 export function timingExit(features, gain, days, policy) {
   if (gain <= -0.15) return 'stop';
-  if (policy === 'ma' && features.close > features.ma5) return 'ma';
-  if (policy === 'target2' && gain >= 0.02) return 'target';
-  if (policy === 'target5' && gain >= 0.05) return 'target';
+  const useMovingAverage = policy === 'ma' || policy === 'maOr2' || policy === 'maOr5';
+  if (useMovingAverage && features.close > features.ma5) return 'ma';
+  if ((policy === 'target2' || policy === 'maOr2') && gain >= 0.02) return 'target';
+  if ((policy === 'target5' || policy === 'maOr5') && gain >= 0.05) return 'target';
   if (days >= 20) return 'time';
   return null;
 }
