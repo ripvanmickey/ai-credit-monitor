@@ -1,0 +1,51 @@
+.timing-panel .timing-controls, .timing-panel .timing-legend, .timing-status {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 16px;
+}
+.timing-controls label { display: inline-flex; align-items: center; gap: 8px; }
+.timing-panel .timing-muted, .timing-status span { color: var(--muted-foreground); font-size: 13px; }
+.timing-status {
+  padding: 14px 16px;
+  margin-block: 12px;
+  background: var(--muted);
+  border-radius: var(--radius);
+}
+.timing-status strong[data-active="true"] { color: var(--primary); }
+.timing-summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 158px), 1fr));
+  gap: 12px;
+}
+.timing-summary article {
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+.timing-summary span, .timing-summary strong { display: block; }
+.timing-summary span { color: var(--muted-foreground); font-size: 12px; }
+.timing-summary strong { margin-top: 4px; font-size: 23px; font-variant-numeric: tabular-nums; }
+.timing-chart { margin-block: 22px; }
+.timing-legend { font-size: 12px; }
+.timing-legend button { margin-left: auto; }
+.timing-buy { color: #05795a; }
+.timing-sell { color: #be2424; }
+.timing-chart canvas { display: block; width: 100%; height: 260px; margin-top: 12px; }
+.timing-table { margin-block: 12px 24px; overflow: auto; }
+.timing-table caption { text-align: left; caption-side: top; margin-bottom: 8px; }
+.timing-table table { min-width: 590px; }
+.timing-trades { max-height: 440px; }
+.timing-table th, .timing-table td { text-align: left; white-space: nowrap; }
+.timing-table small { color: var(--muted-foreground); }
+.timing-method p { margin-block: 10px; }
+.timing-signals {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  margin: 0 0 14px;
+  font-size: 13px;
+  color: var(--muted-foreground);
+}
+.timing-signals strong { color: var(--foreground); }
+.timing-method a { text-decoration: underline; text-underline-offset: 3px; }
