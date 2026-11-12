@@ -47,6 +47,9 @@ jobs:
           cache: pnpm
       - run: pnpm install --frozen-lockfile
         if: steps.source.outputs.ready == 'true'
+      - name: Sync public news and update records
+        if: steps.source.outputs.ready == 'true'
+        run: node scripts/sync-public-news.mjs
       - run: node scripts/build-pages.mjs
         if: steps.source.outputs.ready == 'true'
         env:

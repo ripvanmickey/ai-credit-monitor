@@ -12,7 +12,7 @@
 
 ## 数据更新
 
-[GitHub Actions](https://github.com/ripvanmickey/ai-credit-monitor/actions) 配置为每 3 小时用仓库中的已保存数据重新生成并发布静态快照。行情和财报的实际日期以图表标注为准。重新生成网页本身不会拉取新报价，更新数据需先更新源码包中的快照。
+[GitHub Actions](https://github.com/ripvanmickey/ai-credit-monitor/actions) 配置为每 3 小时重新生成并发布静态快照。每次构建从原站读取公开新闻和更新记录，再与仓库里的补充新闻合并。原站快照读取失败时，GitHub Pages 继续提供上次成功发布的版本。行情和财报的实际日期以图表标注为准，更新这些数据需先更新源码包中的快照。
 
 ## 本地运行
 
