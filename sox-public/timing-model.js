@@ -75,14 +75,12 @@ export function backtest(bars, entrySignal, exitSignal, { startDate = etfStartDa
   const equity = [];
   let capital = 1;
   let holding = null;
-  let benchmarkClose;
   let exposed = 0;
 
   // The 200-day average needs another 20 observations for the trend comparison.
   for (let i = 219; i < bars.length; i++) {
     const [date, , close] = bars[i];
     if (date < startDate) continue;
-    benchmarkClose ??= close;
 
     if (holding) {
       exposed++;
@@ -102,28 +100,22 @@ export function backtest(bars, entrySignal, exitSignal, { startDate = etfStartDa
       if (mode) holding = { mode, buySignal: date, buyDate: date, buyPrice: close, buyIndex: i };
     }
 
-    equity.push({
-      date,
-      strategy: holding ? capital * (close / holding.buyPrice) : capital,
-      benchmark: close / benchmarkClose,
-    });
+    equity.push({ date, value: holding ? capital * (close / holding.buyPrice) : capital });
   }
 
-  function performance(key) {
-    let peak = 1;
-    let drawdown = 0;
-    for (const point of equity) {
-      peak = Math.max(peak, point[key]);
-      drawdown = Math.min(drawdown, point[key] / peak - 1);
-    }
-    const years = (Date.parse(equity.at(-1).date) - Date.parse(equity[0].date)) / (365.25 * 86400000);
-    const final = equity.at(-1)[key];
-    return { total: final - 1, annualized: final ** (1 / years) - 1, drawdown };
+  let peak = 1;
+  let drawdown = 0;
+  for (const { value } of equity) {
+    peak = Math.max(peak, value);
+    drawdown = Math.min(drawdown, value / peak - 1);
   }
+  const years = (Date.parse(equity.at(-1).date) - Date.parse(equity[0].date)) / (365.25 * 86400000);
+  const final = equity.at(-1).value;
+  const strategy = { total: final - 1, annualized: years > 0 ? final ** (1 / years) - 1 : null, drawdown };
 
   return {
     features, trades, holding,
-    ...tradeStats(trades), strategy: performance('strategy'), benchmark: performance('benchmark'),
+    ...tradeStats(trades), strategy,
     exposure: equity.length > 1 ? exposed / (equity.length - 1) : 0, from: equity[0].date, to: equity.at(-1).date,
   };
 }

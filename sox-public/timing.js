@@ -1,4 +1,4 @@
-import { deepLogThreshold, entryChecks, reference, runTiming, timingEntry, tradeStats } from './timing-model.js?v=4';
+import { deepLogThreshold, entryChecks, reference, runTiming, timingEntry, tradeStats } from './timing-model.js?v=5';
 
 const panel = document.querySelector('#timing');
 const asset = panel.querySelector('#timing-asset');
@@ -151,16 +151,14 @@ function render() {
     rules(names.dip, 'dip', [trend, ['收盘高于 200 日均线', '当前对数偏离 ' + logDeviation, checks.above],
       ['近 5 日收益低于 −2 倍波动', pct(latest.change5) + '，门槛 ' + pct(checks.threshold), checks.sudden]]) +
     rules(names.deep, 'deep', [trend, ['200 日均线对数偏离 ≤ ' + deepLogThreshold, '当前对数偏离 ' + logDeviation, checks.deep]]);
-  const versus = (a, b) => pct(a) + ' / ' + pct(b) + ' · ' +
-    (a > b ? '策略占优' : a < b ? '基准占优' : '持平');
   panel.querySelector('#timing-index-comparison').innerHTML = Object.entries(indexNames).map(([key, name]) => {
     const r = getResult(key);
     const current = timingEntry(r.features.at(-1));
     return '<tr><th scope="row">' + name + '</th><td>' + (names[current] || '未触发') +
       '</td><td>' + r.count + '</td><td>' + pct(r.winRate) + ' ' + flag(meets(r.winRate, reference.winRate)) +
       '</td><td>' + ratio(r.payoff) + ' ' + flag(meets(r.payoff, reference.payoff)) +
-      '</td><td>' + versus(r.strategy.annualized, r.benchmark.annualized) +
-      '</td><td>' + versus(r.strategy.drawdown, r.benchmark.drawdown) + '</td></tr>';
+      '</td><td>' + pct(r.strategy.annualized) +
+      '</td><td>' + pct(r.strategy.drawdown) + '</td></tr>';
   }).join('');
   const cards = [
     ['已完成交易', result.count],
@@ -169,10 +167,9 @@ function render() {
     ['平均盈利 / 平均亏损', pct(result.averageWin) + ' / ' + pct(result.averageLoss)],
   ];
   summary.innerHTML = cards.map(([label, value]) => '<article><span>' + label + '</span><strong>' + value + '</strong></article>').join('');
-  panel.querySelector('#timing-performance').innerHTML = [
-    ['择时策略', result.strategy, pct(result.exposure)],
-    ['买入并持有', result.benchmark, '100.00%'],
-  ].map(([label, data, exposure]) => '<tr><th scope="row">' + label + '</th><td>' + pct(data.total) + '</td><td>' + pct(data.annualized) + '</td><td>' + pct(data.drawdown) + '</td><td>' + exposure + '</td></tr>').join('');
+  const { total, annualized, drawdown } = result.strategy;
+  panel.querySelector('#timing-performance').innerHTML = '<tr><td>' + pct(total) +
+    '</td><td>' + pct(annualized) + '</td><td>' + pct(drawdown) + '</td><td>' + pct(result.exposure) + '</td></tr>';
   tradeRows.innerHTML = result.trades.slice().reverse().map(trade => '<tr><td>' + names[trade.mode] +
     '</td><td><button type="button" data-trade="' + trade.buyIndex + '">' +
     trade.buyDate + '</button> · ' + price(trade.buyPrice) + '</td><td>' +
