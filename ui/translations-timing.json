@@ -1,0 +1,474 @@
+{
+  "标的": {
+    "en": "Instrument",
+    "ja": "対象銘柄"
+  },
+  "标普 500 指数": {
+    "en": "S&P 500 Index",
+    "ja": "S&P 500指数"
+  },
+  "纳斯达克综合指数": {
+    "en": "Nasdaq Composite Index",
+    "ja": "ナスダック総合指数"
+  },
+  "止盈规则": {
+    "en": "Profit exit rule",
+    "ja": "利益確定ルール"
+  },
+  "5日均线": {
+    "en": "5-day moving average",
+    "ja": "5日移動平均線"
+  },
+  "固定 +2%": {
+    "en": "Fixed +2% target",
+    "ja": "固定利益目標 +2%"
+  },
+  "固定 +5%": {
+    "en": "Fixed +5% target",
+    "ja": "固定利益目標 +5%"
+  },
+  "5 日均线或浮盈 +2%": {
+    "en": "5-day average or +2% gain",
+    "ja": "5日移動平均線または含み益 +2%"
+  },
+  "5 日均线或浮盈 +5%": {
+    "en": "5-day average or +5% gain",
+    "ja": "5日移動平均線または含み益 +5%"
+  },
+  "买入条件": {
+    "en": "Entry Conditions",
+    "ja": "買い条件"
+  },
+  "正在读取回测数据…": {
+    "en": "Loading backtest data…",
+    "ja": "バックテストデータを読み込み中…"
+  },
+  "按信号当日收盘价模拟买卖 · 手续费为零": {
+    "en": "Simulated fills at the signal-day close · No commissions",
+    "ja": "シグナル当日の終値で売買をシミュレーション・手数料なし"
+  },
+  "入场条件": {
+    "en": "Entry criteria",
+    "ja": "エントリー条件"
+  },
+  "两大指数对照 · 当前止盈规则": {
+    "en": "Index comparison · Selected profit exit rule",
+    "ja": "2指数の比較・選択中の利益確定ルール"
+  },
+  "指数": {
+    "en": "Index",
+    "ja": "指数"
+  },
+  "当前入场信号": {
+    "en": "Current entry signal",
+    "ja": "現在のエントリーシグナル"
+  },
+  "已完成": {
+    "en": "Closed trades",
+    "ja": "決済済み取引"
+  },
+  "胜率": {
+    "en": "Win rate",
+    "ja": "勝率"
+  },
+  "赔率": {
+    "en": "Payoff ratio",
+    "ja": "平均損益比"
+  },
+  "胜率 ≥ 70%": {
+    "en": "Win rate ≥ 70%",
+    "ja": "勝率 ≥ 70%"
+  },
+  "赔率 ≥ 1.00×": {
+    "en": "Payoff ratio ≥ 1.00×",
+    "ja": "平均損益比 ≥ 1.00倍"
+  },
+  "年化收益": {
+    "en": "Annualized return",
+    "ja": "年率リターン"
+  },
+  "最大回撤": {
+    "en": "Maximum drawdown",
+    "ja": "最大ドローダウン"
+  },
+  "分入场信号对比止盈规则": {
+    "en": "Profit Exits by Entry Signal",
+    "ja": "エントリーシグナル別の利益確定ルール"
+  },
+  "15% 收盘止损 · 最长持有 20 个交易日 · 每格依次为胜率 / 赔率 / 已平仓笔数。": {
+    "en": "15% stop based on the close · Up to 20 trading days · Win rate / payoff ratio / closed trades.",
+    "ja": "終値基準の15%損切り・最長20営業日・各セルは勝率／平均損益比／決済件数の順。"
+  },
+  "标的与入场信号": {
+    "en": "Instrument and entry signal",
+    "ja": "対象銘柄とエントリーシグナル"
+  },
+  "收盘高于 5 日线": {
+    "en": "Close above 5-day average",
+    "ja": "終値が5日移動平均線を上回る"
+  },
+  "5 日线或 +2%": {
+    "en": "5-day average or +2%",
+    "ja": "5日移動平均線または +2%"
+  },
+  "5 日线或 +5%": {
+    "en": "5-day average or +5%",
+    "ja": "5日移動平均線または +5%"
+  },
+  "所选标的的历史表现": {
+    "en": "Historical Results for the Selected Instrument",
+    "ja": "選択銘柄のバックテスト結果"
+  },
+  "━━ 收盘价": {
+    "en": "━━ Close",
+    "ja": "━━ 終値"
+  },
+  "┄┄ 200日均线": {
+    "en": "┄┄ 200-day moving average",
+    "ja": "┄┄ 200日移動平均線"
+  },
+  "▲ 买入": {
+    "en": "▲ Buy",
+    "ja": "▲ 買い"
+  },
+  "▼ 卖出": {
+    "en": "▼ Sell",
+    "ja": "▼ 売り"
+  },
+  "最近半年": {
+    "en": "Last six months",
+    "ja": "直近6か月"
+  },
+  "收盘价、200日均线和成交标记": {
+    "en": "Closing prices, 200-day moving average and trade markers",
+    "ja": "終値、200日移動平均線、売買マーカー"
+  },
+  "策略表现": {
+    "en": "Strategy Performance",
+    "ja": "戦略パフォーマンス"
+  },
+  "累计收益": {
+    "en": "Cumulative return",
+    "ja": "累積リターン"
+  },
+  "持仓时间占比": {
+    "en": "Time in market",
+    "ja": "保有期間の割合"
+  },
+  "历史买卖点": {
+    "en": "Historical Trades",
+    "ja": "過去の売買"
+  },
+  "买卖日期和价格均对应信号当日收盘。点击买入日期可查看对应走势。": {
+    "en": "Trade dates and prices reflect the signal-day close. Select an entry date to view the chart around the trade.",
+    "ja": "売買日と価格はシグナル当日の終値に基づきます。買い日を選ぶと取引前後のチャートを表示します。"
+  },
+  "历史交易表": {
+    "en": "Historical trades table",
+    "ja": "過去の取引一覧"
+  },
+  "进场模式": {
+    "en": "Entry signal",
+    "ja": "エントリーシグナル"
+  },
+  "买入": {
+    "en": "Entry",
+    "ja": "買い"
+  },
+  "卖出": {
+    "en": "Exit",
+    "ja": "売り"
+  },
+  "持有交易日": {
+    "en": "Trading days held",
+    "ja": "保有営業日数"
+  },
+  "离场原因": {
+    "en": "Exit reason",
+    "ja": "決済理由"
+  },
+  "净收益": {
+    "en": "Net return",
+    "ja": "純リターン"
+  },
+  "规则和数据口径": {
+    "en": "Rules and Data Definitions",
+    "ja": "ルールとデータの定義"
+  },
+  "原视频。": {
+    "en": "Original video.",
+    "ja": "出典動画。"
+  },
+  "查看原视频 ↗": {
+    "en": "Watch the original video ↗",
+    "ja": "出典動画を見る ↗"
+  },
+  "入场。": {
+    "en": "Entry.",
+    "ja": "エントリー。"
+  },
+  "离场。": {
+    "en": "Exit.",
+    "ja": "決済。"
+  },
+  "指数。": {
+    "en": "Indices.",
+    "ja": "指数。"
+  },
+  "行情来自 Yahoo Finance 的": {
+    "en": "Prices are from Yahoo Finance for",
+    "ja": "価格データの出典はYahoo Financeです。"
+  },
+  "标普 500": {
+    "en": "S&P 500",
+    "ja": "S&P 500"
+  },
+  "纳斯达克综合": {
+    "en": "Nasdaq Composite",
+    "ja": "ナスダック総合指数"
+  },
+  "和": {
+    "en": "and",
+    "ja": "と"
+  },
+  "。分别从": {
+    "en": ". Daily data begin on",
+    "ja": "。日次データの開始日はそれぞれ"
+  },
+  "起纳入日线，前 220 个观测日用于计算均线和趋势，第 220 日可发出首个信号。价格指数不含股息，不能直接交易。": {
+    "en": ", respectively. The first 220 observations establish the moving average and trend. The first signal can occur on observation 220. Price indices exclude dividends and are not directly tradable.",
+    "ja": "です。最初の220観測日で移動平均とトレンドを計算し、220日目からシグナルを判定します。価格指数は配当を含まず、直接取引できません。"
+  },
+  "保留": {
+    "en": "Adjusted daily prices for",
+    "ja": "使用するのは"
+  },
+  "与": {
+    "en": "and",
+    "ja": "と"
+  },
+  "的复权日线，2014 年预热、2015 年起计算。QQQ 跟踪纳斯达克 100。": {
+    "en": " use 2014 for warm-up, with the backtest starting in 2015. QQQ tracks the Nasdaq-100.",
+    "ja": "の調整済み日足です。2014年を準備期間とし、2015年から検証します。QQQはナスダック100指数に連動します。"
+  },
+  "成交和统计。": {
+    "en": "Fills and statistics.",
+    "ja": "約定と集計。"
+  },
+  "牛市急跌": {
+    "en": "Bull-market pullback",
+    "ja": "上昇トレンド中の急落"
+  },
+  "深 V 偏离": {
+    "en": "Deep V deviation",
+    "ja": "深いV字反発の乖離条件"
+  },
+  "回到5日均线": {
+    "en": "Close above the 5-day moving average",
+    "ja": "終値が5日移動平均線を上回る"
+  },
+  "达到浮盈目标": {
+    "en": "Profit target reached",
+    "ja": "利益目標に到達"
+  },
+  "固定止损": {
+    "en": "Fixed stop-loss",
+    "ja": "固定損切り"
+  },
+  "持有到期": {
+    "en": "Holding limit reached",
+    "ja": "保有期限に到達"
+  },
+  "达标": {
+    "en": "Met",
+    "ja": "達成"
+  },
+  "未达标": {
+    "en": "Below threshold",
+    "ja": "基準未達"
+  },
+  "未就绪": {
+    "en": "Not available",
+    "ja": "判定不可"
+  },
+  "短线建议：等待，未触发买入": {
+    "en": "Short-term view: Wait for an entry signal",
+    "ja": "短期判断：買いシグナル待ち"
+  },
+  "两种入场模式均未同时满足各自条件。": {
+    "en": "Neither entry setup meets all of its criteria.",
+    "ja": "どちらのエントリー条件もすべては満たしていません。"
+  },
+  "当日收盘已模拟离场": {
+    "en": "Simulated exit at the close",
+    "ja": "終値で決済をシミュレーション済み"
+  },
+  "当日收盘已模拟买入 · 可列入短线观察": {
+    "en": "Simulated entry at the close · Short-term watch candidate",
+    "ja": "終値で買いをシミュレーション済み・短期監視候補"
+  },
+  "当日收盘已模拟买入 · 历史门槛未全部达到": {
+    "en": "Simulated entry at the close · Historical criteria only partly met",
+    "ja": "終値で買いをシミュレーション済み・過去成績の基準を一部未達"
+  },
+  "已有模拟持仓，按规则不加仓": {
+    "en": "A simulated position is already open · No additional entry",
+    "ja": "シミュレーション上の保有あり・追加購入なし"
+  },
+  "入场于": {
+    "en": "Entered on",
+    "ja": "エントリー日"
+  },
+  "成交价": {
+    "en": "Fill price",
+    "ja": "約定価格"
+  },
+  "已触发": {
+    "en": "Triggered",
+    "ja": "発動"
+  },
+  "未触发": {
+    "en": "Not triggered",
+    "ja": "未発動"
+  },
+  "下列条件须同时满足": {
+    "en": "All criteria below must be met",
+    "ja": "以下の条件をすべて満たす必要があります"
+  },
+  "200 日均线高于 20 个交易日前": {
+    "en": "200-day moving average above its level 20 trading days earlier",
+    "ja": "200日移動平均線が20営業日前の水準を上回る"
+  },
+  "对比": {
+    "en": "vs.",
+    "ja": "対比"
+  },
+  "收盘高于 200 日均线": {
+    "en": "Close above the 200-day moving average",
+    "ja": "終値が200日移動平均線を上回る"
+  },
+  "当前对数偏离": {
+    "en": "Current log deviation",
+    "ja": "現在の対数乖離"
+  },
+  "5 日收益率 < −2 × 日波动 × √5": {
+    "en": "5-day return < −2 × daily volatility × √5",
+    "ja": "5日リターン < −2 × 日次ボラティリティ × √5"
+  },
+  "200 日均线对数偏离": {
+    "en": "Log deviation from the 200-day moving average",
+    "ja": "200日移動平均線からの対数乖離"
+  },
+  "已完成交易": {
+    "en": "Closed trades",
+    "ja": "決済済み取引"
+  },
+  "平均盈利 / 平均亏损": {
+    "en": "Average win / average loss",
+    "ja": "平均利益／平均損失"
+  },
+  "样本期内没有已完成交易": {
+    "en": "No closed trades in the sample period",
+    "ja": "標本期間に決済済み取引がありません"
+  },
+  "回测数据加载失败，请刷新页面。": {
+    "en": "Backtest data could not be loaded. Refresh to retry.",
+    "ja": "バックテストデータを読み込めませんでした。再読み込みしてください。"
+  },
+  "GitHub Pages · 已保存的公开数据快照": {
+    "en": "GitHub Pages · Saved public data snapshot",
+    "ja": "GitHub Pages・公開データの保存済みスナップショット"
+  },
+  "正在读取监测快照": {
+    "en": "Loading the monitoring snapshot",
+    "ja": "監視データを読み込み中"
+  },
+  "后台更新计划待确认": {
+    "en": "Background update schedule pending confirmation",
+    "ja": "バックグラウンド更新予定は確認中"
+  },
+  "正在读取数据…": {
+    "en": "Loading data…",
+    "ja": "データを読み込み中…"
+  },
+  "信用：": {
+    "en": "Credit:",
+    "ja": "信用："
+  },
+  "正在加载日K线…": {
+    "en": "Loading daily candles…",
+    "ja": "日足を読み込み中…"
+  },
+  "参考：": {
+    "en": "References:",
+    "ja": "参考資料："
+  },
+  "此页面读取发布时保存的数据快照。周末、缺少报道或来源不可访问时，报价可能多日不变，检查结果会单独记录。": {
+    "en": "This page uses the snapshot saved at publication. Quotes may stay unchanged over weekends, when no reports are available or when a source is inaccessible. Checks are logged separately.",
+    "ja": "このページは公開時に保存されたデータを使用します。週末、報道がない場合、出典にアクセスできない場合は相場が数日間更新されないことがあります。確認結果は別途記録します。"
+  },
+  "信用随网站保存的CDS与公司债快照重算；页面每60秒读取，GitHub Pages 提供发布时保存的快照。财报与报价的实际观测日期逐条保留，无法访问或没有新披露时保留旧记录并标注。扩产计划不等于实际投产；已接入官方GPU公开报价，从后续每日积累，并已导入有来源与采集时间的历史归档。": {
+    "en": "Credit signals are recalculated from saved CDS and corporate bond snapshots. The page checks every 60 seconds. GitHub Pages serves the snapshot saved at publication. Each filing and quote keeps its original observation date. Older records are retained and labeled when new data are unavailable. Capacity plans and actual commissioning are tracked separately. Public GPU quotes from official sources are collected daily, supplemented by archived quotes with source and collection timestamps.",
+    "ja": "信用シグナルは保存済みのCDS・社債データから再計算します。ページは60秒ごとに確認し、GitHub Pagesは公開時のデータを配信します。決算・相場は実際の観測日を保持し、新規開示がない場合や取得不能時には過去の記録を明示して残します。増設計画と実稼働は区別します。公式GPU公開料金を日次で収集し、出典と取得日時のある過去データも取り込んでいます。"
+  },
+  "横轴采用对数比例 log(1+天数)，便于同时比较短反弹和长周期。条形旁标注实际天数，灰色条表示尚未完成的节点已等待多久。有效站回以连续5个交易日达标的第5天确认，耗时从首次跌破日计算。": {
+    "en": "The horizontal axis uses log(1 + days) to compare short rebounds and long cycles. Labels show actual days. Gray bars show elapsed time for milestones still pending. A reclaim is confirmed on the fifth consecutive qualifying close, measured from the first breakdown.",
+    "ja": "横軸はlog(1＋日数)で、短期反発と長期サイクルを比較できます。棒の横は実日数、灰色の棒は未達の節目までの経過日数です。5営業日連続で条件を満たした5日目を定着確認日とし、最初の下抜け日から数えます。"
+  },
+  "文主任《如何做一个美股量化交易策略》在 04:56 和 06:32 讲两类入场，在 07:49 讲离场，在 09:23 展示回测。原表基准参数的胜率／赔率为纳斯达克综合 77%／1.65、标普 500 指数 81%／1.47、QQQ 78%／1.23。": {
+    "en": "The original video explains the two entry setups at 04:56 and 06:32, the exit rules at 07:49, and the backtest at 09:23. The author reports win rates / payoff ratios of 77% / 1.65 for the Nasdaq Composite, 81% / 1.47 for the S&P 500, and 78% / 1.23 for QQQ.",
+    "ja": "出典動画では04:56と06:32に2種類のエントリー、07:49に決済、09:23にバックテストを説明しています。動画の表では勝率／平均損益比はナスダック総合77%／1.65、S&P 500は81%／1.47、QQQは78%／1.23です。"
+  },
+  "两类都要求 200 日均线高于 20 个交易日前。牛市急跌要求收盘仍在线上，且 5 日收益率低于 −2 × 日波动 × √5。按作者补充的 60 日口径，日波动为最近 60 个单日收盘收益率的样本标准差。本回测的窗口截至信号前一交易日。深 V 的对数偏离 = 100 × ln(收盘价 ÷ 200 日均线)。对数偏离 ≤ −10 时达到门槛，等价于收盘比均线低约 9.52%。": {
+    "en": "Both setups require the 200-day average to be above its level 20 trading days earlier. A bull-market pullback requires a close above that average and a 5-day return below −2 × daily volatility × √5. Daily volatility is the sample standard deviation of 60 daily close-to-close returns through the prior trading day. For the deep V setup, log deviation = 100 × ln(close ÷ 200-day average). A reading of −10 or less means the close is about 9.52% or more below the average.",
+    "ja": "両シグナルとも200日移動平均線が20営業日前を上回ることが条件です。上昇トレンド中の急落は、終値が同線を上回り、5日リターンが−2 × 日次ボラティリティ × √5を下回る場合に発動します。日次ボラティリティは前営業日までの直近60日の日次終値リターンの標本標準偏差です。深いV字の対数乖離＝100 × ln(終値÷200日移動平均線)。−10以下は終値が同線を約9.52%以上下回る水準です。"
+  },
+  "从买入后的下一交易日起判断。止盈可采用收盘高于 5 日均线、固定浮盈 +2% 或 +5%，组合规则达到任一条件即退出。所选标的回测采用 5% 收盘止损，分入场信号对照采用 15% 收盘止损。持满 20 个交易日按收盘价退出。": {
+    "en": "Exit checks start on the trading day after entry. Profit exits use a close above the 5-day average, a fixed +2% or +5% gain, or either condition under a combined rule. The selected-instrument backtest uses a 5% closing stop, and the comparison by entry signal uses 15%. Positions exit at the close after 20 trading days.",
+    "ja": "買いの翌営業日から判定します。利益確定は5日移動平均線を上回る終値、固定の含み益+2%または+5%、または組み合わせ条件のいずれか達成で行います。個別銘柄の検証は終値基準の5%損切り、シグナル別比較は15%です。20営業日の保有後は終値で決済します。"
+  },
+  "信号按最终收盘价确认，回测假定可以用同一收盘价成交，手续费为零。择时每次只持有一笔，空仓现金收益按零。未平仓计入净值，排除在胜率和赔率之外。赔率 = 平均盈利 ÷ 平均亏损绝对值。胜率 ≥70%、赔率 ≥1.00×取自视频回测表的标示条件；历史达标不保证本次盈利。": {
+    "en": "Signals use final closing prices and assume fills at the same close with no commissions. The strategy holds one position at a time, and idle cash earns zero. Open positions count toward equity but are excluded from win rate and payoff ratio. Payoff ratio = average win ÷ absolute average loss. The video uses a win rate of at least 70% and a payoff ratio of at least 1.00. Meeting historical thresholds does not guarantee a profit on a new trade.",
+    "ja": "シグナルは確定終値で判定し、同じ終値での約定、手数料ゼロを仮定します。同時保有は1件までとし、待機資金の利息はゼロとします。未決済のポジションは純資産に含めますが、勝率と平均損益比から除きます。平均損益比＝平均利益÷平均損失の絶対値。動画では勝率70%以上、平均損益比1.00以上が基準です。過去の基準達成は今回の利益を保証しません。"
+  },
+  "股东信披露约387亿美元，较上季增长约3%；按披露精度保留，不是新签TCV。": {
+    "en": "The shareholder letter reports approximately USD 38.7 billion, up about 3% quarter over quarter. The value retains the reported precision and measures outstanding obligations.",
+    "ja": "株主向け書簡によると約387億米ドルで、前四半期比約3%増です。公表時の精度を維持し、未履行の履行義務を示します。"
+  },
+  "部分来源可用": {
+    "en": "Some sources available",
+    "ja": "一部の出典が利用可能"
+  },
+  "部分可用": {
+    "en": "Partially available",
+    "ja": "一部利用可能"
+  },
+  "数据来源与比较口径": {
+    "en": "Data Sources and Comparison Method",
+    "ja": "データの出典と比較方法"
+  },
+  "搜索公司或代码": {
+    "en": "Search company or ticker",
+    "ja": "企業名またはティッカーで検索"
+  },
+  "数据覆盖": {
+    "en": "Data coverage",
+    "ja": "データ収録状況"
+  },
+  "所有状态": {
+    "en": "All statuses",
+    "ja": "すべてのステータス"
+  },
+  "DTCC公开披露更新至11月10日，核验71份文件。新增Intel 11月6日和9日、Microsoft 11月6日公开5年期美元CDS日线，其余系列未取得可核验的新日线，沿用原观测日期。": {
+    "en": "DTCC disclosures were updated through Nov 10 and 71 files were verified. Public 5-year USD CDS daily observations were added for Intel on Nov 6 and 9 and Microsoft on Nov 6. Other series retain their original observation dates pending verified updates.",
+    "ja": "DTCC開示を11月10日まで更新し、71件のファイルを確認しました。米ドル建て5年物CDSの公開日次データはIntelの11月6日・9日分とMicrosoftの11月6日分を追加しました。他の系列は新規データを確認できるまで従来の観測日を使用します。"
+  },
+  "CDS与公司债信号分化，尚不能确认同步变化": {
+    "en": "CDS and corporate bond signals diverge. No common direction is confirmed.",
+    "ja": "CDSと社債のシグナルが分かれており、同方向の変化は確認できません。"
+  },
+  "服务端数据源尚未启用，显示已保存的日线。": {
+    "en": "Showing saved daily prices while the server data feed is unavailable.",
+    "ja": "サーバー側のデータ配信が無効のため、保存済みの日足を表示しています。"
+  }
+}

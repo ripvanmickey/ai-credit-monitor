@@ -1,5 +1,6 @@
 import { cp, mkdir, readFile, rm, writeFile } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
+import { createHash } from 'node:crypto';
 process.env.RESEARCH_STATIC_EXPORT = '1';
 await import('./build.mjs');
 const { default: worker } = await import('../dist/server/index.js');
@@ -38,10 +39,12 @@ async function save(path, data) {
 const notice = '<p class="info-note" style="margin:12px 0;color:var(--muted-foreground)">GitHub Pages · 已保存的公开数据快照</p>';
 const isApiPath = /(['"])(\/(?:sox\/)?api\/[a-z-]+)(?=\1)/g;
 const apiPaths = code => code.replace(isApiPath, (_, quote, path) => quote + base + path + '.json');
+const designRevision = createHash('sha256').update(await readFile('cycle-public/design.js')).digest('hex').slice(0, 12);
 
 function adaptHtml(html) {
   return apiPaths(html)
     .replace('<head>', '<head><meta name="research-pages-base" content="' + base + '">')
+    .replace(/(src="\/cycle\/design\.js)(?:\?[^"]*)?"/g, '$1?v=' + designRevision + '"')
     .replace(/((?:href|src)=")(\/(?:cycle|sox)\/)/g, '$1' + base + '$2')
     .replaceAll("'/cycle/logo-", "'" + base + "/cycle/logo-")
     .replace('<main>', '<main>' + notice)

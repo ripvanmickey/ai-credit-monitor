@@ -1,0 +1,592 @@
+{
+  "schemaVersion": 1,
+  "revision": "orders-baseline-20261112",
+  "checkedAt": "2026-11-12T13:20:00Z",
+  "companies": [
+    {
+      "id": "MSFT",
+      "name": "Microsoft",
+      "role": "综合云与商业软件",
+      "primary": "msft-commercial-rpo",
+      "note": "商业RPO覆盖商业软件及云服务，不是纯Azure或AI订单。"
+    },
+    {
+      "id": "AMZN",
+      "name": "Amazon / AWS",
+      "role": "综合云",
+      "primary": "aws-commitments",
+      "note": "主要与AWS相关、原始期限超过一年的未确认服务承诺；包含传统云和AI。"
+    },
+    {
+      "id": "META",
+      "name": "Meta",
+      "role": "算力采购方",
+      "primary": "meta-dedicated",
+      "note": "从采购侧观察专用容量与兜底条款，不把资本开支当作对外算力订单。"
+    },
+    {
+      "id": "SPCX",
+      "name": "SpaceX",
+      "role": "多业务集团／SI云服务",
+      "primary": "spcx-group-backlog",
+      "note": "集团backlog含航天、连接与SI等业务；纯云算力订单余额未单独披露。"
+    },
+    {
+      "id": "NBIS",
+      "name": "Nebius",
+      "role": "Neocloud",
+      "primary": "nbis-rpo",
+      "note": "财报RPO为未兑现合同存量；与新签TCV增长分开展示，原表以百万美元计，已换算为十亿美元。"
+    },
+    {
+      "id": "CRWV",
+      "name": "CoreWeave",
+      "role": "Neocloud",
+      "primary": "crwv-rpo",
+      "note": "主表使用会计RPO；广义Revenue backlog另列，不能拼成一条序列。"
+    }
+  ],
+  "series": [
+    {
+      "id": "msft-commercial-rpo",
+      "entityId": "MSFT",
+      "title": "商业 RPO（重列口径）",
+      "kind": "stock",
+      "unit": "USD bn",
+      "note": "使用FY27 Q1披露的重列可比序列，不混用公司总RPO。",
+      "scoreKey": "MSFT:commercial-rpo:fy27-recast",
+      "scope": "商业软件与云",
+      "updateUrl": "https://www.microsoft.com/en-us/investor/earnings/fy-2027-q1/metrics"
+    },
+    {
+      "id": "msft-bookings-growth",
+      "entityId": "MSFT",
+      "title": "商业新签 bookings 同比",
+      "kind": "flow_growth",
+      "unit": "percent",
+      "note": "商业产品与云服务的GAAP同比；与订单余额、恒定汇率同比均分开。",
+      "updateUrl": "https://www.microsoft.com/en-us/investor/earnings/fy-2027-q1/metrics"
+    },
+    {
+      "id": "aws-commitments",
+      "entityId": "AMZN",
+      "title": "主要与AWS相关的长期服务承诺",
+      "kind": "stock",
+      "unit": "USD bn",
+      "note": "原始期限>1年；金额与确认时间受客户用量和AWS履约影响。",
+      "scoreKey": "AMZN:aws-longterm-commitments",
+      "scope": "主要AWS，含非AI",
+      "updateUrl": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000040/amzn-20260930.htm"
+    },
+    {
+      "id": "crwv-backlog",
+      "entityId": "CRWV",
+      "title": "Revenue backlog",
+      "kind": "stock",
+      "unit": "USD bn",
+      "note": "比会计RPO口径更宽；近似值的增长率也仅为近似。",
+      "updateUrl": "https://investors.coreweave.com/news/news-details/2026/CoreWeave-Reports-Strong-Third-Quarter-2026-Results/default.aspx"
+    },
+    {
+      "id": "crwv-new-commitments",
+      "entityId": "CRWV",
+      "title": "三季度初净新增客户承诺",
+      "kind": "flow",
+      "unit": "USD bn",
+      "note": "截至公告时已签承诺下限，不等于三季度末backlog，也不直接加到6月底存量。",
+      "updateUrl": "https://investors.coreweave.com/news/news-details/2026/CoreWeave-Continues-to-Contract-New-Compute-Capacity-at-Higher-Prices/default.aspx"
+    },
+    {
+      "id": "nbis-new-tcv",
+      "entityId": "NBIS",
+      "title": "当季新签合同TCV增速",
+      "kind": "flow_multiple",
+      "unit": "multiple",
+      "note": "当季新签TCV相对上季的倍数；缺少可比绝对值时，图表仅作上季度=100的归一化示意，不是未兑现订单余额。",
+      "updateUrl": "https://assets.nebius.com/assets/4462517b-ce83-41f2-96ed-f2ac1bc06a05/SHLQ226%20%281%29.pdf"
+    },
+    {
+      "id": "meta-dedicated",
+      "entityId": "META",
+      "title": "向Nebius采购专用算力",
+      "kind": "commitment",
+      "unit": "USD bn",
+      "note": "五年专用容量，计划2027年初分批交付；这是单笔合同金额，不是期末剩余采购余额。",
+      "contractId": "META-NBIS-202603",
+      "counterparty": "NBIS",
+      "updateUrl": "https://nebius.com/newsroom/nebius-signs-new-ai-infrastructure-agreement-with-meta"
+    },
+    {
+      "id": "meta-backstop",
+      "entityId": "META",
+      "title": "向Nebius兜底采购未售容量",
+      "kind": "conditional",
+      "unit": "USD bn",
+      "note": "最高额度，只有相应容量未售予第三方时才触发采购；不是已消费、已确认收入或与第三方销售可叠加的需求。",
+      "contractId": "META-NBIS-202603",
+      "counterparty": "NBIS",
+      "updateUrl": "https://nebius.com/newsroom/nebius-signs-new-ai-infrastructure-agreement-with-meta"
+    },
+    {
+      "id": "spcx-group-backlog",
+      "entityId": "SPCX",
+      "title": "集团未完成履约订单 backlog",
+      "kind": "stock",
+      "unit": "USD bn",
+      "note": "包括集团多业务；不以集团增长率替代纯算力增长率。",
+      "updateUrl": "https://www.sec.gov/Archives/edgar/data/1181412/000162828026066880/spcx-20260930.htm"
+    },
+    {
+      "id": "nbis-rpo",
+      "entityId": "NBIS",
+      "title": "财报剩余履约义务 RPO",
+      "kind": "stock",
+      "unit": "USD bn",
+      "note": "原附注单位为百万美元，除以1000换算；不含原始期限≤1年的履约义务，包含估计可变对价；不是新签TCV。",
+      "updateUrl": "https://nebius.com/financials"
+    },
+    {
+      "id": "crwv-rpo",
+      "entityId": "CRWV",
+      "title": "会计剩余履约义务 RPO",
+      "kind": "stock",
+      "unit": "USD bn",
+      "note": "会计RPO含已开票与未开票的承诺对价，并扣除估计可变对价；与广义backlog分开。",
+      "updateUrl": "https://investors.coreweave.com/financials/quarterly-results/"
+    }
+  ],
+  "observations": [
+    {
+      "id": "msft-commercial-rpo:2025-09-30",
+      "seriesId": "msft-commercial-rpo",
+      "asOf": "2025-09-30",
+      "value": 392,
+      "operator": "=",
+      "publishedAt": "2026-10-28",
+      "sourceUrl": "https://www.microsoft.com/en-us/investor/earnings/fy-2027-q1/metrics",
+      "sourceTitle": "公司披露／SEC文件",
+      "note": "使用FY27 Q1披露的重列可比序列，不混用公司总RPO。"
+    },
+    {
+      "id": "msft-bookings-growth:2025-09-30",
+      "seriesId": "msft-bookings-growth",
+      "asOf": "2025-09-30",
+      "value": 112,
+      "operator": "=",
+      "publishedAt": "2026-10-28",
+      "sourceUrl": "https://www.microsoft.com/en-us/investor/earnings/fy-2027-q1/metrics",
+      "sourceTitle": "公司披露／SEC文件",
+      "note": "商业产品与云服务的GAAP同比；与订单余额、恒定汇率同比均分开。"
+    },
+    {
+      "id": "msft-commercial-rpo:2025-12-31",
+      "seriesId": "msft-commercial-rpo",
+      "asOf": "2025-12-31",
+      "value": 625,
+      "operator": "=",
+      "publishedAt": "2026-10-28",
+      "sourceUrl": "https://www.microsoft.com/en-us/investor/earnings/fy-2027-q1/metrics",
+      "sourceTitle": "公司披露／SEC文件",
+      "note": "使用FY27 Q1披露的重列可比序列，不混用公司总RPO。"
+    },
+    {
+      "id": "msft-bookings-growth:2025-12-31",
+      "seriesId": "msft-bookings-growth",
+      "asOf": "2025-12-31",
+      "value": 230,
+      "operator": "=",
+      "publishedAt": "2026-10-28",
+      "sourceUrl": "https://www.microsoft.com/en-us/investor/earnings/fy-2027-q1/metrics",
+      "sourceTitle": "公司披露／SEC文件",
+      "note": "商业产品与云服务的GAAP同比；与订单余额、恒定汇率同比均分开。"
+    },
+    {
+      "id": "msft-commercial-rpo:2026-03-31",
+      "seriesId": "msft-commercial-rpo",
+      "asOf": "2026-03-31",
+      "value": 627,
+      "operator": "=",
+      "publishedAt": "2026-10-28",
+      "sourceUrl": "https://www.microsoft.com/en-us/investor/earnings/fy-2027-q1/metrics",
+      "sourceTitle": "公司披露／SEC文件",
+      "note": "使用FY27 Q1披露的重列可比序列，不混用公司总RPO。"
+    },
+    {
+      "id": "msft-bookings-growth:2026-03-31",
+      "seriesId": "msft-bookings-growth",
+      "asOf": "2026-03-31",
+      "value": -4,
+      "operator": "=",
+      "publishedAt": "2026-10-28",
+      "sourceUrl": "https://www.microsoft.com/en-us/investor/earnings/fy-2027-q1/metrics",
+      "sourceTitle": "公司披露／SEC文件",
+      "note": "商业产品与云服务的GAAP同比；与订单余额、恒定汇率同比均分开。"
+    },
+    {
+      "id": "msft-commercial-rpo:2026-06-30",
+      "seriesId": "msft-commercial-rpo",
+      "asOf": "2026-06-30",
+      "value": 678,
+      "operator": "=",
+      "publishedAt": "2026-10-28",
+      "sourceUrl": "https://www.microsoft.com/en-us/investor/earnings/fy-2027-q1/metrics",
+      "sourceTitle": "公司披露／SEC文件",
+      "note": "使用FY27 Q1披露的重列可比序列，不混用公司总RPO。"
+    },
+    {
+      "id": "msft-bookings-growth:2026-06-30",
+      "seriesId": "msft-bookings-growth",
+      "asOf": "2026-06-30",
+      "value": 10,
+      "operator": "=",
+      "publishedAt": "2026-10-28",
+      "sourceUrl": "https://www.microsoft.com/en-us/investor/earnings/fy-2027-q1/metrics",
+      "sourceTitle": "公司披露／SEC文件",
+      "note": "商业产品与云服务的GAAP同比；与订单余额、恒定汇率同比均分开。"
+    },
+    {
+      "id": "msft-commercial-rpo:2026-09-30",
+      "seriesId": "msft-commercial-rpo",
+      "asOf": "2026-09-30",
+      "value": 677,
+      "operator": "=",
+      "publishedAt": "2026-10-28",
+      "sourceUrl": "https://www.microsoft.com/en-us/investor/earnings/fy-2027-q1/metrics",
+      "sourceTitle": "公司披露／SEC文件",
+      "note": "使用FY27 Q1披露的重列可比序列，不混用公司总RPO。"
+    },
+    {
+      "id": "msft-bookings-growth:2026-09-30",
+      "seriesId": "msft-bookings-growth",
+      "asOf": "2026-09-30",
+      "value": -12,
+      "operator": "=",
+      "publishedAt": "2026-10-28",
+      "sourceUrl": "https://www.microsoft.com/en-us/investor/earnings/fy-2027-q1/metrics",
+      "sourceTitle": "公司披露／SEC文件",
+      "note": "商业产品与云服务的GAAP同比；与订单余额、恒定汇率同比均分开。"
+    },
+    {
+      "id": "aws-commitments:2026-06-30",
+      "seriesId": "aws-commitments",
+      "asOf": "2026-06-30",
+      "value": 496,
+      "operator": "=",
+      "publishedAt": "2026-07-31",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000026/amzn-20260630.htm",
+      "sourceTitle": "公司披露／SEC文件",
+      "note": "原始期限>1年；金额与确认时间受客户用量和AWS履约影响。",
+      "remainingYears": 6.4
+    },
+    {
+      "id": "aws-commitments:2026-09-30",
+      "seriesId": "aws-commitments",
+      "asOf": "2026-09-30",
+      "value": 578,
+      "operator": "=",
+      "publishedAt": "2026-10-30",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000040/amzn-20260930.htm",
+      "sourceTitle": "公司披露／SEC文件",
+      "note": "原始期限>1年；金额与确认时间受客户用量和AWS履约影响。",
+      "remainingYears": 6.1
+    },
+    {
+      "id": "crwv-backlog:2026-03-31",
+      "seriesId": "crwv-backlog",
+      "asOf": "2026-03-31",
+      "value": 99.4,
+      "operator": "=",
+      "publishedAt": "2026-05-07",
+      "sourceUrl": "https://investors.coreweave.com/news/news-details/2026/CoreWeave-Reports-Strong-First-Quarter-2026-Results/",
+      "sourceTitle": "公司披露／SEC文件",
+      "note": "比会计RPO口径更宽；近似值的增长率也仅为近似。"
+    },
+    {
+      "id": "crwv-backlog:2026-06-30",
+      "seriesId": "crwv-backlog",
+      "asOf": "2026-06-30",
+      "value": 104,
+      "operator": "~",
+      "publishedAt": "2026-08-11",
+      "sourceUrl": "https://investors.coreweave.com/news/news-details/2026/CoreWeave-Reports-Strong-Second-Quarter-2026-Results/default.aspx",
+      "sourceTitle": "公司披露／SEC文件",
+      "note": "比会计RPO口径更宽；近似值的增长率也仅为近似。"
+    },
+    {
+      "id": "crwv-new-commitments:2026-08-11",
+      "seriesId": "crwv-new-commitments",
+      "asOf": "2026-08-11",
+      "value": 25,
+      "operator": ">",
+      "publishedAt": "2026-08-11",
+      "sourceUrl": "https://investors.coreweave.com/news/news-details/2026/CoreWeave-Reports-Strong-Second-Quarter-2026-Results/default.aspx",
+      "sourceTitle": "公司披露／SEC文件",
+      "note": "截至公告时已签承诺下限，不等于三季度末backlog，也不直接加到6月底存量。",
+      "periodLabel": "三季度初，非完整季度"
+    },
+    {
+      "id": "nbis-new-tcv:2026-06-30",
+      "seriesId": "nbis-new-tcv",
+      "asOf": "2026-06-30",
+      "value": 4,
+      "operator": "~",
+      "publishedAt": "2026-08-12",
+      "sourceUrl": "https://assets.nebius.com/assets/4462517b-ce83-41f2-96ed-f2ac1bc06a05/SHLQ226%20%281%29.pdf",
+      "sourceTitle": "公司披露／SEC文件",
+      "note": "公司称Q2新签TCV接近Q1的4倍；未披露两季可比绝对值，图表仅为上季度=100的归一化示意。",
+      "comparisonFrom": "2026-03-31",
+      "periodLabel": "Q2新签额 / Q1新签额",
+      "prepaidDealSharePct": 70,
+      "largeDeals": 4,
+      "averageLargeDealLowerBoundBn": 1
+    },
+    {
+      "id": "meta-dedicated:2026-03-16",
+      "seriesId": "meta-dedicated",
+      "asOf": "2026-03-16",
+      "value": 12,
+      "operator": "=",
+      "publishedAt": "2026-03-16",
+      "sourceUrl": "https://nebius.com/newsroom/nebius-signs-new-ai-infrastructure-agreement-with-meta",
+      "sourceTitle": "公司披露／SEC文件",
+      "note": "五年专用容量，计划2027年初分批交付；这是单笔合同金额，不是期末剩余采购余额。",
+      "contractYears": 5,
+      "deliveryStart": "2027年初"
+    },
+    {
+      "id": "meta-backstop:2026-03-16",
+      "seriesId": "meta-backstop",
+      "asOf": "2026-03-16",
+      "value": 15,
+      "operator": "<=",
+      "publishedAt": "2026-03-16",
+      "sourceUrl": "https://nebius.com/newsroom/nebius-signs-new-ai-infrastructure-agreement-with-meta",
+      "sourceTitle": "公司披露／SEC文件",
+      "note": "最高额度，只有相应容量未售予第三方时才触发采购；不是已消费、已确认收入或与第三方销售可叠加的需求。",
+      "contractYears": 5
+    },
+    {
+      "id": "spcx-group-backlog:2026-06-30",
+      "seriesId": "spcx-group-backlog",
+      "asOf": "2026-06-30",
+      "value": 47.461,
+      "operator": "=",
+      "publishedAt": "2026-08-04",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1181412/000162828026052535/spcx-20260630.htm",
+      "sourceTitle": "公司披露／SEC文件",
+      "note": "包括集团多业务；不以集团增长率替代纯算力增长率。",
+      "next12MonthSharePct": 56
+    },
+    {
+      "id": "spcx-group-backlog:2026-09-30",
+      "seriesId": "spcx-group-backlog",
+      "asOf": "2026-09-30",
+      "value": 62.959,
+      "operator": "=",
+      "publishedAt": "2026-10-20",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1181412/000162828026066880/spcx-20260930.htm",
+      "sourceTitle": "公司披露／SEC文件",
+      "note": "包括集团多业务；不以集团增长率替代纯算力增长率。",
+      "next12MonthSharePct": 67
+    },
+    {
+      "id": "aws-commitments:2025-09-30",
+      "seriesId": "aws-commitments",
+      "asOf": "2025-09-30",
+      "value": 200,
+      "operator": "=",
+      "publishedAt": "2025-10-31",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1018724/000101872425000123/amzn-20250930.htm",
+      "sourceTitle": "财报附注／公司正式披露",
+      "note": "原始期限>1年；金额与确认时间受客户用量和AWS履约影响。"
+    },
+    {
+      "id": "aws-commitments:2025-12-31",
+      "seriesId": "aws-commitments",
+      "asOf": "2025-12-31",
+      "value": 244,
+      "operator": "=",
+      "publishedAt": "2026-02-06",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000004/amzn-20251231.htm",
+      "sourceTitle": "财报附注／公司正式披露",
+      "note": "原始期限>1年；金额与确认时间受客户用量和AWS履约影响。"
+    },
+    {
+      "id": "aws-commitments:2026-03-31",
+      "seriesId": "aws-commitments",
+      "asOf": "2026-03-31",
+      "value": 364,
+      "operator": "=",
+      "publishedAt": "2026-04-30",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000014/amzn-20260331.htm",
+      "sourceTitle": "财报附注／公司正式披露",
+      "note": "原始期限>1年；金额与确认时间受客户用量和AWS履约影响。"
+    },
+    {
+      "id": "nbis-rpo:2025-12-31",
+      "seriesId": "nbis-rpo",
+      "asOf": "2025-12-31",
+      "value": 21.333,
+      "operator": "=",
+      "publishedAt": "2026-04-30",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926052948/nbis-20251231x20f.htm",
+      "sourceTitle": "财报附注／公司正式披露",
+      "note": "原附注单位为百万美元，除以1000换算；不含原始期限≤1年的履约义务，包含估计可变对价；不是新签TCV。"
+    },
+    {
+      "id": "nbis-rpo:2026-03-31",
+      "seriesId": "nbis-rpo",
+      "asOf": "2026-03-31",
+      "value": 33.5853,
+      "operator": "=",
+      "publishedAt": "2026-05-13",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926064092/nbis-20260331xex99d2.htm",
+      "sourceTitle": "财报附注／公司正式披露",
+      "note": "原附注单位为百万美元，除以1000换算；不含原始期限≤1年的履约义务，包含估计可变对价；不是新签TCV。"
+    },
+    {
+      "id": "nbis-rpo:2026-06-30",
+      "seriesId": "nbis-rpo",
+      "asOf": "2026-06-30",
+      "value": 37.4906,
+      "operator": "=",
+      "publishedAt": "2026-08-13",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926094844/nbis-20260812xex99d2.htm",
+      "sourceTitle": "财报附注／公司正式披露",
+      "note": "原附注单位为百万美元，除以1000换算；不含原始期限≤1年的履约义务，包含估计可变对价；不是新签TCV。"
+    },
+    {
+      "id": "nbis-rpo:2026-09-30",
+      "seriesId": "nbis-rpo",
+      "asOf": "2026-09-30",
+      "value": 38.7,
+      "operator": "~",
+      "publishedAt": "2026-11-12",
+      "sourceUrl": "https://assets.nebius.com/assets/721c566e-9ba5-4935-ad24-b1209116a4cc/Nebius-SHL-2026-Q3.pdf?cache-buster=2026-11-12T13%3A19%3A39.055Z",
+      "sourceTitle": "Nebius Q3 2026 Shareholder Letter",
+      "note": "股东信披露约387亿美元，较上季增长约3%；按披露精度保留，不是新签TCV。"
+    },
+    {
+      "id": "crwv-rpo:2025-12-31",
+      "seriesId": "crwv-rpo",
+      "asOf": "2025-12-31",
+      "value": 60.7,
+      "operator": "=",
+      "publishedAt": "2026-03-02",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000104/crwv-20251231.htm",
+      "sourceTitle": "财报附注／公司正式披露",
+      "note": "会计RPO含已开票与未开票的承诺对价，并扣除估计可变对价；与广义backlog分开。"
+    },
+    {
+      "id": "crwv-rpo:2026-03-31",
+      "seriesId": "crwv-rpo",
+      "asOf": "2026-03-31",
+      "value": 98.8,
+      "operator": "=",
+      "publishedAt": "2026-05-08",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000222/R8.htm",
+      "sourceTitle": "财报附注／公司正式披露",
+      "note": "会计RPO含已开票与未开票的承诺对价，并扣除估计可变对价；与广义backlog分开。"
+    },
+    {
+      "id": "crwv-rpo:2026-06-30",
+      "seriesId": "crwv-rpo",
+      "asOf": "2026-06-30",
+      "value": 103.7,
+      "operator": "=",
+      "publishedAt": "2026-08-12",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000366/R8.htm",
+      "sourceTitle": "财报附注／公司正式披露",
+      "note": "会计RPO含已开票与未开票的承诺对价，并扣除估计可变对价；与广义backlog分开。"
+    },
+    {
+      "id": "crwv-backlog:2025-12-31",
+      "seriesId": "crwv-backlog",
+      "asOf": "2025-12-31",
+      "value": 66.8,
+      "operator": "=",
+      "publishedAt": "2026-02-26",
+      "sourceUrl": "https://investors.coreweave.com/news/news-details/2026/CoreWeave-Reports-Strong-Fourth-Quarter-and-Fiscal-Year-2025-Results/",
+      "sourceTitle": "财报附注／公司正式披露",
+      "note": "比会计RPO口径更宽；近似值的增长率也仅为近似。"
+    },
+    {
+      "id": "crwv-backlog:2026-06-30:exact-sep17",
+      "seriesId": "crwv-backlog",
+      "asOf": "2026-06-30",
+      "value": 104.2,
+      "operator": "=",
+      "publishedAt": "2026-09-17",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000429/crwv2026convertpresentat.htm",
+      "sourceTitle": "财报附注／公司正式披露",
+      "note": "9月17日正式演示材料给出6月底backlog 104.2十亿美元；追加精确值，保留原新闻稿约104记录。"
+    },
+    {
+      "id": "spcx-group-backlog:2025-12-31",
+      "seriesId": "spcx-group-backlog",
+      "asOf": "2025-12-31",
+      "value": 28.377,
+      "operator": "=",
+      "publishedAt": "2026-06-05",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1181412/000162828026041013/japanfwp_06042026.htm",
+      "sourceTitle": "财报附注／公司正式披露",
+      "note": "包括集团多业务；不以集团增长率替代纯算力增长率。"
+    },
+    {
+      "id": "spcx-group-backlog:2026-03-31",
+      "seriesId": "spcx-group-backlog",
+      "asOf": "2026-03-31",
+      "value": 27.621,
+      "operator": "=",
+      "publishedAt": "2026-06-05",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1181412/000162828026041013/japanfwp_06042026.htm",
+      "sourceTitle": "财报附注／公司正式披露",
+      "note": "包括集团多业务；不以集团增长率替代纯算力增长率。"
+    },
+    {
+      "id": "crwv-rpo:2025-09-30",
+      "seriesId": "crwv-rpo",
+      "asOf": "2025-09-30",
+      "value": 50.0,
+      "operator": "=",
+      "publishedAt": "2025-11-13",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1769628/000176962825000062/crwv-20250930.htm",
+      "sourceTitle": "CoreWeave Q3 2025 Form 10-Q",
+      "note": "会计 RPO；用于同口径同比。"
+    },
+    {
+      "id": "crwv-backlog:2025-09-30",
+      "seriesId": "crwv-backlog",
+      "asOf": "2025-09-30",
+      "value": 55.6,
+      "operator": "=",
+      "publishedAt": "2025-11-10",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1769628/000176962825000059/coreweave3q25earningspress.htm",
+      "sourceTitle": "CoreWeave Q3 2025 Earnings Release",
+      "note": "公司披露的广义积压订单；用于同口径同比。"
+    },
+    {
+      "id": "crwv-rpo:2026-09-30",
+      "seriesId": "crwv-rpo",
+      "asOf": "2026-09-30",
+      "value": 132.3,
+      "operator": "=",
+      "publishedAt": "2026-11-10",
+      "sourceUrl": "https://investors.coreweave.com/files/content_files/CoreWeave-3Q26-Earnings-Presentation-Final.pdf#page=15",
+      "sourceTitle": "CoreWeave Q3 2026 Earnings Presentation · p. 15",
+      "note": "会计 RPO。同期营收 36.61 亿美元（同比 +168%），净亏损 7.09 亿美元，净利息费用 8.46 亿美元。"
+    },
+    {
+      "id": "crwv-backlog:2026-09-30",
+      "seriesId": "crwv-backlog",
+      "asOf": "2026-09-30",
+      "value": 132.5,
+      "operator": "~",
+      "publishedAt": "2026-11-10",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000461/coreweave3q26earningspress.htm",
+      "sourceTitle": "CoreWeave Q3 2026 Earnings Release",
+      "note": "广义积压订单含 1,323 亿美元会计 RPO 和约 2 亿美元其他预计未来收入，仍取决于交付和服务可用性。"
+    }
+  ],
+  "method": "不同口径分别展示，不跨公司加总，不用合同最高额替代已履约收入；先看同公司同口径历史，再判断增长。"
+}

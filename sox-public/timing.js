@@ -173,7 +173,7 @@ function render() {
   const logDeviation = latest.logDeviation == null ? '—' : latest.logDeviation.toFixed(2);
   panel.querySelector('#timing-signals').innerHTML =
     rules(names.dip, 'dip', [trend, ['收盘高于 200 日均线', '当前对数偏离 ' + logDeviation, checks.above],
-      ['5 日收益率 < −2 × 日波动 × √5', pct(latest.change5) + '，门槛 ' + pct(checks.threshold) + '（日波动，60 日 ' + pct(latest.dailyVolatility) + '）', checks.sudden]]) +
+      ['5 日收益率 &lt; −2 × 日波动 × √5', pct(latest.change5) + '，门槛 ' + pct(checks.threshold) + '（日波动，60 日 ' + pct(latest.dailyVolatility) + '）', checks.sudden]]) +
     rules(names.deep, 'deep', [trend, ['200 日均线对数偏离 ≤ ' + deepLogThreshold, '当前对数偏离 ' + logDeviation, checks.deep]]);
   panel.querySelector('#timing-index-comparison').innerHTML = Object.entries(indexNames).map(([key, name]) => {
     const r = getResult(key);
