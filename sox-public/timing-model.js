@@ -1,10 +1,12 @@
 const etfStartDate = '2015-01-01';
+const dailyVolatilityWindow = 60;
 
 export function indicators(bars) {
   const close = bars.map(bar => bar[2]);
   const mean = (end, length) => end >= length - 1
     ? close.slice(end - length + 1, end + 1).reduce((sum, value) => sum + value, 0) / length
     : null;
+  const dailyReturns = close.slice(1).map((value, i) => value / close[i] - 1);
   const ma200 = close.map((_, i) => mean(i, 200));
   const change5 = close.map((value, i) => i < 5 ? null : value / close[i - 5] - 1);
 
@@ -16,7 +18,9 @@ export function indicators(bars) {
     rising: i >= 219 && ma200[i] > ma200[i - 20],
     logDeviation: ma200[i] === null ? null : 100 * Math.log(value / ma200[i]),
     change5: change5[i],
-    volatility5: i < 25 ? null : sampleDeviation(change5.slice(i - 20, i)),
+    // dailyReturns[0] ends on bar 1, so this window ends on the prior bar.
+    dailyVolatility: i <= dailyVolatilityWindow ? null
+      : sampleDeviation(dailyReturns.slice(i - 1 - dailyVolatilityWindow, i - 1)),
   }));
 }
 
@@ -30,7 +34,7 @@ export const deepLogThreshold = -10;
 export const reference = { winRate: 0.70, payoff: 1 };
 
 export function entryChecks(features) {
-  const threshold = features.volatility5 === null ? null : -2 * features.volatility5;
+  const threshold = features.dailyVolatility === null ? null : -2 * features.dailyVolatility * Math.sqrt(5);
   return {
     rising: features.priorMa200 === null ? null : features.rising,
     above: features.logDeviation === null ? null : features.logDeviation > 0,
