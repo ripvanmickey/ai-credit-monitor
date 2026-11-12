@@ -52,6 +52,8 @@ try{
   '标普 500 · 牛市急跌',
   'CDS与公司债信号分化，尚不能确认同步变化',
   'GitHub Pages · 已保存的公开数据快照',
+  '约 387 亿美元 ↗',
+  '约 +3.23%',
  ];
  for(const source of cases){
   const en=translate(source,'en'),ja=translate(source,'ja');
