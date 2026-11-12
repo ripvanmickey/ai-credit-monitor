@@ -1,6 +1,6 @@
 // Parameterized messages keep dates, amounts and statistical values intact.
 export const messagePatterns:[RegExp,string,string][]=[
- [/量化择时回测/g,'Quantitative Timing Backtest','定量タイミング検証'],
+ [/量化抄底策略/g,'Quantitative Dip-Buying Strategy','定量押し目買い戦略'],
  [/DTCC已披露的合格成交按日取未加权中位数，不是连续报价或日终收盘。剩余期限4.4—5.6年，USD优先单名；已处理检索窗口内更正与撤销，后续可能订正。共(\d+)个成交观测日；前5／20条观测可能跨越更多自然日，样本少于20日不计算分位。/g,'Unweighted daily medians of eligible DTCC disclosed trades, not continuous or closing quotes. USD senior single-name contracts with 4.4–5.6 years remaining. Corrections and cancellations in the search window are processed; later revisions remain possible. $1 trade observation dates. 5/20 observations can span more calendar days; no percentile below 20 observations.','DTCC適格開示取引の日次単純中央値で、連続相場や終値ではありません。残存4.4〜5.6年の米ドル建て優先シングルネーム契約。期間内の訂正・取消しは反映済みですが、後日修正の可能性があります。計$1取引観測日。5・20観測値はより長い暦日期間に及ぶ場合があり、20観測日未満ではパーセンタイルを算出しません。'],
  [/(\d+)家公司 · 同日起点/g,'$1 companies · Common starting date','$1社・共通起点'],
  [/仅比较(\d+)家同源日线/g,'Only $1 same-source daily series','同一出典の日次系列$1社のみ比較'],

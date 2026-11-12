@@ -7,7 +7,7 @@ import {isResearchPage,linkDestination,modulePath,panelURL,researchPath,startPan
 import {startComponentPolish} from './polish';
 import {Activity,ChartNoAxesCombined,Layers,PanelLeft,Languages,TrendingUp} from 'lucide-react';
 function pageTitle(path:string){
- if(path==='/sox/timing.html')return '量化择时回测';
+ if(path==='/sox/timing.html')return '量化抄底策略';
  return path.startsWith('/sox')?'半导体指数回测':path.startsWith('/cycle')?'AI 建设见顶信号':'CDS 与信用利差监测';
 }
 function subscribeLanguage(update:()=>void){
@@ -39,7 +39,7 @@ function Shell({path,closeMobile,locale}:{path:string;closeMobile:React.MutableR
  const links=[
   {name:'CDS 与信用利差监测',url:'/',icon:Activity,active:!path.startsWith('/sox')&&!path.startsWith('/cycle')},
   {name:'半导体指数回测',url:'/sox/',icon:ChartNoAxesCombined,active:path.startsWith('/sox')&&path!=='/sox/timing.html'},
-  {name:'量化择时回测',url:'/sox/timing.html',icon:TrendingUp,active:path==='/sox/timing.html'},
+  {name:'量化抄底策略',url:'/sox/timing.html',icon:TrendingUp,active:path==='/sox/timing.html'},
   {name:'AI 建设见顶信号',url:'/cycle/',icon:Layers,active:path.startsWith('/cycle')},
  ];
  const toggleLabel=open?'收起左侧菜单':'展开左侧菜单';

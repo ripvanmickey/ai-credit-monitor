@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="标普 500 与纳斯达克综合指数自成立以来的量化择时回测、入场检查和历史买卖点。">
-  <title>量化择时回测</title>
+  <meta name="description" content="标普 500 与纳斯达克综合指数自成立以来的量化抄底策略回测、入场检查和历史买卖点。">
+  <title>量化抄底策略</title>
   <link rel="stylesheet" href="style.css?v=background2">
   <link rel="preload" href="/cycle/geist-sans.woff2?v=2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/cycle/design.css?v=playfair-display1">
@@ -16,7 +16,7 @@
 <main class="wrap sox-dashboard">
 <section id="timing" class="panel timing-panel" aria-labelledby="timing-title">
   <div class="section-head">
-    <div><h1 id="timing-title">量化择时回测</h1><p class="timing-muted" id="timing-range"></p></div>
+    <div><h1 id="timing-title">量化抄底策略</h1><p class="timing-muted" id="timing-range"></p></div>
     <div class="timing-controls">
       <label>标的 <select id="timing-asset"><option value="GSPC">标普 500 指数</option><option value="IXIC">纳斯达克综合指数</option><option>QQQ</option><option>SPY</option></select></label>
       <label>止盈规则 <select id="timing-exit"><option value="ma">5日均线</option><option value="target2">固定 +2%</option><option value="target5">固定 +5%</option><option value="maOr2">5 日均线或浮盈 +2%</option><option value="maOr5">5 日均线或浮盈 +5%</option></select></label>
