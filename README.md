@@ -1,5 +1,7 @@
 # 半导体与算力信用研究
 
+**简体中文** · [English](./README.en.md)
+
 跟踪 AI 算力产业链的信用与供需变化，回看费城半导体指数跌破年线后的恢复路径，并用简单规则检验美股指数的短线抄底信号。
 
 [打开在线面板](https://ripvanmickey.github.io/ai-credit-monitor/) · [查看发布记录](https://github.com/ripvanmickey/ai-credit-monitor/actions)
