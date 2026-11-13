@@ -1,10 +1,22 @@
-# 半导体与算力信用研究
+<p align="center">
+  <a href="https://ripvanmickey.github.io/ai-credit-monitor/"><img src="./docs/readme-banner.svg" alt="半导体与算力信用研究" width="100%"></a>
+</p>
 
-[English](./README.md) · **简体中文**
+<p align="center">
+  <a href="./README.md">English</a> · <strong>简体中文</strong>
+</p>
+
+<p align="center">
+  <a href="https://github.com/ripvanmickey/ai-credit-monitor/actions/workflows/pages.yml"><img src="https://github.com/ripvanmickey/ai-credit-monitor/actions/workflows/pages.yml/badge.svg?branch=main" alt="GitHub Pages build status"></a>
+</p>
+
+<p align="center">
+  <strong><a href="https://ripvanmickey.github.io/ai-credit-monitor/">打开在线面板</a></strong> ·
+  <a href="https://github.com/ripvanmickey/ai-credit-monitor/actions">发布记录</a> ·
+  <a href="#本地运行">本地运行</a>
+</p>
 
 跟踪 AI 算力产业链的信用与供需变化，回看费城半导体指数跌破年线后的恢复路径，并用简单规则检验美股指数的短线抄底信号。
-
-[打开在线面板](https://ripvanmickey.github.io/ai-credit-monitor/) · [查看发布记录](https://github.com/ripvanmickey/ai-credit-monitor/actions)
 
 ## CDS 与 AI 产业周期
 

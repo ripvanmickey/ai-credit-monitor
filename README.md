@@ -1,10 +1,22 @@
-# AI Credit Monitor
+<p align="center">
+  <a href="https://ripvanmickey.github.io/ai-credit-monitor/"><img src="./docs/readme-banner.svg" alt="AI Credit Monitor" width="100%"></a>
+</p>
 
-**English** · [简体中文](./README.zh-CN.md)
+<p align="center">
+  <strong>English</strong> · <a href="./README.zh-CN.md">简体中文</a>
+</p>
+
+<p align="center">
+  <a href="https://github.com/ripvanmickey/ai-credit-monitor/actions/workflows/pages.yml"><img src="https://github.com/ripvanmickey/ai-credit-monitor/actions/workflows/pages.yml/badge.svg?branch=main" alt="GitHub Pages build status"></a>
+</p>
+
+<p align="center">
+  <strong><a href="https://ripvanmickey.github.io/ai-credit-monitor/">Open the dashboard</a></strong> ·
+  <a href="https://github.com/ripvanmickey/ai-credit-monitor/actions">Deployment history</a> ·
+  <a href="#run-locally">Run locally</a>
+</p>
 
 Track credit risk and supply-demand shifts across the AI infrastructure supply chain, study how the Philadelphia Semiconductor Index has recovered after breaks below its 200-day moving average, and backtest simple rules for buying short-term dips in U.S. equity markets.
-
-[Open the dashboard](https://ripvanmickey.github.io/ai-credit-monitor/) · [View deployment history](https://github.com/ripvanmickey/ai-credit-monitor/actions)
 
 ## Credit and the AI Infrastructure Cycle
 

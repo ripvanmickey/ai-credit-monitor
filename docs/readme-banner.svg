@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="416" viewBox="0 0 1280 416" role="img" aria-labelledby="title desc">
+  <title id="title">AI Credit Monitor</title>
+  <desc id="desc">Semiconductors, AI infrastructure, and market signals. The project mark overlays an illustrative chart.</desc>
+  <defs>
+    <linearGradient id="background" x2="1" y2="1" gradientUnits="objectBoundingBox">
+      <stop stop-color="#211b1b"/>
+      <stop offset="1" stop-color="#121113"/>
+    </linearGradient>
+    <linearGradient id="area" x2="0" y2="1" gradientUnits="objectBoundingBox">
+      <stop stop-color="#f04b45" stop-opacity=".24"/>
+      <stop offset="1" stop-color="#f04b45" stop-opacity="0"/>
+    </linearGradient>
+    <clipPath id="frame">
+      <rect width="1280" height="416" rx="28"/>
+    </clipPath>
+  </defs>
+  <g clip-path="url(#frame)">
+    <rect width="1280" height="416" fill="url(#background)"/>
+    <path d="M734 102h546M734 160h546M734 218h546M734 276h546M734 334h546M770 68v292M848 68v292M926 68v292M1004 68v292M1082 68v292M1160 68v292M1238 68v292" fill="none" stroke="#fff" stroke-opacity=".075"/>
+    <path d="m734 340 59-26 48 11 49-44 58 14 51-54 56 13 43-54 56 11 52-48 74-18v215H734z" fill="url(#area)"/>
+    <path d="m734 340 59-26 48 11 49-44 58 14 51-54 56 13 43-54 56 11 52-48 74-18" fill="none" stroke="#f04b45" stroke-width="3" stroke-linejoin="round"/>
+    <path d="m734 284 60 9 50-27 54 8 48-31 56 6 55-39 43 8 56-35 56 6 68-36" fill="none" stroke="#f7eee4" stroke-opacity=".24" stroke-width="2" stroke-dasharray="5 8"/>
+    <g transform="translate(950 113) scale(2.55)">
+      <rect x="2" y="2" width="60" height="60" rx="14" fill="#171717" stroke="#4d3636" stroke-width=".65"/>
+      <polygon points="13,29 13,19 19,13 35,13 29,19 22,19 19,22 19,29" fill="#faf7f2"/>
+      <polygon points="51,35 51,45 45,51 29,51 35,45 42,45 45,42 45,35" fill="#faf7f2"/>
+      <polygon points="13,45 27,31 34,34 45,23 40,23 46,17 52,17 52,23 35,40 28,37 20,45" fill="#f04b45"/>
+    </g>
+    <path d="M68 79h22" stroke="#f04b45" stroke-width="3"/>
+    <text x="104" y="85" fill="#ff837e" font-family="monospace" font-size="17" font-weight="700" letter-spacing="3">MARKET RESEARCH</text>
+    <text x="62" y="200" fill="#faf7f2" font-family="Georgia, serif" font-size="85" letter-spacing="-3">AI Credit</text>
+    <text x="62" y="286" fill="#faf7f2" font-family="Georgia, serif" font-size="85" letter-spacing="-3">Monitor<tspan fill="#f04b45">.</tspan></text>
+    <text x="68" y="346" fill="#d0c5c3" font-family="Arial, sans-serif" font-size="23">Semiconductors, AI infrastructure, and market signals</text>
+  </g>
+</svg>
