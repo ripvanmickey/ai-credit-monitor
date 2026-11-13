@@ -1,46 +1,46 @@
-# 半导体与算力信用研究
+# AI Credit Monitor
 
-**简体中文** · [English](./README.en.md)
+**English** · [简体中文](./README.zh-CN.md)
 
-跟踪 AI 算力产业链的信用与供需变化，回看费城半导体指数跌破年线后的恢复路径，并用简单规则检验美股指数的短线抄底信号。
+Track credit risk and supply-demand shifts across the AI infrastructure supply chain, study how the Philadelphia Semiconductor Index has recovered after breaks below its 200-day moving average, and backtest simple rules for buying short-term dips in U.S. equity markets.
 
-[打开在线面板](https://ripvanmickey.github.io/ai-credit-monitor/) · [查看发布记录](https://github.com/ripvanmickey/ai-credit-monitor/actions)
+[Open the dashboard](https://ripvanmickey.github.io/ai-credit-monitor/) · [View deployment history](https://github.com/ripvanmickey/ai-credit-monitor/actions)
 
-## CDS 与 AI 产业周期
+## Credit and the AI Infrastructure Cycle
 
-### [CDS 与信用利差监测](https://ripvanmickey.github.io/ai-credit-monitor/)
+### [CDS and Credit Spread Monitor](https://ripvanmickey.github.io/ai-credit-monitor/)
 
-比较公司 5 年期美元 CDS 的水平与变化，另列公司债相对同日 5 年期美债的收益率利差。公开日线、DTCC 成交中位数和媒体报道分口径展示，便于看清哪些公司在同一报价区间内利差走阔。
+Compare the levels and changes of corporate 5-year USD credit default swap (CDS) spreads. A separate view shows corporate bond yield spreads over the same-day 5-year U.S. Treasury yield. Public daily quotes, median DTCC trade levels, and media-reported observations are shown separately. A common quote window shows whose CDS spreads widened over the same period.
 
-![CDS 与信用利差监测页面，显示共同报价区间和各公司的利差变化](./docs/screenshots/cds.jpg)
+![CDS and credit spread monitor showing the common quote window and changes by company](./docs/screenshots/cds-en.jpg)
 
-### [AI 建设见顶信号](https://ripvanmickey.github.io/ai-credit-monitor/cycle/)
+### [AI Infrastructure Cycle Signals](https://ripvanmickey.github.io/ai-credit-monitor/cycle/)
 
-把 GPU 租金、云厂商信用、未履约订单和芯片厂商应收账款周转天数（DSO）放在一起观察。未履约订单按自然季度对齐，并标注各公司的披露口径。
+Track GPU rental rates, cloud-provider credit, contract backlog, and chipmakers’ days sales outstanding (DSO). Backlog figures are aligned by calendar quarter, with each company’s reporting definition shown alongside the data.
 
-![AI 建设见顶信号页面，显示产业观察指标](./docs/screenshots/ai-cycle.jpg)
+![AI infrastructure cycle dashboard showing industry indicators](./docs/screenshots/ai-cycle-en.jpg)
 
-## 半导体与量化回测
+## Semiconductor and Quantitative Backtests
 
-### [费城半导体指数回测](https://ripvanmickey.github.io/ai-credit-monitor/sox/)
+### [Philadelphia Semiconductor Index Backtest](https://ripvanmickey.github.io/ai-credit-monitor/sox/)
 
-回看 SOX 跌破 200 日均线后的历史周期，分别统计首次站回、连续 5 个交易日站稳及收复前高所需的时间，并查看站稳后 1、3、6、12 个月的收益分布。
+Review historical episodes when SOX fell below its 200-day moving average. See how long it took to first reclaim the average, stay above it for five consecutive trading sessions, and recover the prior high. The page also shows the distribution of 1-, 3-, 6-, and 12-month returns after the five-session confirmation.
 
-![费城半导体指数回测页面，显示指数走势与 200 日均线](./docs/screenshots/sox.jpg)
+![Philadelphia Semiconductor Index backtest showing the index and its 200-day moving average](./docs/screenshots/sox-en.jpg)
 
-### [量化抄底策略](https://ripvanmickey.github.io/ai-credit-monitor/sox/timing.html)
+### [Quantitative Dip-Buying Strategy](https://ripvanmickey.github.io/ai-credit-monitor/sox/timing.html)
 
-逐条显示纳斯达克综合指数、标普 500 和 QQQ 是否满足「牛市急跌」与「深 V」的买入条件。历史回测列出买卖日期、退出原因、胜率、平均盈利与平均亏损之比，以及交易次数。
+Check which entry conditions the Nasdaq Composite, S&P 500, and QQQ meet for a sharp selloff in an uptrend or a deep V-shaped rebound. The backtest lists entry and exit dates, exit reasons, win rates, the ratio of average gain to average loss magnitude, and trade counts.
 
-![量化抄底策略页面，显示买入条件和各标的触发状态](./docs/screenshots/timing.jpg)
+![Quantitative dip-buying dashboard showing entry conditions and signal status](./docs/screenshots/timing-en.jpg)
 
-## 数据更新
+## Data Updates
 
-[GitHub Actions](https://github.com/ripvanmickey/ai-credit-monitor/actions) 定于美东时间周一至周五 18:17 检查 CDS 和股价数据，保存可核验的行情并重新计算抄底指标。常规发版使用仓库已保存的行情快照。需要主动刷新行情时，可手动运行发布工作流并勾选 `refresh_market_data`。图表标注的是各序列自己的观测日期。
+[GitHub Actions](https://github.com/ripvanmickey/ai-credit-monitor/actions) is scheduled to check CDS and equity prices at 6:17 p.m. Eastern Time on weekdays, save verified observations, and recalculate dip-buying signals. Regular deployments use the saved market snapshot. To request a fresh snapshot, run the publishing workflow manually with `refresh_market_data` enabled. Charts show the observation date for each series.
 
-## 本地运行
+## Run Locally
 
-使用 Node.js 24 和 pnpm 10。解压时保留仓库中的同名文件，以便使用独立更新的脚本和数据。
+Use Node.js 24 and pnpm 10. The extraction command preserves files already in the repository so that newer scripts and data take precedence over copies in the archive.
 
 ```sh
 git clone https://github.com/ripvanmickey/ai-credit-monitor.git
@@ -52,4 +52,4 @@ node scripts/build-pages.mjs
 pnpm dev
 ```
 
-本地预览地址是 [http://localhost:8788](http://localhost:8788)，GitHub Pages 构建产物位于 `dist/pages/`。
+Open [http://localhost:8788](http://localhost:8788) for the local preview. The GitHub Pages build is written to `dist/pages/`.
