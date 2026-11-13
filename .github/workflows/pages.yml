@@ -4,11 +4,17 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+    inputs:
+      refresh_market_data:
+        description: Refresh the closing market snapshot before publishing
+        type: boolean
+        default: false
   schedule:
-    - cron: '17 0,3,6,9,12,15,18,21 * * *'
+    - cron: '17 18 * * 1-5'
+      timezone: America/New_York
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -18,6 +24,7 @@ concurrency:
 
 jobs:
   deploy:
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     environment:
       name: github-pages
@@ -25,7 +32,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          persist-credentials: false
+          ref: main
+          persist-credentials: ${{ github.event_name == 'schedule' || inputs.refresh_market_data }}
       - name: Prepare source
         id: source
         run: |
@@ -47,9 +55,25 @@ jobs:
           cache: pnpm
       - run: pnpm install --frozen-lockfile
         if: steps.source.outputs.ready == 'true'
-      - name: Sync public news and update records
+      - name: Refresh closing data
+        id: refresh
+        if: steps.source.outputs.ready == 'true' && (github.event_name == 'schedule' || inputs.refresh_market_data)
+        run: |
+          if [ "${{ github.event_name }}" = workflow_dispatch ]; then
+            node scripts/close-snapshot.mjs refresh --force
+          else
+            node scripts/close-snapshot.mjs refresh
+          fi
+          if [ -f .github/close-snapshot.json ]; then
+            git add -f .github/close-snapshot.json
+          fi
+          if ! git diff --cached --quiet; then
+            git -c user.name=github-actions -c user.email=41898282+github-actions[bot]@users.noreply.github.com commit -m "Save US market close snapshot"
+            git push origin HEAD:main
+          fi
+      - name: Apply saved data and calculate closing signals
         if: steps.source.outputs.ready == 'true'
-        run: node scripts/sync-public-news.mjs
+        run: node scripts/close-snapshot.mjs apply
       - run: node scripts/build-pages.mjs
         if: steps.source.outputs.ready == 'true'
         env:
@@ -63,3 +87,6 @@ jobs:
       - uses: actions/deploy-pages@v4
         if: steps.source.outputs.ready == 'true'
         id: deploy
+      - name: Report incomplete data refresh
+        if: steps.refresh.outputs.incomplete == 'true'
+        run: exit 1
