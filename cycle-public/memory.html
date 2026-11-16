@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>存储价格监测</title>
+  <link rel="stylesheet" href="/cycle/design.css">
+  <link rel="stylesheet" href="/cycle/memory.css">
+  <script type="module" src="/cycle/memory.js"></script>
+</head>
+<body data-panel="memory">
+  <main class="memory" data-no-i18n>
+    <header class="memory-header">
+      <div>
+        <h1 data-label="title">存储价格监测</h1>
+        <p data-label="intro">跟踪 NAND、DRAM 和 HBM 的二级市场现货报价、合约价基准与长期供货协议。</p>
+      </div>
+      <span id="memory-date"></span>
+    </header>
+    <div id="memory-error" role="alert" hidden></div>
+    <div id="memory-content" hidden>
+      <div id="memory-overview" class="memory-overview"></div>
+      <div class="memory-toolbar">
+        <div id="memory-products" class="memory-filters" role="group" aria-label="品类"></div>
+        <span data-label="sourceDates"></span>
+      </div>
+      <section class="memory-card" aria-labelledby="memory-spot-title">
+        <h2 id="memory-spot-title" data-label="spot"></h2>
+        <p class="memory-note" data-label="spotNote"></p>
+        <div class="memory-table" id="memory-spot"></div>
+        <details>
+          <summary data-label="history"></summary>
+          <div class="memory-table" id="memory-history"></div>
+        </details>
+      </section>
+      <section class="memory-card" aria-labelledby="memory-agreements-title">
+        <h2 id="memory-agreements-title" data-label="lta"></h2>
+        <p class="memory-note" data-label="ltaNote"></p>
+        <div class="memory-table" id="memory-agreements"></div>
+      </section>
+      <section class="memory-card" aria-labelledby="memory-benchmarks-title">
+        <h2 id="memory-benchmarks-title" data-label="benchmark"></h2>
+        <p class="memory-note" data-label="benchmarkNote"></p>
+        <div class="memory-table" id="memory-benchmarks"></div>
+      </section>
+    </div>
+  </main>
+  <noscript>此面板需要 JavaScript。 JavaScript is required. JavaScript を有効にしてください。</noscript>
+</body>
+</html>

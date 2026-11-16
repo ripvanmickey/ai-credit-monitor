@@ -25,12 +25,13 @@ export function modulePath(path: string) {
   }
   if (path === '/index.html') return '/';
   if (path === '/cycle/index.html') return '/cycle/';
+  if (path === '/memory/index.html') return '/memory/';
   if (path === '/sox/index.html') return '/sox/';
   return path;
 }
 
 export function isResearchPage(path: string) {
-  return ['/', '/cycle/', '/sox/', '/sox/why-down.html', '/sox/timing.html'].includes(modulePath(path));
+  return ['/', '/cycle/', '/memory/', '/sox/', '/sox/why-down.html', '/sox/timing.html'].includes(modulePath(path));
 }
 
 export function linkDestination(event: MouseEvent, base: string) {

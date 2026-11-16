@@ -50,12 +50,13 @@ function validate(p,previous){
 export default {async fetch(request,env,ctx={waitUntil:()=>{}}){
  try{
   const u=new URL(request.url);
-  const isResearchPage=['/','/index.html','/sox/','/sox/index.html','/sox/why-down.html','/sox/timing.html','/cycle/','/cycle/index.html'].includes(u.pathname);
+  const isResearchPage=['/','/index.html','/sox/','/sox/index.html','/sox/why-down.html','/sox/timing.html','/cycle/','/cycle/index.html','/memory/','/memory/index.html'].includes(u.pathname);
   if(isResearchPage && u.searchParams.get('research-panel')!=='1' && ['GET','HEAD'].includes(request.method)){
    return new Response(request.method==='HEAD'?null:SHELL_HTML,{headers:{'Content-Type':'text/html; charset=utf-8','Cache-Control':'no-cache','X-Content-Type-Options':'nosniff','Referrer-Policy':'strict-origin-when-cross-origin'}});
   }
   if(u.pathname==='/sox')return Response.redirect(u.origin+'/sox/',302);
   if(u.pathname.startsWith('/sox/')){const target=new URL(request.url);target.pathname=target.pathname.slice(4);return SOX_WORKER.fetch(new Request(target,request),env,ctx);}
+  if(u.pathname==='/memory')return Response.redirect(u.origin+'/memory/',302);
   if(u.pathname==='/cycle')return Response.redirect(u.origin+'/cycle/',302);
   if(u.pathname==='/api/cycle'&&request.method==='GET'){
    const [snapshot,gpu,bonds,orderRaw]=await Promise.all([read(env),readGPUPrices(env),readBonds(env),readOrders(env)]),orders=analyzeOrders(orderRaw),bondReport=analyzeBonds(bonds),cycle=analyzeCycle({...snapshot,cycleObservations:[...(snapshot.cycleObservations||[]),...(gpu.observations||[]),...orders.scoringObservations]},CYCLE_INPUTS,new Date().toISOString(),bondReport);
@@ -92,8 +93,8 @@ export default {async fetch(request,env,ctx={waitUntil:()=>{}}){
    const next={...p,bonds:BOND_SEED.bonds};await env.BUCKET.put('bond-spreads.json',JSON.stringify(next),{httpMetadata:{contentType:'application/json'}});return json({saved:true,revision:next.revision});
   }
   if(u.pathname==='/api/bond-spreads/raw'&&request.method==='GET')return json(await readBonds(env));
-  if(u.pathname.startsWith('/cycle/')){
-   const path=u.pathname==='/cycle/'?'/cycle/index.html':u.pathname;
+  if(u.pathname.startsWith('/cycle/')||u.pathname==='/memory/'||u.pathname==='/memory/index.html'){
+   const path=u.pathname.startsWith('/memory/')?'/cycle/memory.html':u.pathname==='/cycle/'?'/cycle/index.html':u.pathname;
    if(!CYCLE_ASSETS[path])return json({error:'Not found'},404);
    const contentTypes = {
     css: 'text/css; charset=utf-8',

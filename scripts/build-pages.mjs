@@ -41,19 +41,21 @@ const isApiPath = /(['"])(\/(?:sox\/)?api\/[a-z-]+)(?=\1)/g;
 const apiPaths = code => code.replace(isApiPath, (_, quote, path) => quote + base + path + '.json');
 const designRevision = createHash('sha256').update(await readFile('cycle-public/design.js')).digest('hex').slice(0, 12);
 
-function adaptHtml(html) {
-  return apiPaths(html)
+function adaptHtml(html, addNotice = true) {
+  const adapted = apiPaths(html)
     .replace('<head>', '<head><meta name="research-pages-base" content="' + base + '">')
     .replace(/(src="\/cycle\/design\.js)(?:\?[^"]*)?"/g, '$1?v=' + designRevision + '"')
     .replace(/((?:href|src)=")(\/(?:cycle|sox)\/)/g, '$1' + base + '$2')
-    .replaceAll("'/cycle/logo-", "'" + base + "/cycle/logo-")
+    .replaceAll("'/cycle/logo-", "'" + base + "/cycle/logo-");
+  return addNotice ? adapted
     .replace('<main>', '<main>' + notice)
-    .replace(/(<main\s[^>]*>)/, '$1' + notice);
+    .replace(/(<main\s[^>]*>)/, '$1' + notice) : adapted;
 }
 
 const pages = [
   ['/', 'index.html', 'panel.html'],
   ['/cycle/', 'cycle/index.html', 'cycle/panel.html'],
+  ['/memory/', 'memory/index.html', 'memory/panel.html'],
   ['/sox/', 'sox/index.html', 'sox/panel.html'],
   ['/sox/timing.html', 'sox/timing.html', 'sox/timing-panel.html'],
   ['/sox/why-down.html', 'sox/why-down.html', 'sox/why-down-panel.html'],
@@ -63,7 +65,7 @@ for (const [route, shell, panel] of pages) {
   const panelPath = base + '/' + panel;
   await Promise.all([
     save(shell, adaptHtml(shellHtml).replace('href="?research-panel=1"', 'href="' + panelPath + '"')),
-    save(panel, adaptHtml(panelHtml)
+    save(panel, adaptHtml(panelHtml, route !== '/memory/')
       .replace('每3小时检查 · 以最近更新记录为准', 'GitHub Pages · 已保存的数据快照')
       .replace('后台每3小时检查公开历史表并核验报道，页面每60秒读取已保存快照。', '此页面读取发布时保存的数据快照。')
       .replace('已有后台任务每3小时检查公开来源。', 'GitHub Pages 提供发布时保存的快照。')),

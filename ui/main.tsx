@@ -5,10 +5,12 @@ import {Button} from './components/button';
 import {Select,SelectTrigger,SelectValue,SelectContent,SelectItem} from './components/select';
 import {isResearchPage,linkDestination,modulePath,panelURL,researchPath,startPanelNavigation} from './navigation';
 import {startComponentPolish} from './polish';
-import {Activity,ChartNoAxesCombined,Layers,PanelLeft,Languages,TrendingUp} from 'lucide-react';
-function pageTitle(path:string){
- if(path==='/sox/timing.html')return '量化抄底策略';
- return path.startsWith('/sox')?'半导体指数回测':path.startsWith('/cycle')?'AI 建设见顶信号':'CDS 与信用利差监测';
+import {Activity,ChartNoAxesCombined,Layers,MemoryStick,PanelLeft,Languages,TrendingUp} from 'lucide-react';
+const memoryTitles:Record<Language,string>={zh:'存储价格监测',en:'Memory Price Monitor',ja:'メモリ価格モニター'};
+function pageTitle(path:string,locale:Language){
+ if(path==='/memory/')return memoryTitles[locale];
+ const title=path==='/sox/timing.html'?'量化抄底策略':path.startsWith('/sox')?'半导体指数回测':path.startsWith('/cycle')?'AI 建设见顶信号':'CDS 与信用利差监测';
+ return translate(title,locale);
 }
 function subscribeLanguage(update:()=>void){
  document.addEventListener('research-language-change',update);
@@ -38,8 +40,9 @@ function Shell({path,closeMobile,locale}:{path:string;closeMobile:React.MutableR
  },[open]);
  const linkGroups=[
   [
-   {name:'CDS 与信用利差监测',url:'/',icon:Activity,active:!path.startsWith('/sox')&&!path.startsWith('/cycle')},
+   {name:'CDS 与信用利差监测',url:'/',icon:Activity,active:path==='/'},
    {name:'AI 建设见顶信号',url:'/cycle/',icon:Layers,active:path.startsWith('/cycle')},
+   {name:memoryTitles[locale],url:'/memory/',icon:MemoryStick,active:path==='/memory/'},
   ],
   [
    {name:'半导体指数回测',url:'/sox/',icon:ChartNoAxesCombined,active:path.startsWith('/sox')&&path!=='/sox/timing.html'},
@@ -62,7 +65,7 @@ function Shell({path,closeMobile,locale}:{path:string;closeMobile:React.MutableR
    <nav className="ui-sidebar-modules" style={{gap:16}} aria-label="研究模块">
     {linkGroups.map(links=><div className="ui-sidebar-modules" key={links[0].url}>
      {links.map(link=><a key={link.url} href={researchPath(link.url)} className="ui-sidebar-module"
-      aria-label={link.name} aria-current={link.active?'page':undefined} title={open?undefined:link.name}>
+      data-no-i18n={link.url==='/memory/'?'':undefined} aria-label={link.name} aria-current={link.active?'page':undefined} title={open?undefined:link.name}>
       <span className="ui-sidebar-module-media"><link.icon size={17} aria-hidden="true"/></span>
       {open&&<span className="ui-sidebar-module-title">{link.name}</span>}
      </a>)}
@@ -78,7 +81,7 @@ function Shell({path,closeMobile,locale}:{path:string;closeMobile:React.MutableR
     aria-label="展开左侧菜单" aria-controls="research-sidebar" aria-expanded={false} onClick={toggleMenu}>
     <PanelLeft size={18}/>
    </Button>}
-   <span className="ui-page-title" data-no-i18n>{translate(pageTitle(path),locale)}</span>
+   <span className="ui-page-title" data-no-i18n>{pageTitle(path,locale)}</span>
    <div className="ui-language" data-no-i18n>
     <Select value={locale} onValueChange={value=>setLanguage(value as Language)}>
      <SelectTrigger aria-label="Language / 言語 / 语言" className="ui-select-trigger">
@@ -93,7 +96,7 @@ function Shell({path,closeMobile,locale}:{path:string;closeMobile:React.MutableR
  </>;
 }
 function SectionNav({path,locale}:{path:string;locale:Language}){
- if(path.startsWith('/sox'))return null;
+ if(path.startsWith('/sox')||path==='/memory/')return null;
  const links=path.startsWith('/cycle')
   ?[['四项核心信号','#cards'],['算力租价','#gpu-rents'],['云厂商信用','#cloud-credit'],['订单兑现','#order-demand'],['回款质量','#chip-dso'],['查看规则与阈值','#rules']]
   :[['走势分析','#analysis'],['信用利差趋势','#trends'],['监测名单','#watchlist'],['风险动态','#events'],['数据口径','#method']];
@@ -154,12 +157,12 @@ function ResearchApp(){
  },[]);
  React.useLayoutEffect(()=>{ready.current=false;},[page]);
  React.useEffect(()=>{if(ready.current)scrollPanel(frame.current,route.hash);},[page,route.hash]);
- React.useEffect(()=>{document.title=translate(pageTitle(path),locale);},[path,locale]);
+ React.useEffect(()=>{document.title=pageTitle(path,locale);},[path,locale]);
  return <>
   <Shell path={path} closeMobile={closeMobile} locale={locale}/>
   <SectionNav path={path} locale={locale}/>
   <iframe key={page} ref={frame} className="research-panel-frame" src={src.pathname+src.search}
-   title={translate(pageTitle(path),locale)}
+   title={pageTitle(path,locale)}
    onLoad={()=>{ready.current=true;scrollPanel(frame.current,route.hash);}}/>
  </>;
 }

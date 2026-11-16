@@ -1,0 +1,40 @@
+{
+  "checkedOn": "2026-11-16",
+  "sources": {
+    "board": ["DRAMeXchange", "https://www.dramexchange.com/"],
+    "spotReport": ["TrendForce", "https://www.trendforce.com/news/2026/11/04/insights-memory-spot-price-update-mainstream-ddr4-prices-dip-0-09-as-spot-premium-keeps-buyers-on-sidelines/"],
+    "quarter": ["TrendForce", "https://www.trendforce.com/presscenter/news/20260930-13258.html"],
+    "ssd": ["TrendForce", "https://www.trendforce.com/research/download/RP260924PL"],
+    "hbmNews": ["TrendForce News / Seoul Economic Daily", "https://www.trendforce.com/news/2026/09/01/news-hbm3e-spot-prices-said-to-be-4-5x-lta-levels-with-samsung-reportedly-locking-70-of-memory-capacity-through-2031/"],
+    "hbmForecast": ["TrendForce", "https://www.trendforce.com/presscenter/news/20260929-13255.html"],
+    "hbmContract": ["TrendForce", "https://www.trendforce.com/research/download/RP261104XL"],
+    "micron": ["Micron", "https://investors.micron.com/static-files/23023765-dfef-4e7e-845b-cd744fc20d93"],
+    "micronProducts": ["Micron", "https://investors.micron.com/static-files/2354ecda-77a0-4ddd-8462-a631eb491356"],
+    "dramContract": ["DRAMeXchange", "https://www.dramexchange.com/Price/NationalContractDramDetail"],
+    "nandContract": ["DRAMeXchange", "https://www.dramexchange.com/Price/FlashWaferContract"]
+  },
+  "spot": [
+    {"product":"NAND","spec":"512Gb TLC (Wafer Spot)","unit":"waferQuote","kind":"quote","date":"2026-11-09","time":"14:40","value":14.267,"change":-11.67,"changePeriod":"weekly","source":"board","featured":true},
+    {"product":"NAND","spec":"256Gb TLC (Wafer Spot)","unit":"waferQuote","kind":"quote","date":"2026-11-09","time":"14:40","value":18.142,"change":-1.21,"changePeriod":"weekly","source":"board"},
+    {"product":"DRAM","spec":"DDR5 16Gb (2G×8) 4800/5600","unit":"chip","kind":"quote","date":"2026-11-16","time":"11:00","value":60.333,"change":0.11,"changePeriod":"session","source":"board","featured":true},
+    {"product":"DRAM","spec":"DDR4 16Gb (2G×8) 3200","unit":"chip","kind":"quote","date":"2026-11-16","time":"11:00","value":79.375,"change":-0.16,"changePeriod":"session","source":"board"},
+    {"product":"DRAM","spec":"DDR4 8Gb (1G×8) 3200","unit":"chip","kind":"quote","date":"2026-11-16","time":"11:00","value":44.429,"change":-0.24,"changePeriod":"session","source":"board"},
+    {"product":"HBM","spec":"HBM3E 36GB","unit":"stack","kind":"reported","date":"2026-09-01","value":2100,"relativeLta":"4–5×","source":"hbmNews","featured":true},
+    {"product":"HBM","spec":"HBM4 16-Hi","unit":"stack","kind":"reported","date":"2026-09-01","value":3500,"source":"hbmNews"}
+  ],
+  "history": [
+    {"product":"NAND","spec":"512Gb TLC (Wafer Spot)","unit":"waferQuote","date":"2026-11-02","value":16.152,"source":"spotReport"},
+    {"product":"DRAM","spec":"DDR4 8Gb (1G×8) 3200","unit":"chip","date":"2026-10-28","value":46.86,"source":"spotReport"},
+    {"product":"DRAM","spec":"DDR4 8Gb (1G×8) 3200","unit":"chip","date":"2026-11-03","value":46.82,"source":"spotReport"}
+  ],
+  "benchmarks": [
+    {"product":"NAND","name":"nandOverall","period":"2026 Q4","date":"2026-09-30","estimate":"+15–20%","comparison":"qoq","source":"quarter"},
+    {"product":"NAND","name":"enterpriseSsd","period":"2026 Q4","date":"2026-09-24","estimate":"+23–28%","comparison":"qoq","source":"ssd"},
+    {"product":"DRAM","name":"conventional","period":"2026 Q4","date":"2026-09-30","estimate":"+10–15%","comparison":"qoq","source":"quarter"},
+    {"product":"HBM","name":"blendedHbm","period":"2027","date":"2026-09-29","estimate":"+121%","comparison":"yoy","source":"hbmForecast"}
+  ],
+  "agreements": [
+    {"products":["NAND","DRAM","HBM"],"name":"micronSca","date":"2026-06-25","term":"multiYear","detail":"micronTerms","sources":["micron","micronProducts"]},
+    {"products":["HBM"],"name":"skHbm4","date":"2026-11-04","term":"2027","detail":"skTerms","sources":["hbmContract"]}
+  ]
+}
