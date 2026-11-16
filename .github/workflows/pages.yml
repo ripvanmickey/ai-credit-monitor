@@ -9,7 +9,12 @@ on:
         description: Refresh the closing market snapshot before publishing
         type: boolean
         default: false
+      refresh_memory_data:
+        description: Check the public memory spot board before publishing
+        type: boolean
+        default: false
   schedule:
+    - cron: '15 11 * * *'
     - cron: '17 18 * * 1-5'
       timezone: America/New_York
 
@@ -33,7 +38,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: main
-          persist-credentials: ${{ github.event_name == 'schedule' || inputs.refresh_market_data }}
+          persist-credentials: ${{ github.event_name == 'schedule' || inputs.refresh_market_data || inputs.refresh_memory_data }}
       - name: Prepare source
         id: source
         run: |
@@ -44,20 +49,41 @@ jobs:
           if [ -f package.json ]; then
             echo 'ready=true' >> "$GITHUB_OUTPUT"
           fi
-      - uses: pnpm/action-setup@v4
+      - name: Record public memory quotes
+        id: memory
+        if: steps.source.outputs.ready == 'true' && (github.event.schedule == '15 11 * * *' || inputs.refresh_memory_data)
+        run: |
+          python3 scripts/refresh-memory.py
+          if ! git diff --quiet -- cycle-public/memory-data.json; then
+            git add cycle-public/memory-data.json
+            git -c user.name=github-actions -c user.email=41898282+github-actions[bot]@users.noreply.github.com commit -m "Record public memory spot quotes"
+            git push origin HEAD:main
+            echo 'changed=true' >> "$GITHUB_OUTPUT"
+          fi
+      - name: Decide whether to publish
+        id: publish
         if: steps.source.outputs.ready == 'true'
+        env:
+          MEMORY_SCHEDULE: ${{ github.event.schedule == '15 11 * * *' }}
+          MEMORY_CHANGED: ${{ steps.memory.outputs.changed }}
+        run: |
+          if [ "$MEMORY_SCHEDULE" != 'true' ] || [ "$MEMORY_CHANGED" = 'true' ]; then
+            echo 'ready=true' >> "$GITHUB_OUTPUT"
+          fi
+      - uses: pnpm/action-setup@v4
+        if: steps.publish.outputs.ready == 'true'
         with:
           version: 10
       - uses: actions/setup-node@v4
-        if: steps.source.outputs.ready == 'true'
+        if: steps.publish.outputs.ready == 'true'
         with:
           node-version: 24
           cache: pnpm
       - run: pnpm install --frozen-lockfile
-        if: steps.source.outputs.ready == 'true'
+        if: steps.publish.outputs.ready == 'true'
       - name: Refresh closing data
         id: refresh
-        if: steps.source.outputs.ready == 'true' && (github.event_name == 'schedule' || inputs.refresh_market_data)
+        if: steps.publish.outputs.ready == 'true' && (github.event.schedule == '17 18 * * 1-5' || inputs.refresh_market_data)
         run: |
           if [ "${{ github.event_name }}" = workflow_dispatch ]; then
             node scripts/close-snapshot.mjs refresh --force
@@ -72,21 +98,21 @@ jobs:
             git push origin HEAD:main
           fi
       - name: Apply saved data and calculate closing signals
-        if: steps.source.outputs.ready == 'true'
+        if: steps.publish.outputs.ready == 'true'
         run: node scripts/close-snapshot.mjs apply
       - run: node scripts/build-pages.mjs
-        if: steps.source.outputs.ready == 'true'
+        if: steps.publish.outputs.ready == 'true'
         env:
           PAGES_BASE_PATH: /${{ github.event.repository.name }}
       - uses: actions/configure-pages@v5
-        if: steps.source.outputs.ready == 'true'
+        if: steps.publish.outputs.ready == 'true'
       - uses: actions/upload-pages-artifact@v3
-        if: steps.source.outputs.ready == 'true'
+        if: steps.publish.outputs.ready == 'true'
         with:
           path: dist/pages
           name: github-pages-${{ github.run_attempt }}
       - uses: actions/deploy-pages@v4
-        if: steps.source.outputs.ready == 'true'
+        if: steps.publish.outputs.ready == 'true'
         id: deploy
         with:
           artifact_name: github-pages-${{ github.run_attempt }}

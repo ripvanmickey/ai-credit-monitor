@@ -8,7 +8,9 @@ const labels = {
   spot: ['二级市场现货', 'Secondary-market spot quotes', '二次市場の現物相場'],
   spotNote: ['DRAMeXchange 为当期时段均价。HBM 为媒体报道的单次指示价，日期为报道日。', 'DRAMeXchange values are session averages. HBM values are one-off media indications dated by publication.', 'DRAMeXchangeはセッション平均値。HBMは報道ベースの参考値で、日付は報道日です。'],
   history: ['历史报价走势', 'Historical spot prices', '現物価格の推移'],
-  historyNote: ['圆点为实际报价。曲线连接同规格的观测点，保留日期间隔。', 'Dots mark observed quotes. Lines connect observations for the same specification at their actual dates.', '点は実際の気配値です。同じ仕様の観測値を実際の日付間隔で結びます。'],
+  historyNote: ['圆点为同规格的公开报价。部分周报仅公布发布日期，已在明细中标注。', 'Dots mark public quotes for the same specification. Weekly reports without a quote date are marked with their publication date.', '点は同じ仕様の公開気配値です。観測日がない週報は公表日を表示します。'],
+  published: ['发布日期', 'Publication date', '公表日'],
+  noHbmHistory: ['HBM3E 和 HBM4 各有一条公开报道的现货指示价。同规格后续报价待披露。', 'HBM3E and HBM4 each have one publicly reported spot indication. Further quotes for the same specifications are pending.', 'HBM3EとHBM4の公開現物参考値は各1件です。同じ仕様の追加情報は未公表です。'],
   historySources: ['查看报价明细与来源', 'View quotes and sources', '気配値と出所を見る'],
   lta: ['长期供货协议（LTA）', 'Long-term supply agreements (LTAs)', '長期供給契約（LTA）'],
   ltaNote: ['记录已披露的定价机制与签订进度。具体单价以合同方披露为准。', 'Track disclosed pricing terms and agreement milestones. Unit prices require disclosure by a contracting party.', '公表された価格決定方式と契約の進捗を記録します。単価は契約当事者の公表情報に基づきます。'],
@@ -117,6 +119,7 @@ function withNote(value, note, className) {
 }
 
 function date(row) {
+  if (row.dateBasis === 'published') return row.date + ' · ' + label('published');
   return row.time ? row.date + ' ' + row.time + ' UTC+8' : row.date;
 }
 
@@ -158,6 +161,7 @@ function renderHistory() {
   select.replaceChildren(...available.map(([key, points]) => new Option(points.values().next().value.spec, key)));
   if (!available.some(([key]) => key === selectedSeries)) selectedSeries = available[0]?.[0];
   select.hidden = available.length < 2;
+  elements['history-empty'].textContent = label(selected === 'HBM' ? 'noHbmHistory' : 'noHistory');
   elements['history-empty'].hidden = available.length > 0;
   elements['history-view'].hidden = !available.length;
 
@@ -168,7 +172,7 @@ function renderHistory() {
     select.value = selectedSeries;
     const points = [...series.get(selectedSeries).values()].sort((a, b) => a.date.localeCompare(b.date));
     const {spec, unit} = points[0];
-    chart.memoryHistory = {spec, unit: label(unit), points: points.map(({date, value}) => ({date, value}))};
+    chart.memoryHistory = {spec, unit: label(unit), points: points.map(row => ({date: row.date, quoteDate: date(row), value: row.value}))};
     showTable(elements.history, ['product', 'spec', 'price', 'date', 'source'],
       [...points].reverse().map(row => [row.product, row.spec, withNote(price(row), label(row.unit), 'numeric'),
         date(row), sourceLinks([row.source])]));

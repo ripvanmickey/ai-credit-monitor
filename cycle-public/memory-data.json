@@ -1,40 +1,4161 @@
 {
   "checkedOn": "2026-11-16",
   "sources": {
-    "board": ["DRAMeXchange", "https://www.dramexchange.com/"],
-    "spotReport": ["TrendForce", "https://www.trendforce.com/news/2026/11/04/insights-memory-spot-price-update-mainstream-ddr4-prices-dip-0-09-as-spot-premium-keeps-buyers-on-sidelines/"],
-    "quarter": ["TrendForce", "https://www.trendforce.com/presscenter/news/20260930-13258.html"],
-    "ssd": ["TrendForce", "https://www.trendforce.com/research/download/RP260924PL"],
-    "hbmNews": ["TrendForce News / Seoul Economic Daily", "https://www.trendforce.com/news/2026/09/01/news-hbm3e-spot-prices-said-to-be-4-5x-lta-levels-with-samsung-reportedly-locking-70-of-memory-capacity-through-2031/"],
-    "hbmForecast": ["TrendForce", "https://www.trendforce.com/presscenter/news/20260929-13255.html"],
-    "hbmContract": ["TrendForce", "https://www.trendforce.com/research/download/RP261104XL"],
-    "micron": ["Micron", "https://investors.micron.com/static-files/23023765-dfef-4e7e-845b-cd744fc20d93"],
-    "micronProducts": ["Micron", "https://investors.micron.com/static-files/2354ecda-77a0-4ddd-8462-a631eb491356"],
-    "dramContract": ["DRAMeXchange", "https://www.dramexchange.com/Price/NationalContractDramDetail"],
-    "nandContract": ["DRAMeXchange", "https://www.dramexchange.com/Price/FlashWaferContract"]
+    "board": [
+      "DRAMeXchange",
+      "https://www.dramexchange.com/"
+    ],
+    "spotReport": [
+      "TrendForce",
+      "https://www.trendforce.com/news/2026/11/04/insights-memory-spot-price-update-mainstream-ddr4-prices-dip-0-09-as-spot-premium-keeps-buyers-on-sidelines/"
+    ],
+    "quarter": [
+      "TrendForce",
+      "https://www.trendforce.com/presscenter/news/20260930-13258.html"
+    ],
+    "ssd": [
+      "TrendForce",
+      "https://www.trendforce.com/research/download/RP260924PL"
+    ],
+    "hbmNews": [
+      "Seoul Economic Daily",
+      "https://en.sedaily.com/business/2026/08/31/spot-hbm-prices-hit-5-times-contract-levels"
+    ],
+    "hbmForecast": [
+      "TrendForce",
+      "https://www.trendforce.com/presscenter/news/20260929-13255.html"
+    ],
+    "hbmContract": [
+      "TrendForce",
+      "https://www.trendforce.com/research/download/RP261104XL"
+    ],
+    "micron": [
+      "Micron",
+      "https://investors.micron.com/static-files/23023765-dfef-4e7e-845b-cd744fc20d93"
+    ],
+    "micronProducts": [
+      "Micron",
+      "https://investors.micron.com/static-files/2354ecda-77a0-4ddd-8462-a631eb491356"
+    ],
+    "dramContract": [
+      "DRAMeXchange",
+      "https://www.dramexchange.com/Price/NationalContractDramDetail"
+    ],
+    "nandContract": [
+      "DRAMeXchange",
+      "https://www.dramexchange.com/Price/FlashWaferContract"
+    ],
+    "nandWeek20240814": [
+      "TrendForce · Memory Spot Price Update",
+      "https://www.trendforce.com/news/2024/08/14/insights-memory-spot-price-update-nand-prices-for-package-dies-and-wafers-dropped-slightly-due-to-slow-transactions/"
+    ],
+    "nandWeek20240110": [
+      "TrendForce · Memory Spot Price Update",
+      "https://www.trendforce.com/news/2024/01/10/insights-light-trading-stable-dram-and-nand-flash-spot-prices/"
+    ],
+    "nandWeek20240124": [
+      "TrendForce · Memory Spot Price Update",
+      "https://www.trendforce.com/news/2024/01/24/insights-memory-spot-price-trends-clear-surge-in-dram-nand-flash-relatively-calm/"
+    ],
+    "nandWeek20230726": [
+      "TrendForce · Memory Spot Price Update",
+      "https://www.trendforce.com/news/2023/07/26/memory-spot-price-update-stagnant-demand-512gb-tlc-wafer-sees-increase/"
+    ],
+    "nandWeek20240117": [
+      "TrendForce · Memory Spot Price Update",
+      "https://www.trendforce.com/news/2024/01/17/insights-memory-spot-price-update-dram-channel-demand-affects-upswing-nand-flash-upswing-to-narrow/"
+    ],
+    "nandWeek20230816": [
+      "TrendForce · Memory Spot Price Update",
+      "https://www.trendforce.com/news/2023/08/16/memory-spot-prices-update-dram-decline-persists-nand-flash-stabilized-for-weeks/"
+    ],
+    "nandWeek20230913": [
+      "TrendForce · Memory Spot Price Update",
+      "https://www.trendforce.com/news/2023/09/13/nand-flash-and-dram-spot-prices-upward-in-late-september-dram-price-stabilizes-until-year-end/"
+    ],
+    "nandWeek20240131": [
+      "TrendForce · Memory Spot Price Update",
+      "https://www.trendforce.com/news/2024/01/31/insights-memory-spot-price-update-limited-transactions-continues-until-after-chinese-new-year/"
+    ],
+    "nandWeek20231227": [
+      "TrendForce · Memory Spot Price Update",
+      "https://www.trendforce.com/news/2023/12/27/insights-memory-spot-price-update-modest-dram-increase-nand-flash-512gb-premium-fades/"
+    ],
+    "nandWeek20230802": [
+      "TrendForce · Memory Spot Price Update",
+      "https://www.trendforce.com/news/2023/08/02/memory-spot-prices-update-dram-still-falling-nand-flash-slows-down/"
+    ],
+    "nandWeek20231018": [
+      "TrendForce · Memory Spot Price Update",
+      "https://www.trendforce.com/news/2023/10/18/memory-spot-price-updates-dram-and-nand-flash-prices-soaring-at-relatively-high-levels/"
+    ],
+    "nandWeek20240207": [
+      "TrendForce · Memory Spot Price Update",
+      "https://www.trendforce.com/news/2024/02/07/insights-memory-spot-price-update-limited-dram-quotes-weak-nand-flash-momentum/"
+    ],
+    "nandWeek20230503": [
+      "TrendForce · Memory Spot Price Update",
+      "https://www.trendforce.com/news/2023/05/03/dram-and-nand-flash-spot-market-dynamics-update/"
+    ],
+    "nandWeek20231220": [
+      "TrendForce · Memory Spot Price Update",
+      "https://www.trendforce.com/news/2023/12/20/insights-due-to-year-end-sluggish-demand-spot-prices-hover-for-dram-and-nand-flash/"
+    ],
+    "nandWeek20230823": [
+      "TrendForce · Memory Spot Price Update",
+      "https://www.trendforce.com/news/2023/08/23/buyer-reluctance-leads-to-a-dram-spot-price-drop-nand-flash-sees-around-a-5-increase/"
+    ],
+    "nandWeek20231108": [
+      "TrendForce · Memory Spot Price Update",
+      "https://www.trendforce.com/news/2023/11/08/insights-early-november-price-update-dram-stalls-nand-flash-on-the-rise/"
+    ],
+    "nandWeek20231115": [
+      "TrendForce · Memory Spot Price Update",
+      "https://www.trendforce.com/news/2023/11/15/insights-weekly-price-update-dram-slightly-increased-nand-remained-stable/"
+    ],
+    "nandWeek20230712": [
+      "TrendForce · Memory Spot Price Update",
+      "https://www.trendforce.com/news/2023/07/12/memory-market-momentum-remains-unimproved-spot-prices-continue-to-decline/"
+    ],
+    "nandWeek20240306": [
+      "TrendForce · Memory Spot Price Update",
+      "https://www.trendforce.com/news/2024/03/06/insights-memory-spot-price-update-weak-demand-limits-nand-price-increase/"
+    ],
+    "nandWeek20240619": [
+      "TrendForce · Memory Spot Price Update",
+      "https://www.trendforce.com/news/2024/06/19/insights-memory-spot-price-update-high-inventory-and-chinas-crackdown-on-smuggling-cause-dram-spot-price-to-drop/"
+    ],
+    "nandWeek20240221": [
+      "TrendForce · Memory Spot Price Update",
+      "https://www.trendforce.com/news/2024/02/21/insights-memory-spot-prices-update-dram-and-nand-flash-short-term-trends-stable/"
+    ],
+    "nandWeek20240612": [
+      "TrendForce · Memory Spot Price Update",
+      "https://www.trendforce.com/news/2024/06/12/insights-memory-spot-price-update-chinas-618-e-commerce-promotions-provided-little-help-for-market-demand-ddr5-did-better-in-sales/"
+    ],
+    "nandWeek20240403": [
+      "TrendForce · Memory Spot Price Update",
+      "https://www.trendforce.com/news/2024/04/03/insights-the-spot-price-of-dram-continues-to-decline-weak-trading-volume-for-nand-flash/"
+    ],
+    "nandWeek20240710": [
+      "TrendForce · Memory Spot Price Update",
+      "https://www.trendforce.com/news/2024/07/10/insights-memory-spot-price-update-ddr4-drives-dram-spot-price-increase-though-nand-remains-weak/"
+    ],
+    "nandWeek20251001": [
+      "TrendForce · Memory Spot Price Update",
+      "https://www.trendforce.com/news/2025/10/01/insights-memory-spot-price-update-dram-mainstream-quotes-rise-by-5-4-amid-seller-reluctance/"
+    ],
+    "nandWeek20260902": [
+      "TrendForce · Memory Spot Price Update",
+      "https://www.trendforce.com/news/2026/09/02/insights-memory-spot-price-update-ddr5-ddr4-demand-weakens-but-firm-supplier-quotes-support-elevated-prices/"
+    ],
+    "nandWeek20260909": [
+      "TrendForce · Memory Spot Price Update",
+      "https://www.trendforce.com/news/2026/09/09/insights-memory-spot-price-update-ddr4-mainstream-prices-rise-1-78-on-2gx8-orders-ddr5-demand-remains-limited/"
+    ],
+    "nandWeek20261028": [
+      "TrendForce · Memory Spot Price Update",
+      "https://www.trendforce.com/news/2026/10/28/insights-memory-spot-price-update-nand-spot-price-cuts-accelerate-amid-china-phone-discounts-512gb-tlc-sink-9-19"
+    ],
+    "nandWeek20260708": [
+      "TrendForce · Memory Spot Price Update",
+      "https://www.trendforce.com/news/2026/07/08/insights-memory-spot-price-update-dram-spot-trading-remains-subdued-with-ddr3-and-4gb-ddr4-prices-edging-higher/"
+    ],
+    "nandWeek20261007": [
+      "TrendForce · Memory Spot Price Update",
+      "https://www.trendforce.com/news/2026/10/07/insights-memory-spot-price-update-dram-spot-largely-sideways-as-holidays-month-end-effects-weigh"
+    ],
+    "nandWeek20260729": [
+      "TrendForce · Memory Spot Price Update",
+      "https://www.trendforce.com/news/2026/07/29/insights-memory-spot-price-update-dram-spot-prices-rise-slightly-as-ddr3-ddr4-and-ddr5-inquiries-pick-up/"
+    ],
+    "nandWeek20260701": [
+      "TrendForce · Memory Spot Price Update",
+      "https://www.trendforce.com/news/2026/07/01/insights-memory-spot-price-update-dram-spot-prices-see-gains-in-low-density-ddr4-and-ddr3-amid-sideways-market/"
+    ],
+    "nandWeek20260527": [
+      "TrendForce · Memory Spot Price Update",
+      "https://www.trendforce.com/news/2026/05/27/insights-memory-spot-price-update-ddr5-spot-price-gains-narrow-amid-sluggish-trading-ddr4-rebounds/"
+    ],
+    "nandWeek20260624": [
+      "TrendForce · Memory Spot Price Update",
+      "https://www.trendforce.com/news/2026/06/24/insights-memory-spot-price-update-dram-buyers-resist-higher-quotes-as-mainstream-ddr4-prices-gain-0-28/"
+    ],
+    "nandWeek20230927": [
+      "TrendForce · Memory Spot Price Update",
+      "https://www.trendforce.com/news/2023/09/27/nand-flash-spot-prices-surge-dram-demand-stalls-spot-prices-remain-volatile-in-late-september/"
+    ],
+    "nandWeek20230906": [
+      "TrendForce · Memory Spot Price Update",
+      "https://www.trendforce.com/news/2023/09/06/the-spot-price-for-both-dram-and-nand-flash-had-no-signs-of-an-upturn-in-early-september/"
+    ],
+    "nandWeek20240911": [
+      "TrendForce · Memory Spot Price Update",
+      "https://www.trendforce.com/news/2024/09/11/insights-memory-spot-price-update-dram-prices-keep-falling-as-samsung-increases-low-cost-reball-ddr5-supply/"
+    ],
+    "nandWeek20231101": [
+      "TrendForce · Memory Spot Price Update",
+      "https://www.trendforce.com/news/2023/11/01/insights-nand-spot-prices-hold-steady-after-hitting-2-mark-upward-trend-is-subject-to-debate/"
+    ],
+    "nandWeek20231129": [
+      "TrendForce · Memory Spot Price Update",
+      "https://www.trendforce.com/news/2023/11/29/news-weekly-price-update-dram-swang-and-nand-remained-strong/"
+    ],
+    "nandWeek20261021": [
+      "TrendForce · Memory Spot Price Update",
+      "https://www.trendforce.com/news/2026/10/21/insights-memory-spot-price-update-ddr5-supply-tight-ddr4-trading-subdued-despite-0-84-gain-in-mainstream-prices/"
+    ],
+    "nandWeek20241106": [
+      "TrendForce · Memory Spot Price Update",
+      "https://www.trendforce.com/news/2024/11/06/insights-memory-spot-price-update-nand-price-declines-linked-to-potential-supplier-wafer-provision-expansion/"
+    ],
+    "nandWeek20231206": [
+      "TrendForce · Memory Spot Price Update",
+      "https://www.trendforce.com/news/2023/12/06/weekly-price-update-dram-held-steady-and-nand-climbed/"
+    ],
+    "nandWeek20251210": [
+      "TrendForce · Memory Spot Price Update",
+      "https://www.trendforce.com/news/2025/12/10/insights-memory-spot-price-update-ddr4-rally-strengthens-on-16gb-gains-ddr5-ddr3-see-mild-pullbacks/"
+    ],
+    "nandWeek20250115": [
+      "TrendForce · Memory Spot Price Update",
+      "https://www.trendforce.com/news/2025/01/15/insights-memory-spot-price-update-nand-demand-rebounds-for-pc-ssds-and-smartphones-on-chinese-subsidies/"
+    ],
+    "nandWeek20250312": [
+      "TrendForce · Memory Spot Price Update",
+      "https://www.trendforce.com/news/2025/03/12/insights-memory-spot-price-update-nand-wafer-prices-keep-climbing-with-more-hikes-ahead/"
+    ],
+    "nandWeek20250122": [
+      "TrendForce · Memory Spot Price Update",
+      "https://www.trendforce.com/news/2025/01/22/insights-memory-spot-price-update-production-cuts-fail-to-boost-market-as-sellers-struggle-with-weak-demand/"
+    ],
+    "nandWeek20240925": [
+      "TrendForce · Memory Spot Price Update",
+      "https://www.trendforce.com/news/2024/09/25/insights-memory-spot-price-update-nand-contract-prices-for-q3-shows-signs-of-loosening-likely-to-persist-until-q4/"
+    ],
+    "nandWeek20260610": [
+      "TrendForce · Memory Spot Price Update",
+      "https://www.trendforce.com/news/2026/06/10/insights-memory-spot-price-update-ddr5-spot-momentum-continues-as-ddr4-tightness-spills-over-to-ddr3/"
+    ],
+    "nandWeek20260128": [
+      "TrendForce · Memory Spot Price Update",
+      "https://www.trendforce.com/news/2026/01/28/insights-memory-spot-price-update-ddr4ddr5-hit-highs-buyers-hesitant-ddr3-sees-uptick/"
+    ],
+    "nandWeek20251224": [
+      "TrendForce · Memory Spot Price Update",
+      "https://www.trendforce.com/news/2025/12/24/insights-memory-spot-price-update-kingston-leads-dram-price-surge-as-ddr4-ddr5-and-modules-hold-strong/"
+    ],
+    "nandWeek20240904": [
+      "TrendForce · Memory Spot Price Update",
+      "https://www.trendforce.com/news/2024/09/04/insights-memory-spot-price-update-nand-spot-price-continued-to-drop-as-market-enervation-might-persist-until-1h25/"
+    ],
+    "nandWeek20241009": [
+      "TrendForce · Memory Spot Price Update",
+      "https://www.trendforce.com/news/2024/10/09/insights-memory-spot-price-update-trading-falls-during-chinas-golden-week-dram-market-rebound-unlikely-by-year-end/"
+    ],
+    "nandWeek20250226": [
+      "TrendForce · Memory Spot Price Update",
+      "https://www.trendforce.com/news/2025/02/26/insights-memory-spot-price-update-sk-hynix-props-up-ddr5-prices-while-ddr4-momentum-hits-brakes/"
+    ],
+    "nandWeek20251119": [
+      "TrendForce · Memory Spot Price Update",
+      "https://www.trendforce.com/news/2025/11/19/insights-memory-spot-price-update-ddr5-prices-up-307-since-september-as-module-costs-poised-to-surge/"
+    ],
+    "nandWeek20251105": [
+      "TrendForce · Memory Spot Price Update",
+      "https://www.trendforce.com/news/2025/11/05/insights-memory-spot-price-update-dram-buyers-rush-in-as-ddr5-spot-prices-jump-30-amid-tight-supply/"
+    ],
+    "nandWeek20251015": [
+      "TrendForce · Memory Spot Price Update",
+      "https://www.trendforce.com/news/2025/10/15/insights-memory-spot-price-update-dram-module-sellers-mostly-halt-quotes-as-mainstream-ddr4-soars-7-21/"
+    ],
+    "nandWeek20260114": [
+      "TrendForce · Memory Spot Price Update",
+      "https://www.trendforce.com/news/2026/01/14/insights-memory-spot-price-update-dram-surges-as-sellers-hold-back-inventory-mainstream-ddr4-up-nearly-10/"
+    ],
+    "nandWeek20260211": [
+      "TrendForce · Memory Spot Price Update",
+      "https://www.trendforce.com/news/2026/02/11/insights-memory-spot-price-update-lunar-new-year-slows-dram-spot-trading-price-gap-narrows/"
+    ],
+    "nandWeek20260603": [
+      "TrendForce · Memory Spot Price Update",
+      "https://www.trendforce.com/news/2026/06/03/insights-memory-spot-price-update-ddr4-and-ddr5-extend-gains-though-higher-quotes-temper-procurement-demand/"
+    ],
+    "nandWeek20260520": [
+      "TrendForce · Memory Spot Price Update",
+      "https://www.trendforce.com/news/2026/05/20/insights-memory-spot-price-update-ddr5-spot-market-strengthens-on-branded-demand-and-higher-bids-ddr4-weakens/"
+    ],
+    "nandWeek20260930": [
+      "TrendForce · Memory Spot Price Update",
+      "https://www.trendforce.com/news/2026/09/30/insights-memory-spot-price-update-dram-market-quiet-amid-holidays-nand-buying-stays-weak/"
+    ],
+    "nandWeek20260513": [
+      "TrendForce · Memory Spot Price Update",
+      "https://www.trendforce.com/news/2026/05/13/insights-memory-spot-price-update-dram-spot-market-strengthens-post-holiday-as-ddr4-leads-demand/"
+    ],
+    "nandWeek20260408": [
+      "TrendForce · Memory Spot Price Update",
+      "https://www.trendforce.com/news/2026/04/08/insights-memory-spot-price-update-dram-extends-gradual-downtrend-on-contained-selling-pressure-ddr4-drops-1-18/"
+    ],
+    "nandWeek20260401": [
+      "TrendForce · Memory Spot Price Update",
+      "https://www.trendforce.com/news/2026/04/01/insights-memory-spot-price-update-ddr3-strength-contrasts-weak-ddr4-and-ddr5-amid-high-prices-and-soft-demand/"
+    ],
+    "nandWeek20260415": [
+      "TrendForce · Memory Spot Price Update",
+      "https://www.trendforce.com/news/2026/04/15/insights-memory-spot-price-update-dram-spot-sellers-hold-firm-ahead-of-mid-april-pricing-ddr4-edges-lower-0-48/"
+    ],
+    "nandWeek20260819": [
+      "TrendForce · Memory Spot Price Update",
+      "https://www.trendforce.com/news/2026/08/19/insights-memory-spot-price-update-3q-dram-spot-volumes-seen-staying-low-ddr4-prices-up-0-67-this-week/?trk=article-ssr-frontend-pulse_little-text-block"
+    ],
+    "nandWeek20260722": [
+      "TrendForce · Memory Spot Price Update",
+      "https://www.trendforce.com/news/2026/07/22/insights-memory-spot-price-update-dram-spot-market-edges-higher-as-branded-ddr4-demand-supports-prices/"
+    ],
+    "nandWeek20260805": [
+      "TrendForce · Memory Spot Price Update",
+      "https://www.trendforce.com/news/2026/08/05/insights-memory-spot-price-update-dram-spot-price-gains-slow-while-ddr4-and-ddr3-continue-uptrend/"
+    ],
+    "nandWeek20260923": [
+      "TrendForce · Memory Spot Price Update",
+      "https://www.trendforce.com/news/2026/09/23/insights-memory-spot-price-update-dram-spot-prices-hold-cautious-tone-ddr4-2gx8-drops-3-6/"
+    ],
+    "dramArchive23": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=23"
+    ],
+    "dramArchive24": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=24"
+    ],
+    "dramArchive25": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=25"
+    ],
+    "dramArchive26": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=26"
+    ],
+    "dramArchive27": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=27"
+    ],
+    "dramArchive28": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=28"
+    ],
+    "dramArchive29": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=29"
+    ],
+    "dramArchive30": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=30"
+    ],
+    "dramArchive31": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=31"
+    ],
+    "dramArchive32": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=32"
+    ],
+    "dramArchive33": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=33"
+    ],
+    "dramArchive34": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=34"
+    ],
+    "dramArchive35": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=35"
+    ],
+    "dramArchive36": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=36"
+    ],
+    "dramArchive37": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=37"
+    ],
+    "dramArchive38": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=38"
+    ],
+    "dramArchive39": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=39"
+    ],
+    "dramArchive40": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=40"
+    ],
+    "dramArchive41": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=41"
+    ],
+    "dramArchive42": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=42"
+    ],
+    "dramArchive43": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=43"
+    ],
+    "dramArchive44": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=44"
+    ],
+    "dramArchive45": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=45"
+    ],
+    "dramArchive46": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=46"
+    ],
+    "dramArchive49": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=49"
+    ],
+    "dramArchive50": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=50"
+    ],
+    "dramArchive51": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=51"
+    ],
+    "dramArchive52": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=52"
+    ],
+    "dramArchive55": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=55"
+    ],
+    "dramArchive56": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=56"
+    ],
+    "dramArchive57": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=57"
+    ],
+    "dramArchive58": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=58"
+    ],
+    "dramArchive59": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=59"
+    ],
+    "dramArchive60": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=60"
+    ],
+    "dramArchive61": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=61"
+    ],
+    "dramArchive63": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=63"
+    ],
+    "dramArchive64": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=64"
+    ],
+    "dramArchive65": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=65"
+    ],
+    "dramArchive66": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=66"
+    ],
+    "dramArchive68": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=68"
+    ],
+    "dramArchive69": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=69"
+    ],
+    "dramArchive71": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=71"
+    ],
+    "dramArchive72": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=72"
+    ],
+    "dramArchive73": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=73"
+    ],
+    "dramArchive74": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=74"
+    ],
+    "dramArchive75": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=75"
+    ],
+    "dramArchive77": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=77"
+    ],
+    "dramArchive78": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=78"
+    ],
+    "dramArchive79": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=79"
+    ],
+    "dramArchive80": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=80"
+    ],
+    "dramArchive81": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=81"
+    ],
+    "dramArchive82": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=82"
+    ],
+    "dramArchive83": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=83"
+    ],
+    "dramArchive85": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=85"
+    ],
+    "dramArchive86": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=86"
+    ],
+    "dramArchive87": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=87"
+    ],
+    "dramArchive88": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=88"
+    ],
+    "dramArchive89": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=89"
+    ],
+    "dramArchive92": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=92"
+    ],
+    "dramArchive93": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=93"
+    ],
+    "dramArchive95": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=95"
+    ],
+    "dramArchive96": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=96"
+    ],
+    "dramArchive97": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=97"
+    ],
+    "dramArchive98": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=98"
+    ],
+    "dramArchive99": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=99"
+    ],
+    "dramArchive100": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=100"
+    ],
+    "dramArchive101": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=101"
+    ],
+    "dramArchive102": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=102"
+    ],
+    "dramArchive103": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=103"
+    ],
+    "dramArchive104": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=104"
+    ],
+    "dramArchive105": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=105"
+    ],
+    "dramArchive106": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=106"
+    ],
+    "dramArchive107": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=107"
+    ],
+    "dramArchive108": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=108"
+    ],
+    "dramArchive109": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=109"
+    ],
+    "dramArchive110": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=110"
+    ],
+    "dramArchive111": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=111"
+    ],
+    "dramArchive112": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=112"
+    ],
+    "dramArchive113": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=113"
+    ],
+    "dramArchive114": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=114"
+    ],
+    "dramArchive115": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=115"
+    ],
+    "dramArchive117": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=117"
+    ],
+    "dramArchive119": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=119"
+    ],
+    "dramArchive120": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=120"
+    ],
+    "dramArchive121": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=121"
+    ],
+    "dramArchive122": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=122"
+    ],
+    "dramArchive123": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=123"
+    ],
+    "dramArchive124": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=124"
+    ],
+    "dramArchive1": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=1"
+    ],
+    "dramArchive2": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=2"
+    ],
+    "dramArchive3": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=3"
+    ],
+    "dramArchive4": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=4"
+    ],
+    "dramArchive5": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=5"
+    ],
+    "dramArchive6": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=6"
+    ],
+    "dramArchive7": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=7"
+    ],
+    "dramArchive8": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=8"
+    ],
+    "dramArchive9": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=9"
+    ],
+    "dramArchive10": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=10"
+    ],
+    "dramArchive11": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=11"
+    ],
+    "dramArchive12": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=12"
+    ],
+    "dramArchive13": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=13"
+    ],
+    "dramArchive14": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=14"
+    ],
+    "dramArchive15": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=15"
+    ],
+    "dramArchive16": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=16"
+    ],
+    "dramArchive17": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=17"
+    ],
+    "dramArchive18": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=18"
+    ],
+    "dramArchive19": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=19"
+    ],
+    "dramArchive20": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=20"
+    ],
+    "dramArchive21": [
+      "TrendForce · Daily Express",
+      "https://www.trendforce.com/presscenter/analysis?page=21"
+    ],
+    "nandWeek20260204": [
+      "TrendForce · Memory Spot Price Update",
+      "https://www.trendforce.com/news/2026/02/04/insights-memory-spot-price-update-dram-stalls-ahead-of-late-feb-contract-price-settlements/"
+    ]
   },
   "spot": [
-    {"product":"NAND","spec":"512Gb TLC (Wafer Spot)","unit":"waferQuote","kind":"quote","date":"2026-11-09","time":"14:40","value":14.267,"change":-11.67,"changePeriod":"weekly","source":"board","featured":true},
-    {"product":"NAND","spec":"256Gb TLC (Wafer Spot)","unit":"waferQuote","kind":"quote","date":"2026-11-09","time":"14:40","value":18.142,"change":-1.21,"changePeriod":"weekly","source":"board"},
-    {"product":"DRAM","spec":"DDR5 16Gb (2G×8) 4800/5600","unit":"chip","kind":"quote","date":"2026-11-16","time":"11:00","value":60.333,"change":0.11,"changePeriod":"session","source":"board","featured":true},
-    {"product":"DRAM","spec":"DDR4 16Gb (2G×8) 3200","unit":"chip","kind":"quote","date":"2026-11-16","time":"11:00","value":79.375,"change":-0.16,"changePeriod":"session","source":"board"},
-    {"product":"DRAM","spec":"DDR4 8Gb (1G×8) 3200","unit":"chip","kind":"quote","date":"2026-11-16","time":"11:00","value":44.429,"change":-0.24,"changePeriod":"session","source":"board"},
-    {"product":"HBM","spec":"HBM3E 36GB","unit":"stack","kind":"reported","date":"2026-09-01","value":2100,"relativeLta":"4–5×","source":"hbmNews","featured":true},
-    {"product":"HBM","spec":"HBM4 16-Hi","unit":"stack","kind":"reported","date":"2026-09-01","value":3500,"source":"hbmNews"}
+    {
+      "product": "NAND",
+      "spec": "512Gb TLC (Wafer Spot)",
+      "unit": "waferQuote",
+      "kind": "quote",
+      "date": "2026-11-09",
+      "time": "14:40",
+      "value": 14.267,
+      "change": -11.67,
+      "changePeriod": "weekly",
+      "source": "board",
+      "featured": true
+    },
+    {
+      "product": "NAND",
+      "spec": "256Gb TLC (Wafer Spot)",
+      "unit": "waferQuote",
+      "kind": "quote",
+      "date": "2026-11-09",
+      "time": "14:40",
+      "value": 18.142,
+      "change": -1.21,
+      "changePeriod": "weekly",
+      "source": "board"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR5 16Gb (2G×8) 4800/5600",
+      "unit": "chip",
+      "kind": "quote",
+      "date": "2026-11-16",
+      "time": "14:40",
+      "value": 60.333,
+      "change": 0.11,
+      "changePeriod": "session",
+      "source": "board",
+      "featured": true
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 16Gb (2G×8) 3200",
+      "unit": "chip",
+      "kind": "quote",
+      "date": "2026-11-16",
+      "time": "14:40",
+      "value": 79.375,
+      "change": -0.16,
+      "changePeriod": "session",
+      "source": "board"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "kind": "quote",
+      "date": "2026-11-16",
+      "time": "14:40",
+      "value": 44.357,
+      "change": -0.4,
+      "changePeriod": "session",
+      "source": "board"
+    },
+    {
+      "product": "HBM",
+      "spec": "HBM3E 36GB",
+      "unit": "stack",
+      "kind": "reported",
+      "date": "2026-08-31",
+      "value": 2100,
+      "relativeLta": "4–5×",
+      "source": "hbmNews",
+      "featured": true,
+      "dateBasis": "published"
+    },
+    {
+      "product": "HBM",
+      "spec": "HBM4 16-Hi",
+      "unit": "stack",
+      "kind": "reported",
+      "date": "2026-08-31",
+      "value": 3500,
+      "source": "hbmNews",
+      "dateBasis": "published"
+    }
   ],
   "history": [
-    {"product":"NAND","spec":"512Gb TLC (Wafer Spot)","unit":"waferQuote","date":"2026-11-02","value":16.152,"source":"spotReport"},
-    {"product":"DRAM","spec":"DDR4 8Gb (1G×8) 3200","unit":"chip","date":"2026-10-28","value":46.86,"source":"spotReport"},
-    {"product":"DRAM","spec":"DDR4 8Gb (1G×8) 3200","unit":"chip","date":"2026-11-03","value":46.82,"source":"spotReport"}
+    {
+      "product": "NAND",
+      "spec": "512Gb TLC (Wafer Spot)",
+      "unit": "waferQuote",
+      "date": "2023-05-03",
+      "value": 1.436,
+      "dateBasis": "published",
+      "source": "nandWeek20230503"
+    },
+    {
+      "product": "NAND",
+      "spec": "512Gb TLC (Wafer Spot)",
+      "unit": "waferQuote",
+      "date": "2023-07-12",
+      "value": 1.404,
+      "dateBasis": "published",
+      "source": "nandWeek20230712"
+    },
+    {
+      "product": "NAND",
+      "spec": "512Gb TLC (Wafer Spot)",
+      "unit": "waferQuote",
+      "date": "2023-07-26",
+      "value": 1.404,
+      "dateBasis": "published",
+      "source": "nandWeek20230726"
+    },
+    {
+      "product": "NAND",
+      "spec": "512Gb TLC (Wafer Spot)",
+      "unit": "waferQuote",
+      "date": "2023-08-02",
+      "value": 1.421,
+      "dateBasis": "published",
+      "source": "nandWeek20230802"
+    },
+    {
+      "product": "NAND",
+      "spec": "512Gb TLC (Wafer Spot)",
+      "unit": "waferQuote",
+      "date": "2023-08-16",
+      "value": 1.44,
+      "dateBasis": "published",
+      "source": "nandWeek20230816"
+    },
+    {
+      "product": "NAND",
+      "spec": "512Gb TLC (Wafer Spot)",
+      "unit": "waferQuote",
+      "date": "2023-08-23",
+      "value": 1.519,
+      "dateBasis": "published",
+      "source": "nandWeek20230823"
+    },
+    {
+      "product": "NAND",
+      "spec": "512Gb TLC (Wafer Spot)",
+      "unit": "waferQuote",
+      "date": "2023-09-06",
+      "value": 1.588,
+      "dateBasis": "published",
+      "source": "nandWeek20230906"
+    },
+    {
+      "product": "NAND",
+      "spec": "512Gb TLC (Wafer Spot)",
+      "unit": "waferQuote",
+      "date": "2023-09-13",
+      "value": 1.62,
+      "dateBasis": "published",
+      "source": "nandWeek20230913"
+    },
+    {
+      "product": "NAND",
+      "spec": "512Gb TLC (Wafer Spot)",
+      "unit": "waferQuote",
+      "date": "2023-09-27",
+      "value": 1.757,
+      "dateBasis": "published",
+      "source": "nandWeek20230927"
+    },
+    {
+      "product": "NAND",
+      "spec": "512Gb TLC (Wafer Spot)",
+      "unit": "waferQuote",
+      "date": "2023-10-18",
+      "value": 1.931,
+      "dateBasis": "published",
+      "source": "nandWeek20231018"
+    },
+    {
+      "product": "NAND",
+      "spec": "512Gb TLC (Wafer Spot)",
+      "unit": "waferQuote",
+      "date": "2023-11-01",
+      "value": 2.304,
+      "dateBasis": "published",
+      "source": "nandWeek20231101"
+    },
+    {
+      "product": "NAND",
+      "spec": "512Gb TLC (Wafer Spot)",
+      "unit": "waferQuote",
+      "date": "2023-11-08",
+      "value": 2.464,
+      "dateBasis": "published",
+      "source": "nandWeek20231108"
+    },
+    {
+      "product": "NAND",
+      "spec": "512Gb TLC (Wafer Spot)",
+      "unit": "waferQuote",
+      "date": "2023-11-15",
+      "value": 2.604,
+      "dateBasis": "published",
+      "source": "nandWeek20231115"
+    },
+    {
+      "product": "NAND",
+      "spec": "512Gb TLC (Wafer Spot)",
+      "unit": "waferQuote",
+      "date": "2023-11-29",
+      "value": 2.862,
+      "dateBasis": "published",
+      "source": "nandWeek20231129"
+    },
+    {
+      "product": "NAND",
+      "spec": "512Gb TLC (Wafer Spot)",
+      "unit": "waferQuote",
+      "date": "2023-12-06",
+      "value": 3.015,
+      "dateBasis": "published",
+      "source": "nandWeek20231206"
+    },
+    {
+      "product": "NAND",
+      "spec": "512Gb TLC (Wafer Spot)",
+      "unit": "waferQuote",
+      "date": "2023-12-20",
+      "value": 3.075,
+      "dateBasis": "published",
+      "source": "nandWeek20231220"
+    },
+    {
+      "product": "NAND",
+      "spec": "512Gb TLC (Wafer Spot)",
+      "unit": "waferQuote",
+      "date": "2023-12-27",
+      "value": 3.128,
+      "dateBasis": "published",
+      "source": "nandWeek20231227"
+    },
+    {
+      "product": "NAND",
+      "spec": "512Gb TLC (Wafer Spot)",
+      "unit": "waferQuote",
+      "date": "2024-01-10",
+      "value": 3.117,
+      "dateBasis": "published",
+      "source": "nandWeek20240110"
+    },
+    {
+      "product": "NAND",
+      "spec": "512Gb TLC (Wafer Spot)",
+      "unit": "waferQuote",
+      "date": "2024-01-17",
+      "value": 3.188,
+      "dateBasis": "published",
+      "source": "nandWeek20240117"
+    },
+    {
+      "product": "NAND",
+      "spec": "512Gb TLC (Wafer Spot)",
+      "unit": "waferQuote",
+      "date": "2024-01-24",
+      "value": 3.219,
+      "dateBasis": "published",
+      "source": "nandWeek20240124"
+    },
+    {
+      "product": "NAND",
+      "spec": "512Gb TLC (Wafer Spot)",
+      "unit": "waferQuote",
+      "date": "2024-01-31",
+      "value": 3.437,
+      "dateBasis": "published",
+      "source": "nandWeek20240131"
+    },
+    {
+      "product": "NAND",
+      "spec": "512Gb TLC (Wafer Spot)",
+      "unit": "waferQuote",
+      "date": "2024-02-07",
+      "value": 3.437,
+      "dateBasis": "published",
+      "source": "nandWeek20240207"
+    },
+    {
+      "product": "NAND",
+      "spec": "512Gb TLC (Wafer Spot)",
+      "unit": "waferQuote",
+      "date": "2024-02-21",
+      "value": 3.437,
+      "dateBasis": "published",
+      "source": "nandWeek20240221"
+    },
+    {
+      "product": "NAND",
+      "spec": "512Gb TLC (Wafer Spot)",
+      "unit": "waferQuote",
+      "date": "2024-03-06",
+      "value": 3.585,
+      "dateBasis": "published",
+      "source": "nandWeek20240306"
+    },
+    {
+      "product": "NAND",
+      "spec": "512Gb TLC (Wafer Spot)",
+      "unit": "waferQuote",
+      "date": "2024-04-03",
+      "value": 3.764,
+      "dateBasis": "published",
+      "source": "nandWeek20240403"
+    },
+    {
+      "product": "NAND",
+      "spec": "512Gb TLC (Wafer Spot)",
+      "unit": "waferQuote",
+      "date": "2024-06-12",
+      "value": 3.328,
+      "dateBasis": "published",
+      "source": "nandWeek20240612"
+    },
+    {
+      "product": "NAND",
+      "spec": "512Gb TLC (Wafer Spot)",
+      "unit": "waferQuote",
+      "date": "2024-06-19",
+      "value": 3.309,
+      "dateBasis": "published",
+      "source": "nandWeek20240619"
+    },
+    {
+      "product": "NAND",
+      "spec": "512Gb TLC (Wafer Spot)",
+      "unit": "waferQuote",
+      "date": "2024-07-10",
+      "value": 3.291,
+      "dateBasis": "published",
+      "source": "nandWeek20240710"
+    },
+    {
+      "product": "NAND",
+      "spec": "512Gb TLC (Wafer Spot)",
+      "unit": "waferQuote",
+      "date": "2024-08-14",
+      "value": 3.272,
+      "dateBasis": "published",
+      "source": "nandWeek20240814"
+    },
+    {
+      "product": "NAND",
+      "spec": "512Gb TLC (Wafer Spot)",
+      "unit": "waferQuote",
+      "date": "2024-09-04",
+      "value": 3.185,
+      "dateBasis": "published",
+      "source": "nandWeek20240904"
+    },
+    {
+      "product": "NAND",
+      "spec": "512Gb TLC (Wafer Spot)",
+      "unit": "waferQuote",
+      "date": "2024-09-11",
+      "value": 3.075,
+      "dateBasis": "published",
+      "source": "nandWeek20240911"
+    },
+    {
+      "product": "NAND",
+      "spec": "512Gb TLC (Wafer Spot)",
+      "unit": "waferQuote",
+      "date": "2024-09-25",
+      "value": 2.71,
+      "dateBasis": "published",
+      "source": "nandWeek20240925"
+    },
+    {
+      "product": "NAND",
+      "spec": "512Gb TLC (Wafer Spot)",
+      "unit": "waferQuote",
+      "date": "2024-10-09",
+      "value": 2.595,
+      "dateBasis": "published",
+      "source": "nandWeek20241009"
+    },
+    {
+      "product": "NAND",
+      "spec": "512Gb TLC (Wafer Spot)",
+      "unit": "waferQuote",
+      "date": "2024-11-06",
+      "value": 2.38,
+      "dateBasis": "published",
+      "source": "nandWeek20241106"
+    },
+    {
+      "product": "NAND",
+      "spec": "512Gb TLC (Wafer Spot)",
+      "unit": "waferQuote",
+      "date": "2025-01-15",
+      "value": 2.42,
+      "dateBasis": "published",
+      "source": "nandWeek20250115"
+    },
+    {
+      "product": "NAND",
+      "spec": "512Gb TLC (Wafer Spot)",
+      "unit": "waferQuote",
+      "date": "2025-01-22",
+      "value": 2.405,
+      "dateBasis": "published",
+      "source": "nandWeek20250122"
+    },
+    {
+      "product": "NAND",
+      "spec": "512Gb TLC (Wafer Spot)",
+      "unit": "waferQuote",
+      "date": "2025-02-26",
+      "value": 2.42,
+      "dateBasis": "published",
+      "source": "nandWeek20250226"
+    },
+    {
+      "product": "NAND",
+      "spec": "512Gb TLC (Wafer Spot)",
+      "unit": "waferQuote",
+      "date": "2025-03-12",
+      "value": 2.5,
+      "dateBasis": "published",
+      "source": "nandWeek20250312"
+    },
+    {
+      "product": "NAND",
+      "spec": "512Gb TLC (Wafer Spot)",
+      "unit": "waferQuote",
+      "date": "2025-10-01",
+      "value": 3.121,
+      "dateBasis": "published",
+      "source": "nandWeek20251001"
+    },
+    {
+      "product": "NAND",
+      "spec": "512Gb TLC (Wafer Spot)",
+      "unit": "waferQuote",
+      "date": "2025-10-15",
+      "value": 3.576,
+      "dateBasis": "published",
+      "source": "nandWeek20251015"
+    },
+    {
+      "product": "NAND",
+      "spec": "512Gb TLC (Wafer Spot)",
+      "unit": "waferQuote",
+      "date": "2025-11-05",
+      "value": 5.514,
+      "dateBasis": "published",
+      "source": "nandWeek20251105"
+    },
+    {
+      "product": "NAND",
+      "spec": "512Gb TLC (Wafer Spot)",
+      "unit": "waferQuote",
+      "date": "2025-11-19",
+      "value": 7.421,
+      "dateBasis": "published",
+      "source": "nandWeek20251119"
+    },
+    {
+      "product": "NAND",
+      "spec": "512Gb TLC (Wafer Spot)",
+      "unit": "waferQuote",
+      "date": "2025-12-09",
+      "value": 9.634,
+      "source": "nandWeek20251210"
+    },
+    {
+      "product": "NAND",
+      "spec": "512Gb TLC (Wafer Spot)",
+      "unit": "waferQuote",
+      "date": "2025-12-24",
+      "value": 11.517,
+      "dateBasis": "published",
+      "source": "nandWeek20251224"
+    },
+    {
+      "product": "NAND",
+      "spec": "512Gb TLC (Wafer Spot)",
+      "unit": "waferQuote",
+      "date": "2026-01-14",
+      "value": 15.052,
+      "dateBasis": "published",
+      "source": "nandWeek20260114"
+    },
+    {
+      "product": "NAND",
+      "spec": "512Gb TLC (Wafer Spot)",
+      "unit": "waferQuote",
+      "date": "2026-01-26",
+      "value": 16.31,
+      "source": "nandWeek20260128"
+    },
+    {
+      "product": "NAND",
+      "spec": "512Gb TLC (Wafer Spot)",
+      "unit": "waferQuote",
+      "date": "2026-02-04",
+      "value": 17.724,
+      "dateBasis": "published",
+      "source": "nandWeek20260204"
+    },
+    {
+      "product": "NAND",
+      "spec": "512Gb TLC (Wafer Spot)",
+      "unit": "waferQuote",
+      "date": "2026-02-09",
+      "value": 17.948,
+      "source": "nandWeek20260211"
+    },
+    {
+      "product": "NAND",
+      "spec": "512Gb TLC (Wafer Spot)",
+      "unit": "waferQuote",
+      "date": "2026-03-30",
+      "value": 22.155,
+      "source": "nandWeek20260401"
+    },
+    {
+      "product": "NAND",
+      "spec": "512Gb TLC (Wafer Spot)",
+      "unit": "waferQuote",
+      "date": "2026-04-06",
+      "value": 21.68,
+      "source": "nandWeek20260408"
+    },
+    {
+      "product": "NAND",
+      "spec": "512Gb TLC (Wafer Spot)",
+      "unit": "waferQuote",
+      "date": "2026-04-13",
+      "value": 21,
+      "source": "nandWeek20260415"
+    },
+    {
+      "product": "NAND",
+      "spec": "512Gb TLC (Wafer Spot)",
+      "unit": "waferQuote",
+      "date": "2026-05-13",
+      "value": 20.541,
+      "dateBasis": "published",
+      "source": "nandWeek20260513"
+    },
+    {
+      "product": "NAND",
+      "spec": "512Gb TLC (Wafer Spot)",
+      "unit": "waferQuote",
+      "date": "2026-05-20",
+      "value": 20.707,
+      "dateBasis": "published",
+      "source": "nandWeek20260520"
+    },
+    {
+      "product": "NAND",
+      "spec": "512Gb TLC (Wafer Spot)",
+      "unit": "waferQuote",
+      "date": "2026-05-25",
+      "value": 20.638,
+      "source": "nandWeek20260527"
+    },
+    {
+      "product": "NAND",
+      "spec": "512Gb TLC (Wafer Spot)",
+      "unit": "waferQuote",
+      "date": "2026-06-03",
+      "value": 20.683,
+      "dateBasis": "published",
+      "source": "nandWeek20260603"
+    },
+    {
+      "product": "NAND",
+      "spec": "512Gb TLC (Wafer Spot)",
+      "unit": "waferQuote",
+      "date": "2026-06-08",
+      "value": 20.638,
+      "source": "nandWeek20260610"
+    },
+    {
+      "product": "NAND",
+      "spec": "512Gb TLC (Wafer Spot)",
+      "unit": "waferQuote",
+      "date": "2026-06-22",
+      "value": 20.069,
+      "source": "nandWeek20260624"
+    },
+    {
+      "product": "NAND",
+      "spec": "512Gb TLC (Wafer Spot)",
+      "unit": "waferQuote",
+      "date": "2026-06-29",
+      "value": 19.862,
+      "source": "nandWeek20260701"
+    },
+    {
+      "product": "NAND",
+      "spec": "512Gb TLC (Wafer Spot)",
+      "unit": "waferQuote",
+      "date": "2026-07-06",
+      "value": 19.293,
+      "source": "nandWeek20260708"
+    },
+    {
+      "product": "NAND",
+      "spec": "512Gb TLC (Wafer Spot)",
+      "unit": "waferQuote",
+      "date": "2026-07-20",
+      "value": 18.931,
+      "source": "nandWeek20260722"
+    },
+    {
+      "product": "NAND",
+      "spec": "512Gb TLC (Wafer Spot)",
+      "unit": "waferQuote",
+      "date": "2026-07-27",
+      "value": 19.25,
+      "source": "nandWeek20260729"
+    },
+    {
+      "product": "NAND",
+      "spec": "512Gb TLC (Wafer Spot)",
+      "unit": "waferQuote",
+      "date": "2026-08-05",
+      "value": 20.125,
+      "dateBasis": "published",
+      "source": "nandWeek20260805"
+    },
+    {
+      "product": "NAND",
+      "spec": "512Gb TLC (Wafer Spot)",
+      "unit": "waferQuote",
+      "date": "2026-08-17",
+      "value": 21.208,
+      "source": "nandWeek20260819"
+    },
+    {
+      "product": "NAND",
+      "spec": "512Gb TLC (Wafer Spot)",
+      "unit": "waferQuote",
+      "date": "2026-08-31",
+      "value": 20.708,
+      "source": "nandWeek20260902"
+    },
+    {
+      "product": "NAND",
+      "spec": "512Gb TLC (Wafer Spot)",
+      "unit": "waferQuote",
+      "date": "2026-09-07",
+      "value": 20.146,
+      "source": "nandWeek20260909"
+    },
+    {
+      "product": "NAND",
+      "spec": "512Gb TLC (Wafer Spot)",
+      "unit": "waferQuote",
+      "date": "2026-09-21",
+      "value": 19.883,
+      "source": "nandWeek20260923"
+    },
+    {
+      "product": "NAND",
+      "spec": "512Gb TLC (Wafer Spot)",
+      "unit": "waferQuote",
+      "date": "2026-09-28",
+      "value": 19.396,
+      "source": "nandWeek20260930"
+    },
+    {
+      "product": "NAND",
+      "spec": "512Gb TLC (Wafer Spot)",
+      "unit": "waferQuote",
+      "date": "2026-10-05",
+      "value": 18.833,
+      "source": "nandWeek20261007"
+    },
+    {
+      "product": "NAND",
+      "spec": "512Gb TLC (Wafer Spot)",
+      "unit": "waferQuote",
+      "date": "2026-10-19",
+      "value": 18.592,
+      "source": "nandWeek20261021"
+    },
+    {
+      "product": "NAND",
+      "spec": "512Gb TLC (Wafer Spot)",
+      "unit": "waferQuote",
+      "date": "2026-10-26",
+      "value": 16.883,
+      "source": "nandWeek20261028"
+    },
+    {
+      "product": "NAND",
+      "spec": "512Gb TLC (Wafer Spot)",
+      "unit": "waferQuote",
+      "date": "2026-11-02",
+      "value": 16.152,
+      "source": "spotReport"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2024-12-17",
+      "value": 1.458,
+      "source": "dramArchive124"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2024-12-18",
+      "value": 1.458,
+      "source": "dramArchive124"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2024-12-19",
+      "value": 1.457,
+      "source": "dramArchive123"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2024-12-23",
+      "value": 1.464,
+      "source": "dramArchive123"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2024-12-24",
+      "value": 1.466,
+      "source": "dramArchive123"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2024-12-25",
+      "value": 1.466,
+      "source": "dramArchive123"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2024-12-26",
+      "value": 1.465,
+      "source": "dramArchive122"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2024-12-27",
+      "value": 1.464,
+      "source": "dramArchive122"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2024-12-30",
+      "value": 1.464,
+      "source": "dramArchive122"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-01-02",
+      "value": 1.464,
+      "source": "dramArchive122"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-01-03",
+      "value": 1.464,
+      "source": "dramArchive121"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-01-07",
+      "value": 1.462,
+      "source": "dramArchive121"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-01-08",
+      "value": 1.469,
+      "source": "dramArchive121"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-01-10",
+      "value": 1.469,
+      "source": "dramArchive121"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-01-13",
+      "value": 1.469,
+      "source": "dramArchive120"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-01-14",
+      "value": 1.464,
+      "source": "dramArchive120"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-01-21",
+      "value": 1.461,
+      "source": "dramArchive119"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-01-22",
+      "value": 1.459,
+      "source": "dramArchive119"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-01-23",
+      "value": 1.457,
+      "source": "dramArchive119"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-02-05",
+      "value": 1.453,
+      "source": "dramArchive117"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-02-06",
+      "value": 1.451,
+      "source": "dramArchive117"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-02-07",
+      "value": 1.451,
+      "source": "dramArchive117"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-02-10",
+      "value": 1.451,
+      "source": "dramArchive117"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-02-11",
+      "value": 1.451,
+      "source": "dramArchive117"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-02-13",
+      "value": 1.449,
+      "source": "dramArchive115"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-02-14",
+      "value": 1.449,
+      "source": "dramArchive115"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-02-17",
+      "value": 1.449,
+      "source": "dramArchive115"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-02-18",
+      "value": 1.449,
+      "source": "dramArchive114"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-02-19",
+      "value": 1.451,
+      "source": "dramArchive114"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-02-21",
+      "value": 1.451,
+      "source": "dramArchive113"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-03-04",
+      "value": 1.445,
+      "source": "dramArchive112"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-03-05",
+      "value": 1.445,
+      "source": "dramArchive112"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-03-06",
+      "value": 1.444,
+      "source": "dramArchive112"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-03-07",
+      "value": 1.442,
+      "source": "dramArchive112"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-03-11",
+      "value": 1.454,
+      "source": "dramArchive111"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-03-13",
+      "value": 1.466,
+      "source": "dramArchive111"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-03-14",
+      "value": 1.475,
+      "source": "dramArchive111"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-03-17",
+      "value": 1.48,
+      "source": "dramArchive110"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-03-18",
+      "value": 1.486,
+      "source": "dramArchive109"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-03-21",
+      "value": 1.525,
+      "source": "dramArchive108"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-03-26",
+      "value": 1.58,
+      "source": "dramArchive108"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-03-28",
+      "value": 1.625,
+      "source": "dramArchive107"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-04-01",
+      "value": 1.646,
+      "source": "dramArchive106"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-04-09",
+      "value": 1.647,
+      "source": "dramArchive105"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-04-14",
+      "value": 1.666,
+      "source": "dramArchive104"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-04-16",
+      "value": 1.673,
+      "source": "dramArchive103"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-04-17",
+      "value": 1.69,
+      "source": "dramArchive103"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-04-18",
+      "value": 1.7,
+      "source": "dramArchive103"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-04-21",
+      "value": 1.705,
+      "source": "dramArchive103"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-04-25",
+      "value": 1.748,
+      "source": "dramArchive102"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-04-28",
+      "value": 1.753,
+      "source": "dramArchive102"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-04-30",
+      "value": 1.821,
+      "source": "dramArchive101"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-05-07",
+      "value": 1.922,
+      "source": "dramArchive100"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-05-09",
+      "value": 2.014,
+      "source": "dramArchive100"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-05-13",
+      "value": 2.105,
+      "source": "dramArchive99"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-05-15",
+      "value": 2.138,
+      "source": "dramArchive98"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-05-16",
+      "value": 2.138,
+      "source": "dramArchive98"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-05-19",
+      "value": 2.138,
+      "source": "dramArchive98"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-05-20",
+      "value": 2.162,
+      "source": "dramArchive97"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-05-21",
+      "value": 2.249,
+      "source": "dramArchive97"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-05-22",
+      "value": 2.235,
+      "source": "dramArchive97"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-05-23",
+      "value": 2.309,
+      "source": "dramArchive97"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-05-28",
+      "value": 2.548,
+      "source": "dramArchive96"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-05-29",
+      "value": 2.65,
+      "source": "dramArchive96"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-05-30",
+      "value": 2.731,
+      "source": "dramArchive96"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-06-02",
+      "value": 2.783,
+      "source": "dramArchive96"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-06-05",
+      "value": 3.057,
+      "source": "dramArchive95"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-06-06",
+      "value": 3.1,
+      "source": "dramArchive95"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-06-09",
+      "value": 3.243,
+      "source": "dramArchive95"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-06-11",
+      "value": 3.421,
+      "source": "dramArchive93"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-06-12",
+      "value": 3.502,
+      "source": "dramArchive93"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-06-13",
+      "value": 3.775,
+      "source": "dramArchive93"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-06-16",
+      "value": 4.017,
+      "source": "dramArchive93"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-06-17",
+      "value": 4.182,
+      "source": "dramArchive92"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-06-19",
+      "value": 4.884,
+      "source": "dramArchive92"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-07-09",
+      "value": 4.97,
+      "source": "dramArchive89"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-07-10",
+      "value": 4.975,
+      "source": "dramArchive88"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-07-11",
+      "value": 4.968,
+      "source": "dramArchive88"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-07-14",
+      "value": 4.96,
+      "source": "dramArchive88"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-07-17",
+      "value": 5.133,
+      "source": "dramArchive87"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-07-18",
+      "value": 5.194,
+      "source": "dramArchive87"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-07-23",
+      "value": 5.222,
+      "source": "dramArchive86"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-07-24",
+      "value": 5.195,
+      "source": "dramArchive86"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-07-25",
+      "value": 5.123,
+      "source": "dramArchive86"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-07-28",
+      "value": 5.113,
+      "source": "dramArchive86"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-08-01",
+      "value": 5.032,
+      "source": "dramArchive85"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-08-04",
+      "value": 5.019,
+      "source": "dramArchive85"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-08-05",
+      "value": 5,
+      "source": "dramArchive85"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-08-06",
+      "value": 4.99,
+      "source": "dramArchive83"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-08-08",
+      "value": 4.961,
+      "source": "dramArchive83"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-08-11",
+      "value": 4.956,
+      "source": "dramArchive83"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-08-12",
+      "value": 4.929,
+      "source": "dramArchive83"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-08-13",
+      "value": 4.907,
+      "source": "dramArchive82"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-08-18",
+      "value": 4.899,
+      "source": "dramArchive81"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-08-19",
+      "value": 4.894,
+      "source": "dramArchive81"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-08-20",
+      "value": 4.891,
+      "source": "dramArchive81"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-08-22",
+      "value": 4.855,
+      "source": "dramArchive80"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-08-25",
+      "value": 4.855,
+      "source": "dramArchive80"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-08-26",
+      "value": 4.855,
+      "source": "dramArchive80"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-09-02",
+      "value": 4.878,
+      "source": "dramArchive79"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-09-04",
+      "value": 4.945,
+      "source": "dramArchive79"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-09-05",
+      "value": 4.966,
+      "source": "dramArchive78"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-09-08",
+      "value": 5.002,
+      "source": "dramArchive77"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-09-10",
+      "value": 5.111,
+      "source": "dramArchive77"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-09-11",
+      "value": 5.173,
+      "source": "dramArchive77"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-09-17",
+      "value": 5.564,
+      "source": "dramArchive75"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-09-18",
+      "value": 5.642,
+      "source": "dramArchive75"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-09-19",
+      "value": 5.756,
+      "source": "dramArchive75"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-09-26",
+      "value": 6.283,
+      "source": "dramArchive74"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-09-30",
+      "value": 6.359,
+      "source": "dramArchive74"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-10-02",
+      "value": 6.444,
+      "source": "dramArchive74"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-10-03",
+      "value": 6.5,
+      "source": "dramArchive74"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-10-07",
+      "value": 6.544,
+      "source": "dramArchive73"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-10-08",
+      "value": 6.584,
+      "source": "dramArchive73"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-10-09",
+      "value": 6.75,
+      "source": "dramArchive73"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-10-10",
+      "value": 6.856,
+      "source": "dramArchive72"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-10-13",
+      "value": 7.004,
+      "source": "dramArchive72"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-10-14",
+      "value": 7.059,
+      "source": "dramArchive72"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-10-15",
+      "value": 7.219,
+      "source": "dramArchive72"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-10-16",
+      "value": 7.569,
+      "source": "dramArchive72"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-10-17",
+      "value": 7.923,
+      "source": "dramArchive71"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-10-20",
+      "value": 7.924,
+      "source": "dramArchive71"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-10-21",
+      "value": 7.931,
+      "source": "dramArchive71"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-10-22",
+      "value": 8.069,
+      "source": "dramArchive71"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-10-27",
+      "value": 8.616,
+      "source": "dramArchive69"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-10-28",
+      "value": 9.114,
+      "source": "dramArchive69"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-10-29",
+      "value": 9.523,
+      "source": "dramArchive69"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-10-30",
+      "value": 9.883,
+      "source": "dramArchive69"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-11-04",
+      "value": 10.629,
+      "source": "dramArchive68"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-11-05",
+      "value": 11.071,
+      "source": "dramArchive68"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-11-06",
+      "value": 11.393,
+      "source": "dramArchive68"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-11-07",
+      "value": 11.571,
+      "source": "dramArchive68"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-11-10",
+      "value": 11.707,
+      "source": "dramArchive66"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-11-11",
+      "value": 11.857,
+      "source": "dramArchive66"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-11-14",
+      "value": 12.543,
+      "source": "dramArchive65"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-11-18",
+      "value": 12.757,
+      "source": "dramArchive65"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-11-24",
+      "value": 14.15,
+      "source": "dramArchive64"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-11-25",
+      "value": 14.529,
+      "source": "dramArchive64"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-11-26",
+      "value": 14.914,
+      "source": "dramArchive64"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-11-27",
+      "value": 15.429,
+      "source": "dramArchive64"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-11-28",
+      "value": 15.9,
+      "source": "dramArchive64"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-12-02",
+      "value": 16.514,
+      "source": "dramArchive63"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-12-03",
+      "value": 16.729,
+      "source": "dramArchive63"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-12-04",
+      "value": 16.943,
+      "source": "dramArchive63"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-12-05",
+      "value": 17.05,
+      "source": "dramArchive63"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-12-09",
+      "value": 17.064,
+      "source": "dramArchive61"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-12-10",
+      "value": 17.246,
+      "source": "dramArchive61"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-12-12",
+      "value": 18.6,
+      "source": "dramArchive60"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-12-15",
+      "value": 19,
+      "source": "dramArchive60"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-12-16",
+      "value": 19.4,
+      "source": "dramArchive60"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-12-17",
+      "value": 19.86,
+      "source": "dramArchive60"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-12-18",
+      "value": 20.3,
+      "source": "dramArchive60"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-12-24",
+      "value": 22.235,
+      "source": "dramArchive59"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-12-25",
+      "value": 22.726,
+      "source": "dramArchive59"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-12-26",
+      "value": 23.137,
+      "source": "dramArchive59"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-12-29",
+      "value": 23.258,
+      "source": "dramArchive59"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-12-30",
+      "value": 23.746,
+      "source": "dramArchive58"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2025-12-31",
+      "value": 24.183,
+      "source": "dramArchive58"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-01-02",
+      "value": 24.496,
+      "source": "dramArchive58"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-01-05",
+      "value": 24.983,
+      "source": "dramArchive57"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-01-06",
+      "value": 25.086,
+      "source": "dramArchive57"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-01-07",
+      "value": 25.407,
+      "source": "dramArchive57"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-01-08",
+      "value": 26.214,
+      "source": "dramArchive57"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-01-09",
+      "value": 26.821,
+      "source": "dramArchive56"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-01-12",
+      "value": 27.214,
+      "source": "dramArchive56"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-01-13",
+      "value": 27.857,
+      "source": "dramArchive56"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-01-14",
+      "value": 28.357,
+      "source": "dramArchive56"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-01-15",
+      "value": 28.5,
+      "source": "dramArchive55"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-01-16",
+      "value": 28.885,
+      "source": "dramArchive55"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-01-19",
+      "value": 29.5,
+      "source": "dramArchive55"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-01-20",
+      "value": 30.077,
+      "source": "dramArchive55"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-01-29",
+      "value": 30.86,
+      "source": "dramArchive52"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-01-30",
+      "value": 30.76,
+      "source": "dramArchive52"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-02-02",
+      "value": 30.9,
+      "source": "dramArchive52"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-02-03",
+      "value": 30.88,
+      "source": "dramArchive52"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-02-04",
+      "value": 30.86,
+      "source": "dramArchive51"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-02-05",
+      "value": 30.84,
+      "source": "dramArchive51"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-02-06",
+      "value": 31,
+      "source": "dramArchive51"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-02-09",
+      "value": 30.9,
+      "source": "dramArchive51"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-02-10",
+      "value": 31.1,
+      "source": "dramArchive50"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-02-13",
+      "value": 31.4,
+      "source": "dramArchive49"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-02-23",
+      "value": 31.5,
+      "source": "dramArchive49"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-02-24",
+      "value": 31.9,
+      "source": "dramArchive49"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-02-25",
+      "value": 32.34,
+      "source": "dramArchive49"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-02-26",
+      "value": 32.8,
+      "source": "dramArchive49"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-03-10",
+      "value": 33.28,
+      "source": "dramArchive46"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-03-11",
+      "value": 33.4,
+      "source": "dramArchive46"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-03-12",
+      "value": 33.6,
+      "source": "dramArchive46"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-03-13",
+      "value": 33.6,
+      "source": "dramArchive45"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-03-16",
+      "value": 33.58,
+      "source": "dramArchive45"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-03-17",
+      "value": 33.88,
+      "source": "dramArchive45"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-03-18",
+      "value": 34.1,
+      "source": "dramArchive45"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-03-19",
+      "value": 34.1,
+      "source": "dramArchive45"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-03-20",
+      "value": 34.1,
+      "source": "dramArchive44"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-03-23",
+      "value": 34,
+      "source": "dramArchive44"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-03-24",
+      "value": 34,
+      "source": "dramArchive44"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-03-25",
+      "value": 34,
+      "source": "dramArchive44"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-03-26",
+      "value": 34,
+      "source": "dramArchive43"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-03-27",
+      "value": 34,
+      "source": "dramArchive43"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-03-30",
+      "value": 34,
+      "source": "dramArchive43"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-03-31",
+      "value": 33.96,
+      "source": "dramArchive42"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-04-01",
+      "value": 33.9,
+      "source": "dramArchive42"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-04-02",
+      "value": 33.6,
+      "source": "dramArchive42"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-04-07",
+      "value": 33.5,
+      "source": "dramArchive42"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-04-08",
+      "value": 33.56,
+      "source": "dramArchive41"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-04-09",
+      "value": 33.5,
+      "source": "dramArchive41"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-04-13",
+      "value": 33.4,
+      "source": "dramArchive40"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-04-17",
+      "value": 33,
+      "source": "dramArchive39"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-04-20",
+      "value": 33,
+      "source": "dramArchive39"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-04-21",
+      "value": 33,
+      "source": "dramArchive39"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-04-22",
+      "value": 32.8,
+      "source": "dramArchive39"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-04-23",
+      "value": 32.6,
+      "source": "dramArchive38"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-04-24",
+      "value": 32.5,
+      "source": "dramArchive38"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-04-27",
+      "value": 32.5,
+      "source": "dramArchive38"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-04-28",
+      "value": 32.5,
+      "source": "dramArchive38"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-04-30",
+      "value": 32.48,
+      "source": "dramArchive37"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-05-04",
+      "value": 32.4,
+      "source": "dramArchive37"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-05-05",
+      "value": 32.4,
+      "source": "dramArchive37"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-05-06",
+      "value": 32,
+      "source": "dramArchive36"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-05-07",
+      "value": 32,
+      "source": "dramArchive36"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-05-08",
+      "value": 32.1,
+      "source": "dramArchive36"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-05-11",
+      "value": 32.3,
+      "source": "dramArchive36"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-05-13",
+      "value": 32.2,
+      "source": "dramArchive35"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-05-14",
+      "value": 32,
+      "source": "dramArchive35"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-05-15",
+      "value": 32,
+      "source": "dramArchive35"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-05-18",
+      "value": 32,
+      "source": "dramArchive35"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-05-19",
+      "value": 32,
+      "source": "dramArchive34"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-05-20",
+      "value": 32.4,
+      "source": "dramArchive34"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-05-21",
+      "value": 32.9,
+      "source": "dramArchive34"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-05-22",
+      "value": 33.3,
+      "source": "dramArchive33"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-05-25",
+      "value": 33.5,
+      "source": "dramArchive33"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-05-26",
+      "value": 33.6,
+      "source": "dramArchive33"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-05-27",
+      "value": 33.6,
+      "source": "dramArchive33"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-05-28",
+      "value": 33.8,
+      "source": "dramArchive32"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-05-29",
+      "value": 34.1,
+      "source": "dramArchive32"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-06-01",
+      "value": 34.5,
+      "source": "dramArchive32"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-06-02",
+      "value": 34.8,
+      "source": "dramArchive32"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-06-03",
+      "value": 35.1,
+      "source": "dramArchive31"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-06-08",
+      "value": 35.7,
+      "source": "dramArchive30"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-06-12",
+      "value": 35.9,
+      "source": "dramArchive29"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-06-15",
+      "value": 35.8,
+      "source": "dramArchive29"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-06-16",
+      "value": 35.8,
+      "source": "dramArchive29"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-06-17",
+      "value": 35.8,
+      "source": "dramArchive29"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-06-18",
+      "value": 35.9,
+      "source": "dramArchive28"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-06-22",
+      "value": 35.9,
+      "source": "dramArchive28"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-06-23",
+      "value": 35.9,
+      "source": "dramArchive28"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-06-24",
+      "value": 35.9,
+      "source": "dramArchive27"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-06-25",
+      "value": 36,
+      "source": "dramArchive27"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-06-29",
+      "value": 36,
+      "source": "dramArchive26"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-06-30",
+      "value": 36,
+      "source": "dramArchive26"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-07-01",
+      "value": 36.1,
+      "source": "dramArchive26"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-07-02",
+      "value": 36.4,
+      "source": "dramArchive26"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-07-03",
+      "value": 36.54,
+      "source": "dramArchive25"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-07-06",
+      "value": 36.74,
+      "source": "dramArchive25"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-07-07",
+      "value": 37.14,
+      "source": "dramArchive25"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-07-08",
+      "value": 37.34,
+      "source": "dramArchive25"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-07-09",
+      "value": 37.4,
+      "source": "dramArchive24"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-07-10",
+      "value": 37.8,
+      "source": "dramArchive24"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-07-14",
+      "value": 39.2,
+      "source": "dramArchive24"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-07-15",
+      "value": 39.8,
+      "source": "dramArchive23"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-07-16",
+      "value": 39.9,
+      "source": "dramArchive23"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-07-20",
+      "value": 40.8,
+      "source": "dramArchive23"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-07-27",
+      "value": 42.07,
+      "source": "dramArchive21"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-07-28",
+      "value": 42.07,
+      "source": "dramArchive21"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-07-29",
+      "value": 42.04,
+      "source": "dramArchive21"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-07-31",
+      "value": 42.112,
+      "source": "dramArchive20"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-08-03",
+      "value": 42.112,
+      "source": "dramArchive20"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-08-04",
+      "value": 42.112,
+      "source": "dramArchive20"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-08-05",
+      "value": 42.112,
+      "source": "dramArchive20"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-08-06",
+      "value": 42.237,
+      "source": "dramArchive19"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-08-07",
+      "value": 42.45,
+      "source": "dramArchive19"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-08-10",
+      "value": 42.45,
+      "source": "dramArchive19"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-08-11",
+      "value": 42.504,
+      "source": "dramArchive19"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-08-12",
+      "value": 42.61,
+      "source": "dramArchive18"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-08-13",
+      "value": 42.61,
+      "source": "dramArchive18"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-08-14",
+      "value": 42.717,
+      "source": "dramArchive18"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-08-17",
+      "value": 42.895,
+      "source": "dramArchive17"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-08-19",
+      "value": 43.07,
+      "source": "dramArchive16"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-08-20",
+      "value": 43.13,
+      "source": "dramArchive16"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-08-21",
+      "value": 43.288,
+      "source": "dramArchive16"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-08-24",
+      "value": 43.288,
+      "source": "dramArchive15"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-08-28",
+      "value": 44.189,
+      "source": "dramArchive14"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-08-31",
+      "value": 44.367,
+      "source": "dramArchive14"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-09-01",
+      "value": 44.544,
+      "source": "dramArchive14"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-09-02",
+      "value": 44.571,
+      "source": "dramArchive14"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-09-03",
+      "value": 44.571,
+      "source": "dramArchive13"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-09-04",
+      "value": 45,
+      "source": "dramArchive13"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-09-07",
+      "value": 45.357,
+      "source": "dramArchive13"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-09-09",
+      "value": 45.321,
+      "source": "dramArchive12"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-09-10",
+      "value": 45.279,
+      "source": "dramArchive12"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-09-11",
+      "value": 45.214,
+      "source": "dramArchive11"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-09-14",
+      "value": 45.571,
+      "source": "dramArchive11"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-09-15",
+      "value": 45.536,
+      "source": "dramArchive11"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-09-16",
+      "value": 45.786,
+      "source": "dramArchive10"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-09-17",
+      "value": 46.143,
+      "source": "dramArchive10"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-09-18",
+      "value": 46.036,
+      "source": "dramArchive10"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-09-21",
+      "value": 46.036,
+      "source": "dramArchive10"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-09-22",
+      "value": 46.036,
+      "source": "dramArchive9"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-09-23",
+      "value": 45.893,
+      "source": "dramArchive9"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-09-24",
+      "value": 46.107,
+      "source": "dramArchive9"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-09-29",
+      "value": 46.321,
+      "source": "dramArchive9"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-09-30",
+      "value": 46.321,
+      "source": "dramArchive9"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-10-01",
+      "value": 46.321,
+      "source": "dramArchive8"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-10-02",
+      "value": 46.321,
+      "source": "dramArchive8"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-10-05",
+      "value": 46.321,
+      "source": "dramArchive8"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-10-06",
+      "value": 46.321,
+      "source": "dramArchive8"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-10-07",
+      "value": 46.357,
+      "source": "dramArchive7"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-10-12",
+      "value": 46.079,
+      "source": "dramArchive7"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-10-13",
+      "value": 46.057,
+      "source": "dramArchive6"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-10-14",
+      "value": 45.971,
+      "source": "dramArchive6"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-10-15",
+      "value": 45.971,
+      "source": "dramArchive6"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-10-16",
+      "value": 45.971,
+      "source": "dramArchive6"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-10-19",
+      "value": 45.971,
+      "source": "dramArchive5"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-10-20",
+      "value": 46.357,
+      "source": "dramArchive5"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-10-21",
+      "value": 46.786,
+      "source": "dramArchive5"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-10-22",
+      "value": 47,
+      "source": "dramArchive4"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-10-27",
+      "value": 47.043,
+      "source": "dramArchive4"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-10-28",
+      "value": 46.86,
+      "source": "spotReport"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-10-29",
+      "value": 46.864,
+      "source": "dramArchive4"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-10-30",
+      "value": 46.864,
+      "source": "dramArchive3"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-11-02",
+      "value": 46.821,
+      "source": "dramArchive3"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-11-03",
+      "value": 46.82,
+      "source": "spotReport"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-11-05",
+      "value": 46.036,
+      "source": "dramArchive3"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-11-06",
+      "value": 45.607,
+      "source": "dramArchive2"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-11-09",
+      "value": 45.214,
+      "source": "dramArchive2"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-11-10",
+      "value": 45,
+      "source": "dramArchive2"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-11-11",
+      "value": 44.893,
+      "source": "dramArchive1"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-11-12",
+      "value": 44.714,
+      "source": "dramArchive1"
+    }
   ],
   "benchmarks": [
-    {"product":"NAND","name":"nandOverall","period":"2026 Q4","date":"2026-09-30","estimate":"+15–20%","comparison":"qoq","source":"quarter"},
-    {"product":"NAND","name":"enterpriseSsd","period":"2026 Q4","date":"2026-09-24","estimate":"+23–28%","comparison":"qoq","source":"ssd"},
-    {"product":"DRAM","name":"conventional","period":"2026 Q4","date":"2026-09-30","estimate":"+10–15%","comparison":"qoq","source":"quarter"},
-    {"product":"HBM","name":"blendedHbm","period":"2027","date":"2026-09-29","estimate":"+121%","comparison":"yoy","source":"hbmForecast"}
+    {
+      "product": "NAND",
+      "name": "nandOverall",
+      "period": "2026 Q4",
+      "date": "2026-09-30",
+      "estimate": "+15–20%",
+      "comparison": "qoq",
+      "source": "quarter"
+    },
+    {
+      "product": "NAND",
+      "name": "enterpriseSsd",
+      "period": "2026 Q4",
+      "date": "2026-09-24",
+      "estimate": "+23–28%",
+      "comparison": "qoq",
+      "source": "ssd"
+    },
+    {
+      "product": "DRAM",
+      "name": "conventional",
+      "period": "2026 Q4",
+      "date": "2026-09-30",
+      "estimate": "+10–15%",
+      "comparison": "qoq",
+      "source": "quarter"
+    },
+    {
+      "product": "HBM",
+      "name": "blendedHbm",
+      "period": "2027",
+      "date": "2026-09-29",
+      "estimate": "+121%",
+      "comparison": "yoy",
+      "source": "hbmForecast"
+    }
   ],
   "agreements": [
-    {"products":["NAND","DRAM","HBM"],"name":"micronSca","date":"2026-06-25","term":"multiYear","detail":"micronTerms","sources":["micron","micronProducts"]},
-    {"products":["HBM"],"name":"skHbm4","date":"2026-11-04","term":"2027","detail":"skTerms","sources":["hbmContract"]}
+    {
+      "products": [
+        "NAND",
+        "DRAM",
+        "HBM"
+      ],
+      "name": "micronSca",
+      "date": "2026-06-25",
+      "term": "multiYear",
+      "detail": "micronTerms",
+      "sources": [
+        "micron",
+        "micronProducts"
+      ]
+    },
+    {
+      "products": [
+        "HBM"
+      ],
+      "name": "skHbm4",
+      "date": "2026-11-04",
+      "term": "2027",
+      "detail": "skTerms",
+      "sources": [
+        "hbmContract"
+      ]
+    }
   ]
 }

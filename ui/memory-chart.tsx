@@ -5,7 +5,7 @@ import {ChartContainer, ChartTooltip, ChartTooltipContent} from './components/ch
 type MemoryHistory = {
   spec: string;
   unit: string;
-  points: {date: string; value: number}[];
+  points: {date: string; quoteDate: string; value: number}[];
 };
 
 function MemoryHistoryChart({spec, unit, points}: MemoryHistory) {
@@ -29,10 +29,10 @@ function MemoryHistoryChart({spec, unit, points}: MemoryHistory) {
           ticks={ticks} tickFormatter={dateLabel} tickLine={false} axisLine={false} minTickGap={12} />
         <YAxis domain={[Math.max(0, low - padding), high + padding]} tickFormatter={amount}
           width={55} tickLine={false} axisLine={false} />
-        <ChartTooltip content={<ChartTooltipContent labelFormatter={(_, payload) => payload[0]?.payload?.date ?? ""}
+        <ChartTooltip content={<ChartTooltipContent labelFormatter={(_, payload) => payload[0]?.payload?.quoteDate ?? ""}
           formatter={value => <span>{amount(Number(value))} {unit}</span>} />} />
         <Line dataKey="value" type="linear" stroke="var(--color-value)" strokeWidth={2}
-          dot={{r: 4, fill: 'var(--color-value)'}} activeDot={{r: 6}} isAnimationActive={false} />
+          dot={{r: points.length > 100 ? 1.5 : 3, fill: 'var(--color-value)'}} activeDot={{r: 6}} isAnimationActive={false} />
       </LineChart>
     </ChartContainer>
   </div>;
