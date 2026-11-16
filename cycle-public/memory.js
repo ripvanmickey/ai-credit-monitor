@@ -7,7 +7,9 @@ const labels = {
   products: ['品类', 'Products', '製品分類'],
   spot: ['二级市场现货', 'Secondary-market spot quotes', '二次市場の現物相場'],
   spotNote: ['DRAMeXchange 为当期时段均价。HBM 为媒体报道的单次指示价，日期为报道日。', 'DRAMeXchange values are session averages. HBM values are one-off media indications dated by publication.', 'DRAMeXchangeはセッション平均値。HBMは報道ベースの参考値で、日付は報道日です。'],
-  history: ['查看同规格历史快照', 'View earlier observations by specification', '同一仕様の過去の観測値を表示'],
+  history: ['历史报价走势', 'Historical spot prices', '現物価格の推移'],
+  historyNote: ['圆点为实际报价。曲线连接同规格的观测点，保留日期间隔。', 'Dots mark observed quotes. Lines connect observations for the same specification at their actual dates.', '点は実際の気配値です。同じ仕様の観測値を実際の日付間隔で結びます。'],
+  historySources: ['查看报价明细与来源', 'View quotes and sources', '気配値と出所を見る'],
   lta: ['长期供货协议（LTA）', 'Long-term supply agreements (LTAs)', '長期供給契約（LTA）'],
   ltaNote: ['记录已披露的定价机制与签订进度。具体单价以合同方披露为准。', 'Track disclosed pricing terms and agreement milestones. Unit prices require disclosure by a contracting party.', '公表された価格決定方式と契約の進捗を記録します。単価は契約当事者の公表情報に基づきます。'],
   benchmark: ['合约价基准与展望', 'Contract pricing benchmarks and outlook', '契約価格の指標と見通し'],
@@ -57,12 +59,14 @@ const labels = {
 
 const products = ['NAND', 'DRAM', 'HBM'];
 const elements = Object.fromEntries(
-  ['date', 'error', 'content', 'overview', 'products', 'spot', 'history', 'agreements', 'benchmarks']
+  ['date', 'error', 'content', 'overview', 'products', 'spot', 'history', 'history-series', 'history-view',
+    'history-empty', 'history-chart', 'agreements', 'benchmarks']
     .map(id => [id, document.getElementById('memory-' + id)])
 );
 const languageKey = 'research-language';
 let locale;
 let selected = 'all';
+let selectedSeries;
 let data;
 
 function readLanguage() {
@@ -140,6 +144,38 @@ function visible(row) {
   return selected === 'all' || row.product === selected;
 }
 
+function renderHistory() {
+  const series = new Map();
+  for (const row of [...data.history, ...data.spot].filter(visible)) {
+    if (row.kind === 'reported') continue;
+    const key = JSON.stringify([row.product, row.spec, row.unit]);
+    if (!series.has(key)) series.set(key, new Map());
+    series.get(key).set(row.date, row);
+  }
+  const available = [...series].filter(([, points]) => points.size > 1);
+  const select = elements['history-series'];
+  select.setAttribute('aria-label', label('spec'));
+  select.replaceChildren(...available.map(([key, points]) => new Option(points.values().next().value.spec, key)));
+  if (!available.some(([key]) => key === selectedSeries)) selectedSeries = available[0]?.[0];
+  select.hidden = available.length < 2;
+  elements['history-empty'].hidden = available.length > 0;
+  elements['history-view'].hidden = !available.length;
+
+  const chart = elements['history-chart'];
+  if (!selectedSeries) {
+    chart.memoryHistory = null;
+  } else {
+    select.value = selectedSeries;
+    const points = [...series.get(selectedSeries).values()].sort((a, b) => a.date.localeCompare(b.date));
+    const {spec, unit} = points[0];
+    chart.memoryHistory = {spec, unit: label(unit), points: points.map(({date, value}) => ({date, value}))};
+    showTable(elements.history, ['product', 'spec', 'price', 'date', 'source'],
+      [...points].reverse().map(row => [row.product, row.spec, withNote(price(row), label(row.unit), 'numeric'),
+        date(row), sourceLinks([row.source])]));
+  }
+  chart.dispatchEvent(new Event('memory-history-change'));
+}
+
 function render() {
   locale = readLanguage();
   document.documentElement.lang = locale === 'zh' ? 'zh-CN' : locale;
@@ -169,11 +205,8 @@ function render() {
         label(row.changePeriod), row.change > 0 ? 'numeric up' : 'numeric down'),
       row.relativeLta ? withNote(label(row.kind), row.relativeLta + ' · ' + label('relativeLta')) : label(row.kind),
       date(row), sourceLinks([row.source])]));
-  const tracked = new Set(data.history.map(row => row.spec));
-  const history = [...data.history, ...data.spot.filter(row => tracked.has(row.spec))];
-  showTable(elements.history, ['product', 'spec', 'price', 'date', 'source'],
-    history.filter(visible).sort((a, b) => a.spec.localeCompare(b.spec) || b.date.localeCompare(a.date))
-      .map(row => [row.product, row.spec, withNote(price(row), label(row.unit), 'numeric'), date(row), sourceLinks([row.source])]));
+  elements.content.hidden = false;
+  renderHistory();
   showTable(elements.agreements, ['scope', 'company', 'term', 'terms', 'unitPrice', 'date', 'source'],
     data.agreements.filter(row => selected === 'all' || row.products.includes(selected))
       .map(row => [row.products.join(' / '), label(row.name), label(row.term), label(row.detail), label('undisc'), row.date, sourceLinks(row.sources)]));
@@ -183,9 +216,12 @@ function render() {
     if (visible({product})) benchmarks.push([product, label(source), label('marketScope'), '—', label('member'), '—', sourceLinks([source])]);
   }
   showTable(elements.benchmarks, ['product', 'spec', 'period', 'estimate', 'kind', 'date', 'source'], benchmarks);
-  elements.content.hidden = false;
 }
 
+elements['history-series'].addEventListener('change', event => {
+  selectedSeries = event.target.value;
+  renderHistory();
+});
 elements.products.addEventListener('click', event => {
   const product = event.target.closest('button')?.dataset.product;
   if (!product || product === selected) return;

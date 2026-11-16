@@ -35,3 +35,8 @@ body[data-panel=memory]{margin:0;background:var(--background,#fff);color:var(--f
 @media(max-width:640px){.memory-overview{grid-template-columns:1fr}.memory-overview article+article{border-inline-start:0;border-top:1px solid var(--border,#e4e4e4)}.memory th,.memory td{padding:10px}}
 .memory .memory-empty{padding:12px 14px;color:var(--muted-foreground,#626262)}
 #memory-error{padding:15px;border:1px solid var(--border,#e4e4e4);border-radius:9px}
+.memory-history-heading{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px}
+.memory-history-heading select{max-width:100%;padding:6px 10px;border:1px solid var(--border,#e4e4e4);border-radius:6px;background:var(--background,#fff);font:inherit;font-size:.875rem}
+#memory-history-chart{margin-top:16px}
+#memory-history-chart .memory-chart-spec{font-weight:600}
+#memory-history-chart .memory-chart-unit{display:block;margin-bottom:6px}

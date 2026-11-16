@@ -206,6 +206,12 @@ if(!shell){
 startLocalization();
 if(!shell){
  startComponentPolish();
+ const memoryChart=document.querySelector('#memory-history-chart');
+ if(memoryChart instanceof HTMLElement){
+  void import('./memory-chart').then(({mountMemoryChart})=>mountMemoryChart(memoryChart)).catch(error=>{
+   console.warn('Memory price chart could not load.',error);
+  });
+ }
  if(document.querySelector('[data-research-table]')){
   void import('./data-table').then(({startDataTables})=>startDataTables());
  }

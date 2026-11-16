@@ -6,6 +6,7 @@
   <title>存储价格监测</title>
   <link rel="stylesheet" href="/cycle/design.css">
   <link rel="stylesheet" href="/cycle/memory.css">
+  <script type="module" src="/cycle/design.js"></script>
   <script type="module" src="/cycle/memory.js"></script>
 </head>
 <body data-panel="memory">
@@ -24,14 +25,25 @@
         <div id="memory-products" class="memory-filters" role="group" aria-label="品类"></div>
         <span data-label="sourceDates"></span>
       </div>
+      <section class="memory-card" aria-labelledby="memory-history-title">
+        <div class="memory-history-heading">
+          <h2 id="memory-history-title" data-label="history"></h2>
+          <select id="memory-history-series" data-ui-select hidden></select>
+        </div>
+        <p class="memory-note" data-label="historyNote"></p>
+        <p id="memory-history-empty" class="memory-empty" data-label="noHistory" hidden></p>
+        <div id="memory-history-view" hidden>
+          <div id="memory-history-chart"></div>
+          <details>
+            <summary data-label="historySources"></summary>
+            <div class="memory-table" id="memory-history"></div>
+          </details>
+        </div>
+      </section>
       <section class="memory-card" aria-labelledby="memory-spot-title">
         <h2 id="memory-spot-title" data-label="spot"></h2>
         <p class="memory-note" data-label="spotNote"></p>
         <div class="memory-table" id="memory-spot"></div>
-        <details>
-          <summary data-label="history"></summary>
-          <div class="memory-table" id="memory-history"></div>
-        </details>
       </section>
       <section class="memory-card" aria-labelledby="memory-agreements-title">
         <h2 id="memory-agreements-title" data-label="lta"></h2>
