@@ -1,5 +1,5 @@
 {
-  "checkedOn": "2026-11-16",
+  "checkedOn": "2026-11-17",
   "sources": {
     "board": [
       "DRAMeXchange",
@@ -794,7 +794,7 @@
       "unit": "chip",
       "kind": "quote",
       "date": "2026-11-16",
-      "time": "14:40",
+      "time": "18:10",
       "value": 60.333,
       "change": 0.11,
       "changePeriod": "session",
@@ -807,7 +807,7 @@
       "unit": "chip",
       "kind": "quote",
       "date": "2026-11-16",
-      "time": "14:40",
+      "time": "18:10",
       "value": 79.375,
       "change": -0.16,
       "changePeriod": "session",
@@ -819,7 +819,7 @@
       "unit": "chip",
       "kind": "quote",
       "date": "2026-11-16",
-      "time": "14:40",
+      "time": "18:10",
       "value": 44.357,
       "change": -0.4,
       "changePeriod": "session",
