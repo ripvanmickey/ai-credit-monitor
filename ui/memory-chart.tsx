@@ -29,7 +29,7 @@ function MemoryHistoryChart({spec, unit, points}: MemoryHistory) {
           ticks={ticks} tickFormatter={dateLabel} tickLine={false} axisLine={false} minTickGap={12} />
         <YAxis domain={[Math.max(0, low - padding), high + padding]} tickFormatter={amount}
           width={55} tickLine={false} axisLine={false} />
-        <ChartTooltip content={<ChartTooltipContent labelFormatter={value => dateLabel(Number(value))}
+        <ChartTooltip content={<ChartTooltipContent labelFormatter={(_, payload) => payload[0]?.payload?.date ?? ""}
           formatter={value => <span>{amount(Number(value))} {unit}</span>} />} />
         <Line dataKey="value" type="linear" stroke="var(--color-value)" strokeWidth={2}
           dot={{r: 4, fill: 'var(--color-value)'}} activeDot={{r: 6}} isAnimationActive={false} />
