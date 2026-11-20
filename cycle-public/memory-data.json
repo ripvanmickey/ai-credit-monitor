@@ -1,5 +1,5 @@
 {
-  "checkedOn": "2026-11-20",
+  "checkedOn": "2026-11-21",
   "sources": {
     "board": [
       "DRAMeXchange",
@@ -793,10 +793,10 @@
       "spec": "DDR5 16Gb (2G×8) 4800/5600",
       "unit": "chip",
       "kind": "quote",
-      "date": "2026-11-19",
+      "date": "2026-11-20",
       "time": "18:10",
       "value": 60.667,
-      "change": 0.28,
+      "change": 0.0,
       "changePeriod": "session",
       "source": "board",
       "featured": true
@@ -806,10 +806,10 @@
       "spec": "DDR4 16Gb (2G×8) 3200",
       "unit": "chip",
       "kind": "quote",
-      "date": "2026-11-19",
+      "date": "2026-11-20",
       "time": "18:10",
-      "value": 78.75,
-      "change": -0.25,
+      "value": 78.625,
+      "change": -0.16,
       "changePeriod": "session",
       "source": "board"
     },
@@ -818,10 +818,10 @@
       "spec": "DDR4 8Gb (1G×8) 3200",
       "unit": "chip",
       "kind": "quote",
-      "date": "2026-11-19",
+      "date": "2026-11-20",
       "time": "18:10",
-      "value": 43.921,
-      "change": -0.25,
+      "value": 43.75,
+      "change": -0.39,
       "changePeriod": "session",
       "source": "board"
     },
@@ -4169,6 +4169,33 @@
       "date": "2026-11-18",
       "time": "18:10",
       "value": 44.029,
+      "source": "board"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR5 16Gb (2G×8) 4800/5600",
+      "unit": "chip",
+      "date": "2026-11-19",
+      "time": "18:10",
+      "value": 60.667,
+      "source": "board"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 16Gb (2G×8) 3200",
+      "unit": "chip",
+      "date": "2026-11-19",
+      "time": "18:10",
+      "value": 78.75,
+      "source": "board"
+    },
+    {
+      "product": "DRAM",
+      "spec": "DDR4 8Gb (1G×8) 3200",
+      "unit": "chip",
+      "date": "2026-11-19",
+      "time": "18:10",
+      "value": 43.921,
       "source": "board"
     }
   ],
