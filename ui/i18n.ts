@@ -1,4 +1,5 @@
 import translations from './translations.json';
+import radarTranslations from './translations-radar.json';
 import timingTranslations from './translations-timing.json';
 import {messagePatterns} from './translation-patterns';
 export type Language='zh'|'en'|'ja';
@@ -18,7 +19,7 @@ try{
  if(isLanguage(saved))preferredLanguage=saved;
 }catch{}
 let language=preferredLanguage??systemLanguage();
-const dictionary={...translations,...timingTranslations} as Record<string,{en:string;ja:string}>;
+const dictionary={...translations,...timingTranslations,...radarTranslations} as Record<string,{en:string;ja:string}>;
 const originals=new WeakMap<Text,{source:string;last:string}>(),attributes=new WeakMap<Element,Map<string,{source:string;last:string}>>();
 const sorted=Object.keys(dictionary).filter(k=>k.length>1).sort((a,b)=>b.length-a.length);
 // React select labels must read the saved source, never a previously translated DOM value.
