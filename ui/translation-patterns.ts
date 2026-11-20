@@ -44,6 +44,7 @@ export const messagePatterns:[RegExp,string,string][]=[
  [/截至 (\d{4}-\d{2}-\d{2}) 已过 (\d+)个自然日/g,'$2 calendar days through $1','$1まで$2暦日'],
  [/([\d,]+) 交易日/g,'$1 trading days','$1営業日'],
  [/([\d,]+) 自然日/g,'$1 calendar days','$1暦日'],
+ [/已过 ([\d,]+) 个交易日/g,'$1 trading days elapsed','$1営業日が経過'],
  [/截至样本末已过(\d+)个交易日/g,'$1 trading days elapsed at sample end','標本末まで$1営業日が経過'],
  [/截至样本末尚未完成/g,'Incomplete at sample end','標本末時点で未完了'],
  [/原前高：/g,'Prior closing high: ','以前の最高終値：'],
