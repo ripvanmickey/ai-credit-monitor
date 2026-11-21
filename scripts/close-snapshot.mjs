@@ -37,6 +37,7 @@ async function yahoo(symbol, from, now, through) {
     period2: String(Math.floor(now.getTime() / 1000) + 1), includeAdjustedClose: 'true',
   });
   let error;
+  let latestRows = [];
   for (const host of ['query1.finance.yahoo.com', 'query2.finance.yahoo.com']) {
     try {
       const data = await fetchJson('https://' + host + '/v8/finance/chart/' + encodeURIComponent(symbol) + '?' + params);
@@ -49,10 +50,44 @@ async function yahoo(symbol, from, now, through) {
         low: quote.low?.[i], close: quote.close?.[i], adjusted: adjusted?.[i],
       })).filter(row => row.date <= through && positive(row.close));
       if (!rows.length) throw Error('No completed bars');
-      return rows;
+      if (!latestRows.length || rows.at(-1).date > latestRows.at(-1).date) latestRows = rows;
+      if (rows.at(-1).date >= through) return rows;
     } catch (cause) { error = cause; }
   }
-  throw error;
+  if (symbol === 'QQQ' || symbol === 'SPY') {
+    try {
+      const rows = await stockAnalysis(symbol, from, through);
+      if (!latestRows.length || rows.at(-1).date > latestRows.at(-1).date) latestRows = rows;
+    } catch (cause) { error = cause; }
+  }
+  if (latestRows.length) return latestRows;
+  throw error ?? Error('No completed bars');
+}
+
+async function stockAnalysis(symbol, from, through) {
+  const url = 'https://stockanalysis.com/etf/' + symbol.toLowerCase() + '/history/';
+  const response = await fetch(url, {
+    headers: { 'User-Agent': 'Mozilla/5.0' },
+    signal: AbortSignal.timeout(20000),
+  });
+  if (!response.ok) throw Error('Stock Analysis HTTP ' + response.status);
+  const html = await response.text();
+  if (!html.includes('(' + symbol + ')')) throw Error('Unexpected historical instrument');
+  const rows = [];
+  for (const match of html.matchAll(/<tr\b[^>]*>([\s\S]*?)<\/tr>/gi)) {
+    const cells = [...match[1].matchAll(/<td\b[^>]*>([\s\S]*?)<\/td>/gi)]
+      .map(cell => cell[1].replace(/<[^>]*>/g, '').replace(/&nbsp;|&#160;/g, ' ').trim());
+    if (!/^[A-Z][a-z]{2} \d{1,2}, \d{4}$/.test(cells[0] ?? '') || cells.length < 6) continue;
+    const date = new Date(cells[0] + ' UTC').toISOString().slice(0, 10);
+    const [open, high, low, close, adjusted] = cells.slice(1, 6).map(cell => Number(cell.replaceAll(',', '')));
+    if (date >= from && date <= through && [open, high, low, close, adjusted].every(positive) &&
+        low <= Math.min(open, close) && high >= Math.max(open, close)) {
+      rows.push({date, open, high, low, close, adjusted, source: url});
+    }
+  }
+  rows.sort((a, b) => a.date.localeCompare(b.date));
+  if (!rows.length || new Set(rows.map(row => row.date)).size !== rows.length) throw Error('Invalid backup historical rows');
+  return rows;
 }
 
 async function marketBaseline() {
@@ -83,7 +118,7 @@ function mergeCds(seed, updated, supplement) {
 
 async function refresh(previous, now, force) {
   const date = day(Number(clock.format(now)) < 17 ? now.getTime() - 86400000 : now);
-  if (previous?.completedOn === date && !force) {
+  if (previous?.completedOn === date && Object.values(previous.prices).every(rows => rows.at(-1)?.[0] >= date) && !force) {
     console.log('Snapshot already checked for ' + date);
     return;
   }
@@ -115,6 +150,11 @@ async function refresh(previous, now, force) {
         etf ? row.adjusted * scale : Math.round(row.close * 100) / 100,
       ])];
     }
+    if (newer.length) {
+      state.priceSources ??= {};
+      state.priceSources[key] = {url: rows.at(-1).source ?? 'https://finance.yahoo.com/quote/' + encodeURIComponent(symbol) + '/history/',
+        through: newer.at(-1).date, checkedAt: now.toISOString()};
+    }
     console.log(key + ' added ' + newer.length + ' completed daily bars');
   });
   work.push((async () => {
@@ -144,7 +184,13 @@ async function refresh(previous, now, force) {
   const outcomes = await Promise.allSettled(work);
   const errors = outcomes.flatMap((result, i) => result.status === 'rejected'
     ? [(requests[i]?.[0] ?? 'CDS') + ': ' + result.reason.message] : []);
+  const indexDate = state.prices.GSPC?.at(-1)?.[0];
+  for (const key of ['QQQ', 'SPY']) {
+    const actual = state.prices[key]?.at(-1)?.[0] ?? '';
+    if (indexDate && actual < indexDate) errors.push(key + ': latest bar ' + actual + ' lags index session ' + indexDate);
+  }
   if (!errors.length) state.completedOn = date;
+  else if (state.completedOn === date) delete state.completedOn;
   if (JSON.stringify(state) !== JSON.stringify(previous)) {
     await writeFile(statePath + '.tmp', encode(state));
     await rename(statePath + '.tmp', statePath);
