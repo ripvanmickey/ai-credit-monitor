@@ -1,5 +1,5 @@
 {
-  "checkedOn": "2026-11-21",
+  "checkedOn": "2026-11-23",
   "sources": {
     "board": [
       "DRAMeXchange",
@@ -768,10 +768,10 @@
       "spec": "512Gb TLC (Wafer Spot)",
       "unit": "waferQuote",
       "kind": "quote",
-      "date": "2026-11-09",
+      "date": "2026-11-16",
       "time": "14:40",
-      "value": 14.267,
-      "change": -11.67,
+      "value": 14.238,
+      "change": -0.2,
       "changePeriod": "weekly",
       "source": "board",
       "featured": true
@@ -781,10 +781,10 @@
       "spec": "256Gb TLC (Wafer Spot)",
       "unit": "waferQuote",
       "kind": "quote",
-      "date": "2026-11-09",
+      "date": "2026-11-16",
       "time": "14:40",
       "value": 18.142,
-      "change": -1.21,
+      "change": 0.0,
       "changePeriod": "weekly",
       "source": "board"
     },
@@ -4196,6 +4196,24 @@
       "date": "2026-11-19",
       "time": "18:10",
       "value": 43.921,
+      "source": "board"
+    },
+    {
+      "product": "NAND",
+      "spec": "512Gb TLC (Wafer Spot)",
+      "unit": "waferQuote",
+      "date": "2026-11-09",
+      "time": "14:40",
+      "value": 14.267,
+      "source": "board"
+    },
+    {
+      "product": "NAND",
+      "spec": "256Gb TLC (Wafer Spot)",
+      "unit": "waferQuote",
+      "date": "2026-11-09",
+      "time": "14:40",
+      "value": 18.142,
       "source": "board"
     }
   ],
