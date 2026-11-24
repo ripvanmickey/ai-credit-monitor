@@ -19,6 +19,7 @@ on:
       timezone: America/New_York
 
 permissions:
+  actions: read
   contents: write
   pages: write
   id-token: write
@@ -111,6 +112,29 @@ jobs:
         with:
           path: dist/pages
           name: github-pages-${{ github.run_attempt }}
+      - name: Wait for this attempt's Pages artifact
+        if: steps.publish.outputs.ready == 'true'
+        uses: actions/github-script@v7
+        env:
+          PAGES_ARTIFACT: github-pages-${{ github.run_attempt }}
+        with:
+          script: |
+            for (let attempt = 0; attempt < 18; attempt++) {
+              const artifacts = await github.paginate(github.rest.actions.listWorkflowRunArtifacts, {
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                run_id: context.runId,
+                per_page: 100
+              });
+              const artifact = artifacts.find(item => item.name === process.env.PAGES_ARTIFACT && !item.expired);
+              if (artifact) {
+                core.info('Pages artifact is available: ' + artifact.id);
+                return;
+              }
+              core.info('Waiting for uploaded Pages artifact metadata');
+              await new Promise(resolve => setTimeout(resolve, 5000));
+            }
+            core.setFailed('Uploaded Pages artifact is not yet visible to the deployment API');
       - uses: actions/deploy-pages@v4
         if: steps.publish.outputs.ready == 'true'
         id: deploy
