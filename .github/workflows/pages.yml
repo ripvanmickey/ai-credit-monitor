@@ -157,7 +157,7 @@ jobs:
             const idToken = await core.getIDToken();
             const {data: deployment} = await github.request('POST /repos/{owner}/{repo}/pages/deployments', {
               ...context.repo,
-              artifact_id: artifactId,
+              artifact_id: Number(artifactId),
               pages_build_version: context.sha,
               oidc_token: idToken
             });
