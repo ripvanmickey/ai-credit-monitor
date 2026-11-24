@@ -1,12 +1,10 @@
 import { readFile, rename, writeFile } from 'node:fs/promises';
 import { gunzipSync, gzipSync } from 'node:zlib';
+import { latestClosedSession } from './market-calendar.mjs';
 import { entryChecks, indicators, timingEntry } from '../sox-public/timing-model.js';
 
 const statePath = '.github/close-snapshot.json';
 const dateFormat = new Intl.DateTimeFormat('en-CA', { timeZone: 'America/New_York' });
-const clock = new Intl.DateTimeFormat('en-US', {
-  timeZone: 'America/New_York', hour: 'numeric', hourCycle: 'h23',
-});
 const day = value => dateFormat.format(new Date(value));
 const read = async path => JSON.parse(await readFile(path, 'utf8'));
 const encode = value => JSON.stringify(value) + '\n';
@@ -117,8 +115,8 @@ function mergeCds(seed, updated, supplement) {
 }
 
 async function refresh(previous, now, force) {
-  const date = day(Number(clock.format(now)) < 17 ? now.getTime() - 86400000 : now);
-  if (previous?.completedOn === date && Object.values(previous.prices).every(rows => rows.at(-1)?.[0] >= date) && !force) {
+  const date = latestClosedSession(now);
+  if (previous?.completedOn === date && ['GSPC', 'IXIC', 'QQQ', 'SPY'].every(key => previous.prices[key]?.at(-1)?.[0] >= date) && previous.sox?.at(-1)?.date >= date && !force) {
     console.log('Snapshot already checked for ' + date);
     return;
   }
@@ -184,11 +182,14 @@ async function refresh(previous, now, force) {
   const outcomes = await Promise.allSettled(work);
   const errors = outcomes.flatMap((result, i) => result.status === 'rejected'
     ? [(requests[i]?.[0] ?? 'CDS') + ': ' + result.reason.message] : []);
-  const indexDate = state.prices.GSPC?.at(-1)?.[0];
-  for (const key of ['QQQ', 'SPY']) {
-    const actual = state.prices[key]?.at(-1)?.[0] ?? '';
-    if (indexDate && actual < indexDate) errors.push(key + ': latest bar ' + actual + ' lags index session ' + indexDate);
+  const latestDates = Object.fromEntries(requests.map(([key]) =>
+    [key, key === 'SOX' ? state.sox.at(-1)?.date : state.prices[key]?.at(-1)?.[0]]));
+  for (const [key, actual] of Object.entries(latestDates)) {
+    if (!actual || actual < date) errors.push(key + ': latest bar ' + (actual ?? 'missing') + ' precedes expected session ' + date);
   }
+  state.refresh = {checkedAt: now.toISOString(), expectedSession: date,
+    status: errors.length ? 'partial' : 'ok', latestDates, errors};
+  console.log('Expected session ' + date + ', received ' + JSON.stringify(latestDates));
   if (!errors.length) state.completedOn = date;
   else if (state.completedOn === date) delete state.completedOn;
   if (JSON.stringify(state) !== JSON.stringify(previous)) {
