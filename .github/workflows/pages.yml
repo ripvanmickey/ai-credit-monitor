@@ -98,6 +98,22 @@ jobs:
             git -c user.name=github-actions -c user.email=41898282+github-actions[bot]@users.noreply.github.com commit -m "Save US market close snapshot"
             git push origin HEAD:main
           fi
+      - name: Cache public DTCC issuer disclosures
+        if: steps.refresh.outcome == 'success'
+        uses: actions/cache@v4
+        with:
+          path: .dtcc-cache
+          key: dtcc-issuers-v1-${{ github.run_id }}
+          restore-keys: dtcc-issuers-v1-
+      - name: Check DTCC disclosures for all website companies
+        if: steps.refresh.outcome == 'success'
+        run: |
+          python3 scripts/refresh-dtcc.py
+          git add -f .github/close-snapshot.json
+          if ! git diff --cached --quiet; then
+            git -c user.name=github-actions -c user.email=41898282+github-actions[bot]@users.noreply.github.com commit -m "Check DTCC credit disclosures for all monitored issuers"
+            git push origin HEAD:main
+          fi
       - name: Apply saved data and calculate closing signals
         if: steps.publish.outputs.ready == 'true'
         run: node scripts/close-snapshot.mjs apply
@@ -106,6 +122,7 @@ jobs:
         run: |
           node scripts/test-divergence.mjs
           node scripts/test-cds-refresh.mjs
+          python3 scripts/test-dtcc.py
       - run: node scripts/build-pages.mjs
         if: steps.publish.outputs.ready == 'true'
         env:

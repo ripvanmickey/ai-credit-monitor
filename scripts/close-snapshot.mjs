@@ -3,7 +3,7 @@ import { gunzipSync, gzipSync } from 'node:zlib';
 import { latestClosedSession } from './market-calendar.mjs';
 import { entryChecks, indicators, timingEntry } from '../sox-public/timing-model.js';
 import { divergenceSnapshot } from '../sox-public/divergence-model.js';
-import { cdsSources, refreshCdsDaily } from './cds-refresh.mjs';
+import { cdsSources, cdsCoverage, refreshCdsDaily } from './cds-refresh.mjs';
 
 const statePath = '.github/close-snapshot.json';
 const dateFormat = new Intl.DateTimeFormat('en-CA', { timeZone: 'America/New_York' });
@@ -105,6 +105,7 @@ const byBarDate = (a, b) => a.date.localeCompare(b.date);
 function mergeCds(seed, updated, supplement) {
   seed.events = merge(merge(seed.events, supplement, row => row.id), updated?.events ?? [], row => row.id);
   if (!updated) return seed;
+  for (const key of ['companyChecks', 'dailyCheck', 'dtccCheck', 'coverage']) if (updated[key]) seed[key] = updated[key];
   seed.observations = merge(seed.observations, updated.observations, row => row.id);
   seed.checks = merge(seed.checks, updated.checks, row => row.at).sort((a, b) => Date.parse(a.at) - Date.parse(b.at));
   if (Date.parse(updated.checkedAt) > Date.parse(seed.checkedAt)) {
@@ -175,6 +176,7 @@ async function refresh(previous, now, force) {
     const prior = state.cds;
     const latest = !prior || Date.parse(upstream.checkedAt) >= Date.parse(prior.checkedAt) ? upstream : prior;
     state.cds = {
+      ...prior,
       checkedAt: latest.checkedAt, checkStatus: latest.checkStatus, checkNote: latest.checkNote,
       observations: merge(prior?.observations ?? [], observations, row => row.id),
       events: merge(prior?.events ?? [], events, row => row.id),
@@ -212,6 +214,7 @@ async function refresh(previous, now, force) {
 async function apply(state) {
   const seed = await read('seed.json');
   seed.dailySources = cdsSources(seed);
+  if (state?.cds) state.cds.coverage = cdsCoverage(seed, state.cds, latestClosedSession(new Date()));
   const supplement = await optional('.github/pages-news.json', []);
   await writeFile('seed.json', encode(mergeCds(seed, state?.cds, supplement)));
   const histories = await marketBaseline();

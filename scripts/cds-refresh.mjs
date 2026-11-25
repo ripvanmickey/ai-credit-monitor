@@ -2,18 +2,36 @@
 export function cdsSources(seed) {
   return seed.dailySources.map(source => ({ ...source, mirrorUrls: [...new Set([
     ...(source.mirrorUrls ?? []),
+    ...(['AMD', 'AMZN', 'ORCL', 'SPCX'].includes(source.entityId) ? ['https://uk.investing.com' + new URL(source.url).pathname] : []),
     ...(source.entityId === 'MSFT' ? ['https://ph.investing.com/rates-bonds/microsoft-corp-cds-5-year-usd-historical-data'] : []),
   ])] }));
+}
+
+export function cdsCoverage(seed, cds, targetSession) {
+  return seed.entities.map(entity => {
+    const daily = cds.dailyCheck?.sources?.find(row => row.entityId === entity.id);
+    const report = cds.companyChecks?.find(row => row.entityId === entity.id);
+    const study = cds.tradeStudy;
+    const observations = [...(seed.observations ?? []), ...(cds.observations ?? [])].filter(row => row.entityId === entity.id);
+    const latestObservationDate = observations.map(row => row.asOf).sort().at(-1) ?? null;
+    return { entityId: entity.id, name: entity.name, targetSession, latestObservationDate,
+      dailyStatus: daily?.status ?? 'no_registered_daily_source', dailyCheckedAt: daily?.checkedAt ?? null,
+      reportStatus: report?.targetSession === targetSession ? report.status : 'needs_web_verification',
+      reportCheckedAt: report?.checkedAt ?? null,
+      dtccThrough: study?.to ?? null, dtccStatus: cds.dtccCheck?.status ?? (study?.to >= targetSession ? 'checked' : 'stale'),
+      eligibleTradeDays: study?.summary?.[entity.id]?.observedDays ?? null };
+  });
 }
 
 const plain = html => html.replace(/<[^>]+>/g, ' ').replace(/&nbsp;|&#160;|&#xA0;/gi, ' ').replace(/&minus;|&#8722;/g, '-').replace(/\s+/g, ' ').trim();
 const months = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
 function tableDate(text) {
-  const match = text.match(/^([A-Za-z]{3})\s+(\d{1,2}),?\s+(\d{4})$/);
-  if (!match) return null;
-  const month = months.indexOf(match[1].toLowerCase());
+  const english = text.match(/^([A-Za-z]{3})\s+(\d{1,2}),?\s+(\d{4})$/);
+  const british = text.match(/^(\d{2})\/(\d{2})\/(\d{4})$/);
+  if (!english && !british) return null;
+  const month = english ? months.indexOf(english[1].toLowerCase()) : Number(british[2]) - 1;
   if (month < 0) return null;
-  const date = `${match[3]}-${String(month + 1).padStart(2, '0')}-${match[2].padStart(2, '0')}`;
+  const date = `${(english ?? british)[3]}-${String(month + 1).padStart(2, '0')}-${(english ? english[2] : british[1]).padStart(2, '0')}`;
   const parsed = new Date(date + 'T12:00:00Z');
   return Number.isFinite(+parsed) && parsed.toISOString().startsWith(date) && ![0, 6].includes(parsed.getUTCDay()) ? date : null;
 }
@@ -80,7 +98,24 @@ export async function refreshCdsDaily(seed, prior, through, now, fetcher = fetch
     sources.map(source => source.entityId + ': ' + (source.latestDate ?? 'no quote') + ' (' + source.status + ')').join('; ') +
     '. Quote dates are retained when the provider lags or cannot be accessed. Equity-close coverage is tracked separately.';
   const checkStatus = current ? 'ok' : 'partial';
-  return { ...prior, observations, checkedAt, checkStatus, checkNote: note,
+  const result = { ...prior, observations, checkedAt, checkStatus, checkNote: note,
     dailyCheck: { checkedAt, targetSession: through, status: checkStatus, added, unavailable, sources },
     checks: [...(prior.checks ?? []), { at: checkedAt, status: checkStatus, note }].slice(-80) };
+  if (prior.dailyCheck?.webCheckedTargetSession === through) {
+    result.dailyCheck.webCheckedTargetSession = through;
+    result.dailyCheck.webCheckedAt = prior.dailyCheck.webCheckedAt;
+    for (const source of result.dailyCheck.sources) {
+      const previous = prior.dailyCheck.sources?.find(row => row.entityId === source.entityId);
+      for (const key of ['webCheckedAt', 'webLatestDate', 'webSourceUrl']) if (previous?.[key]) source[key] = previous[key];
+    }
+  }
+  result.coverage = cdsCoverage(seed, result, through);
+  const pending = result.coverage.filter(row => row.reportStatus === 'needs_web_verification');
+  if (pending.length) {
+    result.checkStatus = 'partial';
+    result.checkNote += ' Company-wide news verification pending: ' + pending.map(row => row.entityId).join(', ') + '.';
+    result.checks.at(-1).status = result.checkStatus;
+    result.checks.at(-1).note = result.checkNote;
+  }
+  return result;
 }
