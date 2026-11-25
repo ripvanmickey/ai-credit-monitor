@@ -37,4 +37,21 @@ for (const asset of Object.values(snapshot.assets)) {
     }
   }
 }
-console.log('Divergence tests passed: RSI reference, flat MACD, pivots, pending lows, stale data, expiry, snapshot consistency.');
+// Render the actual widget with the snapshot and exercise language changes.
+let html = '', writes = 0, languageObserver;
+const host = { querySelector: () => null, set innerHTML(value) { html = value; writes++; } };
+globalThis.document = { querySelector: () => host, documentElement: { lang: 'en' }, addEventListener() {} };
+globalThis.MutationObserver = class { constructor(callback) { languageObserver = callback; } observe() {} };
+globalThis.fetch = async () => ({ ok: true, json: async () => snapshot });
+await import('../sox-public/divergence.js');
+assert.ok(html.includes('Technology bullish divergence'));
+assert.equal((html.match(/class="divergence-card"/g) ?? []).length, 3);
+assert.ok(!/[\u3400-\u9fff]/.test(html));
+const before = writes;
+languageObserver(); languageObserver();
+assert.equal(writes, before, 'Repeated lang assignments must not cause a render/localization loop');
+document.documentElement.lang = 'zh-CN'; languageObserver();
+assert.ok(html.includes('科技股底背离监测'));
+document.documentElement.lang = 'ja'; languageObserver();
+assert.ok(html.includes('テクノロジー株の強気ダイバージェンス'));
+console.log('Divergence tests passed: indicators, pivots, pending/stale/expired signals, snapshot consistency, three-language rendering and observer stability.');

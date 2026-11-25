@@ -16,7 +16,7 @@ const copy = {
     rules: '直近63営業日の終値から、直前5日の終値より低く、その後2日の終値が上回る安値を確認します。5営業日以上離れた直近2つの安値を比較し、後の安値から20営業日を超えると期限切れです。未確定の安値と対象取引日より古いデータは別表示します。',
     formula: '終値が安値を更新し、同日の指標値が前の安値時より高い場合に発生と判定します。RSIはWilder方式の14日平滑化。MACDはDIF = EMA12−EMA26、DEA = DIFのEMA9、ヒストグラム = DIF−DEA。DIFとヒストグラムは別々に判定し、面積や日中安値は使いません。ETFは調整後終値、指数は価格指数の終値を使用します。', names: { QQQ: 'QQQ · ナスダック100', IXIC: 'ナスダック総合指数', SOX: 'フィラデルフィア半導体指数' } },
 };
-let data, failed = false;
+let data, failed = false, renderedLanguage;
 function language() {
   const value = document.documentElement.lang.split('-')[0];
   return copy[value] ? value : 'en';
@@ -24,6 +24,7 @@ function language() {
 const number = n => Number.isFinite(n) ? n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) : '—';
 function render() {
   const lang = language(), t = copy[lang];
+  renderedLanguage = lang;
   const badge = state => `<span class="divergence-badge" data-state="${state}">${t[state]}</span>`;
   const cards = data ? Object.entries(data.assets).map(([key, a]) => {
     const row = (metric, label) => `<tr><th scope="row">${label}</th><td>${number(a.first?.[metric])}</td><td>${number(a.second?.[metric])}</td><td>${badge(a.states[metric])}</td></tr>`;
@@ -46,4 +47,6 @@ try {
 } catch (error) { data = null; failed = true; console.error(error); }
 render();
 document.addEventListener('research-language-change', render);
-new MutationObserver(render).observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
+new MutationObserver(() => {
+  if (language() !== renderedLanguage) render();
+}).observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
