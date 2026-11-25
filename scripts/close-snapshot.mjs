@@ -3,6 +3,7 @@ import { gunzipSync, gzipSync } from 'node:zlib';
 import { latestClosedSession } from './market-calendar.mjs';
 import { entryChecks, indicators, timingEntry } from '../sox-public/timing-model.js';
 import { divergenceSnapshot } from '../sox-public/divergence-model.js';
+import { cdsSources, refreshCdsDaily } from './cds-refresh.mjs';
 
 const statePath = '.github/close-snapshot.json';
 const dateFormat = new Intl.DateTimeFormat('en-CA', { timeZone: 'America/New_York' });
@@ -117,15 +118,13 @@ function mergeCds(seed, updated, supplement) {
 
 async function refresh(previous, now, force) {
   const date = latestClosedSession(now);
-  if (previous?.completedOn === date && ['GSPC', 'IXIC', 'QQQ', 'SPY'].every(key => previous.prices[key]?.at(-1)?.[0] >= date) && previous.sox?.at(-1)?.date >= date && !force) {
-    console.log('Snapshot already checked for ' + date);
-    return;
-  }
+  const marketCurrent = previous?.completedOn === date && ['GSPC', 'IXIC', 'QQQ', 'SPY'].every(key => previous.prices[key]?.at(-1)?.[0] >= date) && previous.sox?.at(-1)?.date >= date && !force;
   const baseline = await marketBaseline();
   const sox = await read('sox-market-seed.json');
   const state = structuredClone(previous ?? { schemaVersion: 1, prices: {}, sox: [] });
   const requests = Object.entries({ GSPC: '^GSPC', IXIC: '^IXIC', QQQ: 'QQQ', SPY: 'SPY', SOX: '^SOX' });
   const work = requests.map(async ([key, symbol]) => {
+    if (marketCurrent) return; // CDS sources still need a fresh check when prices are already current.
     const isSox = key === 'SOX';
     const existing = isSox ? [...sox.bars, ...state.sox].sort(byBarDate) : merge(baseline[key], state.prices[key] ?? [], row => row[0]).sort(chronological);
     const last = existing.at(-1);
@@ -157,13 +156,17 @@ async function refresh(previous, now, force) {
     console.log(key + ' added ' + newer.length + ' completed daily bars');
   });
   work.push((async () => {
-    const upstream = await fetchJson('https://ai-credit-monitor.mickeyripvan.chatgpt.site/api/snapshot');
     const seed = await read('seed.json');
+    let upstream;
+    try { upstream = await fetchJson('https://ai-credit-monitor.mickeyripvan.chatgpt.site/api/snapshot'); }
+    catch (error) { console.warn('Original CDS snapshot unavailable; checking registered daily sources directly:', error.message); }
+    upstream ??= { schemaVersion: 1, ...(state.cds ?? seed) };
     const entities = new Set(seed.entities.map(row => row.id));
     if (upstream.schemaVersion !== 1 || !Number.isFinite(Date.parse(upstream.checkedAt)) ||
         !['ok', 'partial', 'failed'].includes(upstream.checkStatus) || typeof upstream.checkNote !== 'string' ||
         !Array.isArray(upstream.observations) || !Array.isArray(upstream.events) || !Array.isArray(upstream.checks)) {
-      throw Error('Invalid published CDS snapshot');
+      console.warn('Invalid original CDS snapshot; retaining saved history and checking daily sources directly');
+      upstream = { schemaVersion: 1, ...(state.cds ?? seed) };
     }
     const observations = upstream.observations.filter(row => row.id && entities.has(row.entityId) &&
       validDate(row.asOf) && row.asOf <= date && Number.isFinite(row.value) && row.value >= 0 && row.sourceUrl?.startsWith('https://'));
@@ -178,7 +181,8 @@ async function refresh(previous, now, force) {
       checks: merge(prior?.checks ?? [], checks, row => row.at),
       tradeStudy: latest.tradeStudy,
     };
-    console.log('Public CDS source last checked ' + latest.checkedAt);
+    state.cds = await refreshCdsDaily(seed, state.cds, date, now);
+    console.log('Public CDS daily check:', JSON.stringify(state.cds.dailyCheck));
   })());
   const outcomes = await Promise.allSettled(work);
   const errors = outcomes.flatMap((result, i) => result.status === 'rejected'
@@ -189,7 +193,8 @@ async function refresh(previous, now, force) {
     if (!actual || actual < date) errors.push(key + ': latest bar ' + (actual ?? 'missing') + ' precedes expected session ' + date);
   }
   state.refresh = {checkedAt: now.toISOString(), expectedSession: date,
-    status: errors.length ? 'partial' : 'ok', latestDates, errors};
+    status: errors.length || state.cds?.checkStatus !== 'ok' ? 'partial' : 'ok',
+    marketStatus: errors.length ? 'partial' : 'ok', cdsStatus: state.cds?.checkStatus ?? 'unavailable', latestDates, errors};
   console.log('Expected session ' + date + ', received ' + JSON.stringify(latestDates));
   if (!errors.length) state.completedOn = date;
   else if (state.completedOn === date) delete state.completedOn;
@@ -206,6 +211,7 @@ async function refresh(previous, now, force) {
 
 async function apply(state) {
   const seed = await read('seed.json');
+  seed.dailySources = cdsSources(seed);
   const supplement = await optional('.github/pages-news.json', []);
   await writeFile('seed.json', encode(mergeCds(seed, state?.cds, supplement)));
   const histories = await marketBaseline();
