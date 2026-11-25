@@ -9,7 +9,7 @@
   <link rel="preload" href="/cycle/geist-sans.woff2?v=2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/cycle/design.css?v=playfair-display1">
   <link rel="stylesheet" href="dashboard.css?v=5">
-  <link rel="stylesheet" href="timing.css?v=4">
+  <link rel="stylesheet" href="timing.css?v=5">
   <script type="module" src="/cycle/design.js?v=timing-i18n1"></script>
 </head>
 <body>
@@ -22,6 +22,8 @@
       <label>止盈规则 <select id="timing-exit"><option value="ma">5日均线</option><option value="target2">固定 +2%</option><option value="target5">固定 +5%</option><option value="maOr2">5 日均线或浮盈 +2%</option><option value="maOr5">5 日均线或浮盈 +5%</option></select></label>
     </div>
   </div>
+  <section id="divergence" class="divergence-board" data-no-i18n aria-live="polite"></section>
+  <script type="module" src="divergence.js?v=1"></script>
   <h2 class="timing-subtitle">买入条件</h2>
   <div id="timing-status" class="timing-status" role="status">正在读取回测数据…</div>
   <p class="timing-muted">按信号当日收盘价模拟买卖 · 手续费为零</p>

@@ -2,6 +2,7 @@ import { readFile, rename, writeFile } from 'node:fs/promises';
 import { gunzipSync, gzipSync } from 'node:zlib';
 import { latestClosedSession } from './market-calendar.mjs';
 import { entryChecks, indicators, timingEntry } from '../sox-public/timing-model.js';
+import { divergenceSnapshot } from '../sox-public/divergence-model.js';
 
 const statePath = '.github/close-snapshot.json';
 const dateFormat = new Intl.DateTimeFormat('en-CA', { timeZone: 'America/New_York' });
@@ -232,6 +233,10 @@ async function apply(state) {
     return [key, { date: rows.at(-1)[0], close: features.close, signal: timingEntry(features), checks: entryChecks(features) }];
   }));
   await writeFile('sox-public/timing-latest.json', encode(signals));
+  const divergenceHistories = { ...histories, SOX: merge(candles, state?.sox ?? [], row => row.date)
+    .sort(byBarDate).map(row => [row.date, row.open, row.close]) };
+  const expectedSession = latestClosedSession(new Date());
+  await writeFile('sox-public/divergence-latest.json', encode(divergenceSnapshot(divergenceHistories, expectedSession)));
   console.log('Calculated close signals:', Object.entries(signals).map(([key, row]) => key + ' ' + row.date).join(', '));
 }
 

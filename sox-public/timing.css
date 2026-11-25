@@ -69,3 +69,29 @@
 .timing-flag[data-pass="true"] { color: #166534; background: #dcfce7; }
 .timing-highlight { color: #166534; background: #dcfce7; border-radius: 4px; padding: 1px 4px; font-weight: 600; }
 .timing-highlight[data-both-pass="false"] { color: #854d0e; background: #fef3c7; }
+
+.divergence-board { margin-block: 28px 36px; padding-bottom: 28px; border-bottom: 1px solid var(--border); }
+.divergence-board h2 { margin: 0 0 10px; }
+.divergence-sub, .divergence-latest, .divergence-note, .divergence-method { color: var(--muted-foreground); }
+.divergence-sub { margin: 0 0 22px; }
+.divergence-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr)); gap: 16px; }
+.divergence-card { min-width: 0; padding: 18px; border: 1px solid var(--border); border-radius: var(--radius); }
+.divergence-card h3 { margin: 0 0 8px; }
+.divergence-latest { margin: 0 0 20px; font-size: 12px; }
+.divergence-latest strong { color: var(--foreground); }
+.divergence-scroll { overflow-x: auto; border: 1px solid var(--border); border-radius: var(--radius); }
+.divergence-board table { width: 100%; margin: 0; border-collapse: collapse; font-size: 12px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.divergence-board th, .divergence-board td { padding: 10px 8px; border-bottom: 1px solid var(--border); text-align: right; }
+.divergence-board th:first-child { text-align: left; }
+.divergence-board thead { background: var(--muted); }
+.divergence-board thead th { font-weight: 500; }
+.divergence-board th small { display: block; margin-top: 5px; color: var(--muted-foreground); font-size: 11px; }
+.divergence-board tbody tr:last-child > * { border-bottom: 0; }
+.divergence-badge { display: inline-block; border-radius: 4px; padding: 2px 5px; background: var(--muted); color: var(--muted-foreground); }
+.divergence-badge[data-state="triggered"] { color: #166534; background: #dcfce7; }
+.divergence-badge[data-state="pending"], .divergence-badge[data-state="stale"] { color: #854d0e; background: #fef3c7; }
+.divergence-note { margin: 18px 0 12px; font-size: 12px; line-height: 1.7; }
+.divergence-method { font-size: 12px; line-height: 1.8; }
+.divergence-method summary { cursor: pointer; width: fit-content; }
+.divergence-method > div { padding: 10px 14px; margin-top: 12px; background: var(--muted); border-radius: var(--radius); }
+.divergence-method p { margin: 0 0 8px; }

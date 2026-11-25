@@ -101,6 +101,9 @@ jobs:
       - name: Apply saved data and calculate closing signals
         if: steps.publish.outputs.ready == 'true'
         run: node scripts/close-snapshot.mjs apply
+      - name: Verify divergence calculations
+        if: steps.publish.outputs.ready == 'true'
+        run: node scripts/test-divergence.mjs
       - run: node scripts/build-pages.mjs
         if: steps.publish.outputs.ready == 'true'
         env:
