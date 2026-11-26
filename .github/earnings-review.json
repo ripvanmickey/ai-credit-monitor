@@ -1,0 +1,57 @@
+{
+  "reviews": [
+    {
+      "entityId": "NVDA",
+      "row": {
+        "asOf": "2026-10-25",
+        "start": "2026-07-27",
+        "days": 91,
+        "revenue": 115844.0,
+        "openingAR": 63059.0,
+        "closingAR": 81033.0,
+        "dso": 56.594955284693214,
+        "endDso": 63.65459583577915,
+        "publishedAt": "2026-11-17",
+        "derivedRevenue": false,
+        "sourceUrls": [
+          "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Announces-Financial-Results-for-Third-Quarter-Fiscal-2027/default.aspx",
+          "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000088/q3fy27pr.htm",
+          "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000075/0001045810-26-000075-index.html"
+        ],
+        "sourceType": "issuer_earnings_release",
+        "verifiedAt": "2026-11-26",
+        "issuerDso": 64
+      },
+      "observations": [
+        {
+          "id": "nvda-dso-fy27q3",
+          "metric": "dso",
+          "seriesKey": "NVDA:issuer-dso",
+          "value": 64,
+          "unit": "days",
+          "sourceUrl": "https://s201.q4cdn.com/141608511/files/doc_financials/2027/Q327/Q3FY27-CFO-Commentary.pdf",
+          "sourceTitle": "NVIDIA FY27 Q3 CFO Commentary · p4",
+          "note": "公司披露DSO为64天，较上季60天增加4天；不与平均应收DSO代理值混合。",
+          "entityId": "NVDA",
+          "method": "issuer_reported",
+          "asOf": "2026-10-25",
+          "publishedAt": "2026-11-17"
+        },
+        {
+          "id": "nvda-ocf-net-income-fy27q3",
+          "metric": "ocf_net_income",
+          "seriesKey": "NVDA:gaap-ocf-net-income",
+          "value": 0.7390904774304226,
+          "unit": "ratio",
+          "sourceUrl": "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Announces-Financial-Results-for-Third-Quarter-Fiscal-2027/default.aspx",
+          "sourceTitle": "NVIDIA FY27 Q3 earnings release · GAAP cash flow and net income",
+          "note": "当季GAAP经营现金流482.53亿美元／净利润652.87亿美元，按单季度计算，不使用前三季累计。",
+          "entityId": "NVDA",
+          "method": "issuer_reported",
+          "asOf": "2026-10-25",
+          "publishedAt": "2026-11-17"
+        }
+      ]
+    }
+  ]
+}

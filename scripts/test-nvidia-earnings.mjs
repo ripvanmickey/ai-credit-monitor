@@ -1,0 +1,14 @@
+import assert from 'node:assert/strict';
+import {readFile} from 'node:fs/promises';
+const inputs=JSON.parse(await readFile('cycle-inputs.json','utf8'));
+const analyze=new Function(await readFile('worker/analysis.js','utf8')+'\n'+await readFile('worker/cycle-model.js','utf8')+'\nreturn analyzeCycle;')();
+const result=analyze({entities:[],observations:[]},inputs,'2026-11-26T00:00:00Z');
+const collections=result.dimensions.find(d=>d.id==='collections');
+assert.equal(collections.details[0].to,'2026-10-25');
+assert.equal(collections.details[0].value,64);
+assert.equal(collections.details[0].change,4);
+assert.equal(collections.level,0,'Four days of DSO growth must not trigger the ten-day/20% gate');
+const cash=inputs.observations.find(o=>o.id==='nvda-ocf-net-income-fy27q3');
+assert(Math.abs(cash.value-48253/65287)<1e-10);
+assert.equal(cash.asOf,'2026-10-25');
+console.log('PASS: latest issuer DSO and same-quarter GAAP cash conversion reach the risk model without mixing DSO methods.');

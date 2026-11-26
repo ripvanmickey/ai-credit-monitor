@@ -1,0 +1,114 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-11-26T03:33:05.421282+00:00",
+  "observations": [
+    {
+      "id": "nvda-dso-fy27q1",
+      "metric": "dso",
+      "entityId": "NVDA",
+      "seriesKey": "NVDA:issuer-dso",
+      "method": "issuer_reported",
+      "asOf": "2026-04-26",
+      "publishedAt": "2026-05-20",
+      "value": 45,
+      "unit": "days",
+      "sourceUrl": "https://s201.q4cdn.com/141608511/files/doc_financials/2027/q1/NVDA-Q1-2027-Earnings-Call-20-May-2026-5_00-PM-ET.pdf",
+      "sourceTitle": "NVIDIA FY27 Q1 earnings call",
+      "note": "公司披露DSO；与下一季公司口径比较，不与平均应收代理口径混合。"
+    },
+    {
+      "id": "nvda-dso-fy27q2",
+      "metric": "dso",
+      "entityId": "NVDA",
+      "seriesKey": "NVDA:issuer-dso",
+      "method": "issuer_reported",
+      "asOf": "2026-07-26",
+      "publishedAt": "2026-08-26",
+      "value": 60,
+      "unit": "days",
+      "sourceUrl": "https://investor.nvidia.com/files/content_files/TRANSCRIPT_-NVIDIA-Corp-NVDA-US-Q2-2027-Earnings-Call-26-August-2026-5_00-PM-ET.pdf",
+      "sourceTitle": "NVIDIA FY27 Q2 earnings call · p7",
+      "note": "管理层称部分投资级客户的大额、多季度采购获延长账期。DSO上升需要关注，不能直接推断客户无力支付。"
+    },
+    {
+      "id": "msft-rpo-20260630",
+      "metric": "rpo",
+      "entityId": "MSFT",
+      "seriesKey": "MSFT:commercial-rpo:fy27-recast",
+      "method": "issuer_reported",
+      "asOf": "2026-06-30",
+      "publishedAt": "2026-10-28",
+      "value": 678,
+      "unit": "USD bn",
+      "sourceUrl": "https://www.microsoft.com/en-us/Investor/earnings/FY-2027-Q1/metrics",
+      "sourceTitle": "Microsoft FY27 Q1 Investor Metrics",
+      "note": "使用本期指标表重列的可比商业RPO，不混用总公司RPO；覆盖商业产品与云服务，非纯AI订单。"
+    },
+    {
+      "id": "msft-rpo-20260930",
+      "metric": "rpo",
+      "entityId": "MSFT",
+      "seriesKey": "MSFT:commercial-rpo:fy27-recast",
+      "method": "issuer_reported",
+      "asOf": "2026-09-30",
+      "publishedAt": "2026-10-28",
+      "value": 677,
+      "unit": "USD bn",
+      "sourceUrl": "https://www.microsoft.com/en-us/Investor/earnings/FY-2027-Q1/metrics",
+      "sourceTitle": "Microsoft FY27 Q1 Investor Metrics",
+      "note": "商业RPO同比+73%，环比约−0.15%。管理层提到季节性，不能据此判定砍单；目前仅接入一家，订单维度不评分。"
+    },
+    {
+      "id": "nvda-dso-fy27q3",
+      "metric": "dso",
+      "seriesKey": "NVDA:issuer-dso",
+      "value": 64,
+      "unit": "days",
+      "sourceUrl": "https://s201.q4cdn.com/141608511/files/doc_financials/2027/Q327/Q3FY27-CFO-Commentary.pdf",
+      "sourceTitle": "NVIDIA FY27 Q3 CFO Commentary · p4",
+      "note": "公司披露DSO为64天，较上季60天增加4天；不与平均应收DSO代理值混合。",
+      "entityId": "NVDA",
+      "method": "issuer_reported",
+      "asOf": "2026-10-25",
+      "publishedAt": "2026-11-17"
+    },
+    {
+      "id": "nvda-ocf-net-income-fy27q3",
+      "metric": "ocf_net_income",
+      "seriesKey": "NVDA:gaap-ocf-net-income",
+      "value": 0.7390904774304226,
+      "unit": "ratio",
+      "sourceUrl": "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Announces-Financial-Results-for-Third-Quarter-Fiscal-2027/default.aspx",
+      "sourceTitle": "NVIDIA FY27 Q3 earnings release · GAAP cash flow and net income",
+      "note": "当季GAAP经营现金流482.53亿美元／净利润652.87亿美元，按单季度计算，不使用前三季累计。",
+      "entityId": "NVDA",
+      "method": "issuer_reported",
+      "asOf": "2026-10-25",
+      "publishedAt": "2026-11-17"
+    }
+  ],
+  "leading": [
+    {
+      "title": "供给扩张：先行观察，不直接计分",
+      "status": "管理层预测，非已投产量",
+      "asOf": "2026-08-26",
+      "sourceUrl": "https://investor.nvidia.com/files/content_files/TRANSCRIPT_-NVIDIA-Corp-NVDA-US-Q2-2027-Earnings-Call-26-August-2026-5_00-PM-ET.pdf",
+      "sourceTitle": "NVIDIA FY27 Q2 earnings call · p3",
+      "note": "NVIDIA预计Neocloud伙伴年底装机8GW，对比2025年底约3GW。这是供给扩张线索，尚不能证明过剩；需要核对实际通电交付、利用率和同规格租价。"
+    }
+  ],
+  "context": [
+    {
+      "title": "需求与现金流的反证",
+      "sourceUrl": "https://www.microsoft.com/en-us/investor/events/fy-2027/earnings-fy-2027-q1",
+      "sourceTitle": "Microsoft FY27 Q1 earnings call",
+      "note": "微软披露Azure同比增长48%，本季经营现金流580亿美元、自由现金流186亿美元。现有样本不支持把所有云厂商认定为经营恶化；公司整体现金流也不等于AI项目单独盈利。"
+    },
+    {
+      "title": "NVIDIA FY27 Q3",
+      "sourceUrl": "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Announces-Financial-Results-for-Third-Quarter-Fiscal-2027/default.aspx",
+      "sourceTitle": "NVIDIA FY27 Q3 earnings release · 2026-11-17",
+      "note": "营收1158.44亿美元；期末应收810.33亿美元；公司DSO为64天，环比增加4天；经营现金流／净利润为73.91%。"
+    }
+  ]
+}

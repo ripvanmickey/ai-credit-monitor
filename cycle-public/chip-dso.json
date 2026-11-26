@@ -1,0 +1,389 @@
+{
+  "checkedAt": "2026-11-26",
+  "unit": "USD million",
+  "method": "average_ar_actual_quarter_days",
+  "companies": [
+    {
+      "id": "NVDA",
+      "name": "英伟达",
+      "factsUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001045810.json",
+      "rows": [
+        {
+          "asOf": "2025-10-26",
+          "start": "2025-07-28",
+          "days": 91,
+          "revenue": 57006.0,
+          "openingAR": 27808.0,
+          "closingAR": 33391.0,
+          "dso": 48.8466915763253,
+          "endDso": 53.30282777251518,
+          "publishedAt": "2025-11-19",
+          "derivedRevenue": false,
+          "sourceUrls": [
+            "https://www.sec.gov/Archives/edgar/data/1045810/000104581025000230/0001045810-25-000230-index.html",
+            "https://www.sec.gov/Archives/edgar/data/1045810/000104581025000209/0001045810-25-000209-index.html"
+          ]
+        },
+        {
+          "asOf": "2026-01-25",
+          "start": "2025-10-27",
+          "days": 91,
+          "revenue": 68127.0,
+          "openingAR": 33391.0,
+          "closingAR": 38466.0,
+          "dso": 47.991156222936574,
+          "endDso": 51.38059800079263,
+          "publishedAt": "2026-08-26",
+          "derivedRevenue": true,
+          "sourceUrls": [
+            "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/0001045810-26-000021-index.html",
+            "https://www.sec.gov/Archives/edgar/data/1045810/000104581025000230/0001045810-25-000230-index.html",
+            "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000075/0001045810-26-000075-index.html"
+          ]
+        },
+        {
+          "asOf": "2026-04-26",
+          "start": "2026-01-26",
+          "days": 91,
+          "revenue": 81615.0,
+          "openingAR": 38466.0,
+          "closingAR": 40710.0,
+          "dso": 44.14026833302702,
+          "endDso": 45.391288366109166,
+          "publishedAt": "2026-08-26",
+          "derivedRevenue": false,
+          "sourceUrls": [
+            "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000052/0001045810-26-000052-index.html",
+            "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000075/0001045810-26-000075-index.html"
+          ]
+        },
+        {
+          "asOf": "2026-07-26",
+          "start": "2026-04-27",
+          "days": 91,
+          "revenue": 96221.0,
+          "openingAR": 40710.0,
+          "closingAR": 63059.0,
+          "dso": 49.06922085615406,
+          "endDso": 59.63738684902464,
+          "publishedAt": "2026-08-26",
+          "derivedRevenue": false,
+          "sourceUrls": [
+            "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000075/0001045810-26-000075-index.html",
+            "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000052/0001045810-26-000052-index.html"
+          ]
+        },
+        {
+          "asOf": "2026-10-25",
+          "start": "2026-07-27",
+          "days": 91,
+          "revenue": 115844.0,
+          "openingAR": 63059.0,
+          "closingAR": 81033.0,
+          "dso": 56.594955284693214,
+          "endDso": 63.65459583577915,
+          "publishedAt": "2026-11-17",
+          "derivedRevenue": false,
+          "sourceUrls": [
+            "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Announces-Financial-Results-for-Third-Quarter-Fiscal-2027/default.aspx",
+            "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000088/q3fy27pr.htm",
+            "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000075/0001045810-26-000075-index.html"
+          ],
+          "sourceType": "issuer_earnings_release",
+          "verifiedAt": "2026-11-26",
+          "issuerDso": 64
+        }
+      ],
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "AMD",
+      "name": "AMD",
+      "factsUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000002488.json",
+      "rows": [
+        {
+          "asOf": "2025-12-27",
+          "start": "2025-09-28",
+          "days": 91,
+          "revenue": 10270.0,
+          "openingAR": 6201.0,
+          "closingAR": 6315.0,
+          "dso": 55.450632911392404,
+          "endDso": 55.95569620253165,
+          "publishedAt": "2026-11-04",
+          "derivedRevenue": true,
+          "sourceUrls": [
+            "https://www.sec.gov/Archives/edgar/data/2488/000000248826000018/0000002488-26-000018-index.html",
+            "https://www.sec.gov/Archives/edgar/data/2488/000000248826000191/0000002488-26-000191-index.html",
+            "https://www.sec.gov/Archives/edgar/data/2488/000000248825000166/0000002488-25-000166-index.html"
+          ]
+        },
+        {
+          "asOf": "2026-03-28",
+          "start": "2025-12-28",
+          "days": 91,
+          "revenue": 10253.0,
+          "openingAR": 6315.0,
+          "closingAR": 6035.0,
+          "dso": 54.805910465229694,
+          "endDso": 53.56334731298157,
+          "publishedAt": "2026-11-04",
+          "derivedRevenue": false,
+          "sourceUrls": [
+            "https://www.sec.gov/Archives/edgar/data/2488/000000248826000076/0000002488-26-000076-index.html",
+            "https://www.sec.gov/Archives/edgar/data/2488/000000248826000191/0000002488-26-000191-index.html"
+          ]
+        },
+        {
+          "asOf": "2026-06-27",
+          "start": "2026-03-29",
+          "days": 91,
+          "revenue": 11536.0,
+          "openingAR": 6035.0,
+          "closingAR": 7281.0,
+          "dso": 52.52063106796117,
+          "endDso": 57.43507281553398,
+          "publishedAt": "2026-08-05",
+          "derivedRevenue": false,
+          "sourceUrls": [
+            "https://www.sec.gov/Archives/edgar/data/2488/000000248826000123/0000002488-26-000123-index.html",
+            "https://www.sec.gov/Archives/edgar/data/2488/000000248826000076/0000002488-26-000076-index.html"
+          ]
+        },
+        {
+          "asOf": "2026-09-26",
+          "start": "2026-06-28",
+          "days": 91,
+          "revenue": 13377.0,
+          "openingAR": 7281.0,
+          "closingAR": 9209.0,
+          "dso": 56.088435374149654,
+          "endDso": 62.646258503401356,
+          "publishedAt": "2026-11-04",
+          "derivedRevenue": false,
+          "sourceUrls": [
+            "https://www.sec.gov/Archives/edgar/data/2488/000000248826000191/0000002488-26-000191-index.html",
+            "https://www.sec.gov/Archives/edgar/data/2488/000000248826000123/0000002488-26-000123-index.html"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "AVGO",
+      "name": "博通",
+      "factsUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001730168.json",
+      "rows": [
+        {
+          "asOf": "2025-11-02",
+          "start": "2025-08-04",
+          "days": 91,
+          "revenue": 18015.0,
+          "openingAR": 6494.0,
+          "closingAR": 7145.0,
+          "dso": 34.44765473216764,
+          "endDso": 36.09186788787122,
+          "publishedAt": "2026-09-10",
+          "derivedRevenue": true,
+          "sourceUrls": [
+            "https://www.sec.gov/Archives/edgar/data/1730168/000173016825000121/0001730168-25-000121-index.html",
+            "https://www.sec.gov/Archives/edgar/data/1730168/000173016826000080/0001730168-26-000080-index.html",
+            "https://www.sec.gov/Archives/edgar/data/1730168/000173016825000098/0001730168-25-000098-index.html"
+          ]
+        },
+        {
+          "asOf": "2026-02-01",
+          "start": "2025-11-03",
+          "days": 91,
+          "revenue": 19311.0,
+          "openingAR": 7145.0,
+          "closingAR": 8460.0,
+          "dso": 36.76803376314018,
+          "endDso": 39.86639739008855,
+          "publishedAt": "2026-09-10",
+          "derivedRevenue": false,
+          "sourceUrls": [
+            "https://www.sec.gov/Archives/edgar/data/1730168/000173016826000016/0001730168-26-000016-index.html",
+            "https://www.sec.gov/Archives/edgar/data/1730168/000173016826000080/0001730168-26-000080-index.html"
+          ]
+        },
+        {
+          "asOf": "2026-05-03",
+          "start": "2026-02-02",
+          "days": 91,
+          "revenue": 22187.0,
+          "openingAR": 8460.0,
+          "closingAR": 10830.0,
+          "dso": 39.55897597692343,
+          "endDso": 44.419254518411684,
+          "publishedAt": "2026-06-09",
+          "derivedRevenue": false,
+          "sourceUrls": [
+            "https://www.sec.gov/Archives/edgar/data/1730168/000173016826000054/0001730168-26-000054-index.html",
+            "https://www.sec.gov/Archives/edgar/data/1730168/000173016826000016/0001730168-26-000016-index.html"
+          ]
+        },
+        {
+          "asOf": "2026-08-02",
+          "start": "2026-05-04",
+          "days": 91,
+          "revenue": 29591.0,
+          "openingAR": 10830.0,
+          "closingAR": 13707.0,
+          "dso": 37.728819573518976,
+          "endDso": 42.15258017640499,
+          "publishedAt": "2026-09-10",
+          "derivedRevenue": false,
+          "sourceUrls": [
+            "https://www.sec.gov/Archives/edgar/data/1730168/000173016826000080/0001730168-26-000080-index.html",
+            "https://www.sec.gov/Archives/edgar/data/1730168/000173016826000054/0001730168-26-000054-index.html"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "MRVL",
+      "name": "Marvell 迈威尔",
+      "factsUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001835632.json",
+      "rows": [
+        {
+          "asOf": "2025-11-01",
+          "start": "2025-08-03",
+          "days": 91,
+          "revenue": 2074.5,
+          "openingAR": 1451.7,
+          "closingAR": 1546.3,
+          "dso": 65.75512171607616,
+          "endDso": 67.82998312846469,
+          "publishedAt": "2025-12-03",
+          "derivedRevenue": false,
+          "sourceUrls": [
+            "https://www.sec.gov/Archives/edgar/data/1835632/000183563225000197/0001835632-25-000197-index.html",
+            "https://www.sec.gov/Archives/edgar/data/1835632/000183563225000189/0001835632-25-000189-index.html"
+          ]
+        },
+        {
+          "asOf": "2026-01-31",
+          "start": "2025-11-02",
+          "days": 91,
+          "revenue": 2218.7,
+          "openingAR": 1546.3,
+          "closingAR": 2186.6,
+          "dso": 76.55246315409926,
+          "endDso": 89.68341821787533,
+          "publishedAt": "2026-08-28",
+          "derivedRevenue": true,
+          "sourceUrls": [
+            "https://www.sec.gov/Archives/edgar/data/1835632/000183563226000011/0001835632-26-000011-index.html",
+            "https://www.sec.gov/Archives/edgar/data/1835632/000183563225000197/0001835632-25-000197-index.html",
+            "https://www.sec.gov/Archives/edgar/data/1835632/000183563226000025/0001835632-26-000025-index.html"
+          ]
+        },
+        {
+          "asOf": "2026-05-02",
+          "start": "2026-02-01",
+          "days": 91,
+          "revenue": 2417.8,
+          "openingAR": 2186.6,
+          "closingAR": 1871.7,
+          "dso": 76.37217718587145,
+          "endDso": 70.44614939200926,
+          "publishedAt": "2026-08-28",
+          "derivedRevenue": false,
+          "sourceUrls": [
+            "https://www.sec.gov/Archives/edgar/data/1835632/000183563226000019/0001835632-26-000019-index.html",
+            "https://www.sec.gov/Archives/edgar/data/1835632/000183563226000025/0001835632-26-000025-index.html"
+          ]
+        },
+        {
+          "asOf": "2026-08-01",
+          "start": "2026-05-03",
+          "days": 91,
+          "revenue": 2739.3,
+          "openingAR": 1871.7,
+          "closingAR": 2218.4,
+          "dso": 67.93689993794035,
+          "endDso": 73.69561566823641,
+          "publishedAt": "2026-08-28",
+          "derivedRevenue": false,
+          "sourceUrls": [
+            "https://www.sec.gov/Archives/edgar/data/1835632/000183563226000025/0001835632-26-000025-index.html",
+            "https://www.sec.gov/Archives/edgar/data/1835632/000183563226000019/0001835632-26-000019-index.html"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "INTC",
+      "name": "Intel 英特尔",
+      "factsUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000050863.json",
+      "rows": [
+        {
+          "asOf": "2025-12-27",
+          "start": "2025-09-28",
+          "days": 91,
+          "revenue": 13674.0,
+          "openingAR": 3202.0,
+          "closingAR": 3839.0,
+          "dso": 23.428806494076348,
+          "endDso": 25.54841304665789,
+          "publishedAt": "2026-10-30",
+          "derivedRevenue": true,
+          "sourceUrls": [
+            "https://www.sec.gov/Archives/edgar/data/50863/000005086326000011/0000050863-26-000011-index.html",
+            "https://www.sec.gov/Archives/edgar/data/50863/000005086326000191/0000050863-26-000191-index.html",
+            "https://www.sec.gov/Archives/edgar/data/50863/000005086325000179/0000050863-25-000179-index.html"
+          ]
+        },
+        {
+          "asOf": "2026-03-28",
+          "start": "2025-12-28",
+          "days": 91,
+          "revenue": 13577.0,
+          "openingAR": 3839.0,
+          "closingAR": 4066.0,
+          "dso": 26.491677100979597,
+          "endDso": 27.252412167636443,
+          "publishedAt": "2026-10-30",
+          "derivedRevenue": false,
+          "sourceUrls": [
+            "https://www.sec.gov/Archives/edgar/data/50863/000005086326000079/0000050863-26-000079-index.html",
+            "https://www.sec.gov/Archives/edgar/data/50863/000005086326000191/0000050863-26-000191-index.html"
+          ]
+        },
+        {
+          "asOf": "2026-06-27",
+          "start": "2026-03-29",
+          "days": 91,
+          "revenue": 16128.0,
+          "openingAR": 4066.0,
+          "closingAR": 4033.0,
+          "dso": 22.848741319444443,
+          "endDso": 22.75564236111111,
+          "publishedAt": "2026-07-24",
+          "derivedRevenue": false,
+          "sourceUrls": [
+            "https://www.sec.gov/Archives/edgar/data/50863/000005086326000157/0000050863-26-000157-index.html",
+            "https://www.sec.gov/Archives/edgar/data/50863/000005086326000079/0000050863-26-000079-index.html"
+          ]
+        },
+        {
+          "asOf": "2026-09-26",
+          "start": "2026-06-28",
+          "days": 91,
+          "revenue": 16513.0,
+          "openingAR": 4033.0,
+          "closingAR": 4093.0,
+          "dso": 22.39041966935142,
+          "endDso": 22.55574395930479,
+          "publishedAt": "2026-10-30",
+          "derivedRevenue": false,
+          "sourceUrls": [
+            "https://www.sec.gov/Archives/edgar/data/50863/000005086326000191/0000050863-26-000191-index.html",
+            "https://www.sec.gov/Archives/edgar/data/50863/000005086326000157/0000050863-26-000157-index.html"
+          ]
+        }
+      ]
+    }
+  ],
+  "checkNote": "NVIDIA FY27 Q3 issuer earnings release verified; other issuers retain their own disclosure dates."
+}

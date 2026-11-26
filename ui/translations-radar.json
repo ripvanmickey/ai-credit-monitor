@@ -37,5 +37,17 @@
     "zh": "已完成截至美股2026年11月25日收盘的全部16家公司核验。新增AMD及Intel 11月23日的指示性日线收盘；Reuters 11月25日更新报道确认Oracle 356bp与CoreWeave 1314bp，作为独立媒体点位保存。六项公开日线来源均仅更新至11月23日，自动抓取请求返回HTTP 403。其余公司未取得新的可核验数值报价；Equinix的ICE合约价格行未能完整读取，未将其换算成利差。DTCC已核验全部16家公司截至11月25日的86/86份公开文件。QQQ与SPY已通过Stock Analysis补齐11月25日收盘，并核对复权价格重叠；五组行情及抄底、底背离指标均已计算至11月25日。",
     "en": "All 16 issuers checked for US close 2026-11-25. Added AMD and Intel Nov 23 indicative daily closes; Reuters Nov 25 report additionally verifies Oracle 356bp and CoreWeave 1314bp as separate media points. All six retrieved public daily tables end Nov 23; direct automated requests returned HTTP403. No new numeric issuer quote verified for the remaining companies; EQIX ICE contract-price row could not be fully retrieved and was not converted to a spread. DTCC verified 86/86 public files through Nov 25 for all 16 issuers. QQQ and SPY Nov 25 closes recovered from Stock Analysis using matching adjusted-price overlap; all five market histories and derived timing/divergence calculations are through Nov 25.",
     "ja": "米国市場の2026年11月25日終値に対応する全16社の確認を完了。AMD・Intelの11月23日の参考日足終値を追加。Reutersの11月25日更新記事でOracle 356bp、CoreWeave 1314bpを確認し、独立した報道値として保存。公開日足6系列はすべて11月23日までで、自動取得はHTTP 403を返却。他社の新しい検証可能な数値相場は未取得。EquinixのICE契約価格行は完全に取得できず、スプレッドへ換算せず。DTCCは全16社について11月25日までの公開ファイル86/86件を確認。QQQ・SPYの11月25日終値をStock Analysisで補完し、調整後価格の重複を照合。価格5系列と押し目買い・強気ダイバージェンス指標は11月25日まで計算済み。"
+  },
+  "公司披露DSO为64天，较上季60天增加4天；不与平均应收DSO代理值混合。": {
+    "en": "Issuer-reported DSO is 64 days, up 4 days from 60; kept separate from the average-receivables DSO proxy.",
+    "ja": "会社開示DSOは64日で前四半期の60日から4日増加。平均売掛金から計算したDSOとは区別。"
+  },
+  "当季GAAP经营现金流482.53亿美元／净利润652.87亿美元，按单季度计算，不使用前三季累计。": {
+    "en": "Quarterly GAAP operating cash flow of USD 48.253bn divided by net income of USD 65.287bn; excludes nine-month cumulative amounts.",
+    "ja": "当四半期のGAAP営業キャッシュフロー482.53億米ドルを純利益652.87億米ドルで除した値。9か月累計は使用せず。"
+  },
+  "营收1158.44亿美元；期末应收810.33亿美元；公司DSO为64天，环比增加4天；经营现金流／净利润为73.91%。": {
+    "en": "Revenue USD 115.844bn; ending receivables USD 81.033bn; issuer DSO 64 days, up 4 days; operating cash flow / net income 73.91%.",
+    "ja": "売上高1158.44億米ドル、期末売掛金810.33億米ドル。会社開示DSOは64日、前四半期比4日増。営業キャッシュフロー／純利益は73.91%。"
   }
 }
