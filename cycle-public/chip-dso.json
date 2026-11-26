@@ -166,7 +166,8 @@
             "https://www.sec.gov/Archives/edgar/data/2488/000000248826000123/0000002488-26-000123-index.html"
           ]
         }
-      ]
+      ],
+      "checkedAt": "2026-11-26"
     },
     {
       "id": "AVGO",
@@ -238,7 +239,8 @@
             "https://www.sec.gov/Archives/edgar/data/1730168/000173016826000054/0001730168-26-000054-index.html"
           ]
         }
-      ]
+      ],
+      "checkedAt": "2026-11-26"
     },
     {
       "id": "MRVL",
@@ -310,7 +312,8 @@
             "https://www.sec.gov/Archives/edgar/data/1835632/000183563226000019/0001835632-26-000019-index.html"
           ]
         }
-      ]
+      ],
+      "checkedAt": "2026-11-26"
     },
     {
       "id": "INTC",
@@ -382,8 +385,53 @@
             "https://www.sec.gov/Archives/edgar/data/50863/000005086326000157/0000050863-26-000157-index.html"
           ]
         }
-      ]
+      ],
+      "checkedAt": "2026-11-26"
     }
   ],
-  "checkNote": "NVIDIA FY27 Q3 issuer earnings release verified; other issuers retain their own disclosure dates."
+  "checkNote": "NVIDIA FY27 Q3 issuer earnings release verified; other issuers retain their own disclosure dates.",
+  "financialChecks": [
+    {
+      "entityId": "NVDA",
+      "checkedAt": "2026-11-26",
+      "status": "partial",
+      "sourceUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001045810.json",
+      "error": "HTTP Error 403: Forbidden",
+      "latestPeriod": "2026-10-25",
+      "issuerUrl": "https://investor.nvidia.com/financial-info/financial-reports/",
+      "issuerLatestPeriod": "2026-10-25"
+    },
+    {
+      "entityId": "AMD",
+      "checkedAt": "2026-11-26",
+      "status": "partial",
+      "sourceUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000002488.json",
+      "error": "HTTP Error 403: Forbidden",
+      "latestPeriod": "2026-09-26"
+    },
+    {
+      "entityId": "AVGO",
+      "checkedAt": "2026-11-26",
+      "status": "partial",
+      "sourceUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001730168.json",
+      "error": "HTTP Error 403: Forbidden",
+      "latestPeriod": "2026-08-02"
+    },
+    {
+      "entityId": "MRVL",
+      "checkedAt": "2026-11-26",
+      "status": "partial",
+      "sourceUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001835632.json",
+      "error": "HTTP Error 403: Forbidden",
+      "latestPeriod": "2026-08-01"
+    },
+    {
+      "entityId": "INTC",
+      "checkedAt": "2026-11-26",
+      "status": "partial",
+      "sourceUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000050863.json",
+      "error": "HTTP Error 403: Forbidden",
+      "latestPeriod": "2026-09-26"
+    }
+  ]
 }
