@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "revision": "orders-google-cloud-20261126",
-  "checkedAt": "2026-11-26T05:29:28.918776+00:00",
+  "revision": "orders-google-history-20261126",
+  "checkedAt": "2026-11-26T05:50:32.630728+00:00",
   "companies": [
     {
       "id": "MSFT",
@@ -22,7 +22,10 @@
       "name": "Alphabet / Google Cloud",
       "role": "综合云",
       "primary": "google-cloud-rpo",
-      "note": "Google Cloud分部RPO，不使用Alphabet公司总RPO；含传统云与AI，不等于已收现金。"
+      "note": "Google Cloud分部RPO，不使用Alphabet公司总RPO；含传统云与AI，不等于已收现金。",
+      "historicalSeries": [
+        "alphabet-rpo-2025"
+      ]
     },
     {
       "id": "META",
@@ -170,6 +173,18 @@
       "scope": "Google Cloud，含传统云与AI",
       "scoreKey": "GOOGL:google-cloud-rpo:2026-scope",
       "note": "自2026年一季度起纳入原始期限一年或以内合同；仅连接此后同口径Google Cloud分部RPO，不与2025年旧口径拼接。",
+      "updateUrl": "https://abc.xyz/investor/"
+    },
+    {
+      "id": "alphabet-rpo-2025",
+      "entityId": "GOOGL",
+      "title": "Alphabet RPO（2025旧口径，主要为Google Cloud）",
+      "kind": "stock",
+      "unit": "USD bn",
+      "scope": "Alphabet整体，主要为Google Cloud；2025旧口径",
+      "historicalOnly": true,
+      "comparisonHistory": true,
+      "note": "2025年Alphabet整体剩余履约义务，主要与Google Cloud相关；排除原始期限一年或以内及可取消合同。不与2026年Google Cloud分部RPO拼接，不计算跨口径同比或环比。",
       "updateUrl": "https://abc.xyz/investor/"
     }
   ],
@@ -637,6 +652,50 @@
       "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000084/goog-20260930.htm",
       "sourceTitle": "Alphabet 2026 Form 10-Q · Revenue Backlog",
       "note": "自2026年一季度起纳入原始期限一年或以内合同；仅连接此后同口径Google Cloud分部RPO，不与2025年旧口径拼接。"
+    },
+    {
+      "id": "alphabet-rpo-2025-2025-03-31",
+      "seriesId": "alphabet-rpo-2025",
+      "asOf": "2025-03-31",
+      "value": 92.4,
+      "operator": "=",
+      "publishedAt": "2025-04-25",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1652044/000165204425000043/goog-20250331.htm",
+      "sourceTitle": "Alphabet 2025 Form 10-Q · Revenue Backlog",
+      "note": "2025年Alphabet整体剩余履约义务，主要与Google Cloud相关；排除原始期限一年或以内及可取消合同。不与2026年Google Cloud分部RPO拼接，不计算跨口径同比或环比。"
+    },
+    {
+      "id": "alphabet-rpo-2025-2025-06-30",
+      "seriesId": "alphabet-rpo-2025",
+      "asOf": "2025-06-30",
+      "value": 108.2,
+      "operator": "=",
+      "publishedAt": "2025-07-24",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1652044/000165204425000062/goog-20250630.htm",
+      "sourceTitle": "Alphabet 2025 Form 10-Q · Revenue Backlog",
+      "note": "2025年Alphabet整体剩余履约义务，主要与Google Cloud相关；排除原始期限一年或以内及可取消合同。不与2026年Google Cloud分部RPO拼接，不计算跨口径同比或环比。"
+    },
+    {
+      "id": "alphabet-rpo-2025-2025-09-30",
+      "seriesId": "alphabet-rpo-2025",
+      "asOf": "2025-09-30",
+      "value": 157.7,
+      "operator": "=",
+      "publishedAt": "2025-10-30",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1652044/000165204425000091/goog-20250930.htm",
+      "sourceTitle": "Alphabet 2025 Form 10-Q · Revenue Backlog",
+      "note": "2025年Alphabet整体剩余履约义务，主要与Google Cloud相关；排除原始期限一年或以内及可取消合同。不与2026年Google Cloud分部RPO拼接，不计算跨口径同比或环比。"
+    },
+    {
+      "id": "alphabet-rpo-2025-2025-12-31",
+      "seriesId": "alphabet-rpo-2025",
+      "asOf": "2025-12-31",
+      "value": 242.8,
+      "operator": "=",
+      "publishedAt": "2026-02-05",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000018/goog-20251231.htm",
+      "sourceTitle": "Alphabet 2025 Form 10-K · Revenue Backlog",
+      "note": "2025年Alphabet整体剩余履约义务，主要与Google Cloud相关；排除原始期限一年或以内及可取消合同。不与2026年Google Cloud分部RPO拼接，不计算跨口径同比或环比。"
     }
   ],
   "method": "不同口径分别展示，不跨公司加总，不用合同最高额替代已履约收入；先看同公司同口径历史，再判断增长。"

@@ -85,5 +85,21 @@
   "未履约订单历史对比，指数": {
     "en": "Outstanding order history, indexed",
     "ja": "未履行受注残高（指数）"
+  },
+  "Alphabet RPO（2025旧口径，主要为Google Cloud）": {
+    "en": "Alphabet RPO (2025 definition, primarily Google Cloud)",
+    "ja": "Alphabet RPO（2025年の旧定義・主にGoogle Cloud）"
+  },
+  "Alphabet整体，主要为Google Cloud；2025旧口径": {
+    "en": "Alphabet-wide, primarily Google Cloud; 2025 definition",
+    "ja": "Alphabet全社、主にGoogle Cloud・2025年の旧定義"
+  },
+  "2025年Alphabet整体剩余履约义务，主要与Google Cloud相关；排除原始期限一年或以内及可取消合同。不与2026年Google Cloud分部RPO拼接，不计算跨口径同比或环比。": {
+    "en": "Alphabet-wide remaining performance obligations in 2025, primarily related to Google Cloud. Excludes cancellable contracts and contracts of one year or less. Kept separate from 2026 Google Cloud segment RPO; no cross-definition growth is calculated.",
+    "ja": "2025年のAlphabet全社の残存履行義務で、主にGoogle Cloudに関連。取消可能な契約と当初期間1年以下の契約は除外。2026年Google Cloud部門RPOとは分け、定義をまたぐ増減率は算出しません。"
+  },
+  "2025年谷歌数据为Alphabet整体RPO，旧口径单列，不与2026年Google Cloud分部RPO连线或计算跨口径增幅。": {
+    "en": "Google’s 2025 values are Alphabet-wide RPO under the prior definition, shown separately. They are not connected to 2026 Google Cloud segment RPO and no cross-definition growth is calculated.",
+    "ja": "2025年の値は旧定義のAlphabet全社RPOとして別表示。2026年のGoogle Cloud部門RPOとは接続せず、定義をまたぐ増減率は算出しません。"
   }
 }

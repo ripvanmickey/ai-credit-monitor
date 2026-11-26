@@ -36,5 +36,14 @@ assert.equal(q3Cell('CRWV').observation.value,132.3);assert.ok(Math.abs(q3Cell('
 assert.equal(get('aws-commitments').rows.length,5);assert.equal(get('nbis-rpo').rows.length,3);assert.equal(get('crwv-rpo').rows.length,5);assert.equal(get('spcx-group-backlog').rows.length,4);
 const google=get('google-cloud-rpo');assert.equal(google.latest.value,560.8);assert.equal(google.rows[0].asOf,'2026-03-31');assert.equal(google.rows.length,3);assert.equal(google.yoy,null);assert.ok(Math.abs(google.qoq.pct-100*(560.8/513.9-1))<1e-8);
 assert(a.scoringObservations.some(o=>o.entityId==='GOOGL'&&o.value===560.8));
+const legacy=get('alphabet-rpo-2025');
+assert.deepEqual(legacy.rows.map(o=>o.value),[92.4,108.2,157.7,242.8]);
+assert.equal(legacy.historicalOnly,true);
+assert.equal(legacy.rows[0].publishedAt,'2025-04-25');
+assert(!a.scoringObservations.some(o=>o.id.includes('alphabet-rpo-2025')));
+assert.equal(get('google-cloud-rpo').quarterly[0].qoq,null);
+const oldGoogleCell=a.alignment.companies.find(c=>c.entityId==='GOOGL').cells.find(c=>c.asOf==='2025-12-31');
+assert.equal(oldGoogleCell.observation.value,242.8);
+assert.equal(oldGoogleCell.scopeTitle,legacy.title);
 assert.ok(Math.abs(get('nbis-rpo').qoq.pct-100*(37.4906/33.5853-1))<1e-8);assert.equal(a.companies.find(c=>c.id==='NBIS').primarySeries.id,'nbis-rpo');assert.equal(a.companies.find(c=>c.id==='CRWV').primarySeries.id,'crwv-rpo');
 console.log('PASS: aligned Q2 stock coverage for five issuers, pending/NA/history statuses, new Nebius and CoreWeave GAAP RPO, prior backlog retained and deduplicated summary.');
