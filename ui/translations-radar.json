@@ -14,5 +14,13 @@
   "TrendForce 11月16日公开摘要称，高容值 MLCC 交期延长，供需状态升至“非常紧张”，AI 需求继续增加供应压力。本文仅整理公开摘要，详细分项分析需订阅原文。": {
     "en": "TrendForce's November 16 public preview reports longer lead times for high-capacitance MLCCs and a move to “Very Tight” supply as AI demand adds pressure. This summary covers the public preview. Detailed component analysis requires a subscription.",
     "ja": "TrendForceの11月16日公開要約によると、AI需要を受けて高容量MLCCの納期が長期化し、需給は「非常に逼迫」に。公開部分の要約です。詳細な部品別分析は購読が必要です。"
+  },
+  "Reuters更新：Oracle CDS达356bp，CoreWeave达1314bp": {
+    "en": "Reuters update: Oracle CDS at 356bp and CoreWeave at 1314bp",
+    "ja": "Reuters更新：OracleのCDSは356bp、CoreWeaveは1314bp"
+  },
+  "Reuters 11月25日更新报道给出Oracle五年期CDS为356bp、CoreWeave为1314bp，并确认SoftBank Group为501bp。报道涉及过去两个交易日的高位，未提供精确成交时刻；按报道日期保存独立媒体点位，不拼接公开日线或DTCC成交中位数。": {
+    "en": "Reuters' Nov 25 update reports five-year CDS at 356bp for Oracle and 1314bp for CoreWeave, and confirms SoftBank Group at 501bp. The report covers highs over the past two trading sessions without exact execution timestamps. These report-dated media points remain separate from public daily closes and DTCC trade medians.",
+    "ja": "Reutersの11月25日更新記事は、5年CDSをOracleが356bp、CoreWeaveが1314bpと報じ、ソフトバンクGの501bpも確認。過去2取引日の高値に言及し、正確な約定時刻は不明。報道日の独立した参考値として保存し、公開日足やDTCC約定中央値と分けて表示。"
   }
 }
