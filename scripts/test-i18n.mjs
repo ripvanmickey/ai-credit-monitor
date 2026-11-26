@@ -22,10 +22,25 @@ try{
  browser('en-US');saved='zh';assert.equal((await import(moduleURL+'?saved')).getLanguage(),'zh');
  saved=null;
  const dictionary={...JSON.parse(await readFile('ui/translations.json','utf8')),
-  ...JSON.parse(await readFile('ui/translations-timing.json','utf8'))};
+  ...JSON.parse(await readFile('ui/translations-timing.json','utf8')),
+  ...JSON.parse(await readFile('ui/translations-radar.json','utf8'))};
  for(const [source,{en,ja}] of Object.entries(dictionary)){
   assert(en&&ja,source);assert(!/[\u3400-\u9fff]/.test(en),'Chinese in English dictionary: '+source);
-  assert.equal(translate(source,'zh'),source);
+  assert.equal(translate(source,'zh'),dictionary[source].zh??source);
+ }
+ const generated=[
+  'DTCC checked for all 17 issuers through 2027-01-04: partial. 20/21 public files available.',
+  'DTCC checked for all 16 issuers through 2026-11-25: failed. HTTP 503',
+  'Public CDS daily sources checked for 2027-01-04; added 3 observations. AMD: 2027-01-04 (current); INTC: 2026-12-31 (lagging); NBIS: no quote (unavailable). Quote dates are retained when the provider lags or cannot be accessed. Equity-close coverage is tracked separately. Company-wide news verification pending: NBIS, EQIX.',
+ ];
+ for(const source of generated){
+  for(const lang of ['zh','ja']){
+   const text=translate(source,lang);
+   assert.notEqual(text,source,'Generated audit not localized: '+lang);
+   assert(!/issuers through|public files available|Public CDS daily|unavailable|lagging/.test(text),text);
+   for(const token of source.match(/\d{4}-\d{2}-\d{2}|\d+\/\d+|HTTP \d+/g)??[])assert(text.includes(token),token);
+  }
+  assert.equal(translate(source,'en'),source);
  }
  const cases=[
   '最近四个已披露季度 · 财报核验截至2026-11-10',
@@ -88,6 +103,12 @@ try{
  assert.equal(element.attrs['aria-label'],'GPU rental history series');
  setLanguage('zh');assert.equal(node.data,'固定区域按需价');
  assert.equal(element.attrs['aria-label'],'GPU租价历史序列');
+ // English audit text must also retain its original across repeated switches.
+ node.data=generated[0];startLocalization();
+ assert(node.data.includes('全部17家公司'));
+ setLanguage('ja');assert(node.data.includes('全17社'));
+ setLanguage('en');assert.equal(node.data,generated[0]);
+ setLanguage('zh');assert(node.data.includes('20/21份公开文件可用'));
  const sox=await readFile('sox-public/app.js','utf8');
  const table=await readFile('ui/data-table.tsx','utf8');
  assert(sox.includes("column('signal','跌破日期'")&&table.includes('data-source-label={column.title}'),'Sortable headers need immutable source labels');
