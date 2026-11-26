@@ -40,11 +40,13 @@ const notice = '<p class="info-note" style="margin:12px 0;color:var(--muted-fore
 const isApiPath = /(['"])(\/(?:sox\/)?api\/[a-z-]+)(?=\1)/g;
 const apiPaths = code => code.replace(isApiPath, (_, quote, path) => quote + base + path + '.json');
 const designRevision = createHash('sha256').update(await readFile('cycle-public/design.js')).digest('hex').slice(0, 12);
+const financialRevision = createHash('sha256').update(await readFile('cycle-public/chip-dso.json')).digest('hex').slice(0, 12);
 
 function adaptHtml(html, addNotice = true) {
   const adapted = apiPaths(html)
     .replace('<head>', '<head><meta name="research-pages-base" content="' + base + '">')
     .replace(/(src="\/cycle\/design\.js)(?:\?[^"]*)?"/g, '$1?v=' + designRevision + '"')
+    .replace(/(src="\/cycle\/chip-dso\.js)(?:\?[^"]*)?"/g, '$1?v=' + financialRevision + '"')
     .replace(/((?:href|src)=")(\/(?:cycle|sox)\/)/g, '$1' + base + '$2')
     .replaceAll("'/cycle/logo-", "'" + base + "/cycle/logo-");
   return addNotice ? adapted
@@ -75,7 +77,7 @@ for (const path of ['cycle/app.js', 'cycle/chip-dso.js', 'cycle/company-logos.js
   const code = await readFile(join(out, path), 'utf8');
   await save(path, apiPaths(code)
     .replace("fetch('api/market'", "fetch('api/market.json'")
-    .replaceAll("'/cycle/chip-dso.json'", "'" + base + "/cycle/chip-dso.json'")
+    .replaceAll("'/cycle/chip-dso.json'", "'" + base + "/cycle/chip-dso.json?v=" + financialRevision + "'")
     .replaceAll("'/cycle/logo-", "'" + base + "/cycle/logo-"));
 }
 
