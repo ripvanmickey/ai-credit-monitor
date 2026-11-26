@@ -40,7 +40,7 @@ const notice = '<p class="info-note" style="margin:12px 0;color:var(--muted-fore
 const isApiPath = /(['"])(\/(?:sox\/)?api\/[a-z-]+)(?=\1)/g;
 const apiPaths = code => code.replace(isApiPath, (_, quote, path) => quote + base + path + '.json');
 const designRevision = createHash('sha256').update(await readFile('cycle-public/design.js')).digest('hex').slice(0, 12);
-const financialRevision = createHash('sha256').update(await readFile('cycle-public/chip-dso.json')).digest('hex').slice(0, 12);
+const financialRevision = createHash('sha256').update(await readFile('cycle-public/chip-dso.json')).update(await readFile('cycle-public/chip-dso.js')).digest('hex').slice(0, 12);
 
 function adaptHtml(html, addNotice = true) {
   const adapted = apiPaths(html)
