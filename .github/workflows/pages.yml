@@ -134,6 +134,7 @@ jobs:
           python3 scripts/test-dtcc.py
           python3 scripts/test-chip-financials.py
           node scripts/test-nvidia-earnings.mjs
+          node scripts/test-orders.mjs
       - run: node scripts/build-pages.mjs
         if: steps.publish.outputs.ready == 'true'
         env:

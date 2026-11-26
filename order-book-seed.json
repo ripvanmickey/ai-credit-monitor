@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "revision": "orders-baseline-20261112",
-  "checkedAt": "2026-11-12T13:20:00Z",
+  "revision": "orders-google-cloud-20261126",
+  "checkedAt": "2026-11-26T05:29:28.918776+00:00",
   "companies": [
     {
       "id": "MSFT",
@@ -16,6 +16,13 @@
       "role": "综合云",
       "primary": "aws-commitments",
       "note": "主要与AWS相关、原始期限超过一年的未确认服务承诺；包含传统云和AI。"
+    },
+    {
+      "id": "GOOGL",
+      "name": "Alphabet / Google Cloud",
+      "role": "综合云",
+      "primary": "google-cloud-rpo",
+      "note": "Google Cloud分部RPO，不使用Alphabet公司总RPO；含传统云与AI，不等于已收现金。"
     },
     {
       "id": "META",
@@ -153,6 +160,17 @@
       "unit": "USD bn",
       "note": "会计RPO含已开票与未开票的承诺对价，并扣除估计可变对价；与广义backlog分开。",
       "updateUrl": "https://investors.coreweave.com/financials/quarterly-results/"
+    },
+    {
+      "id": "google-cloud-rpo",
+      "entityId": "GOOGL",
+      "title": "Google Cloud 剩余履约义务 RPO",
+      "kind": "stock",
+      "unit": "USD bn",
+      "scope": "Google Cloud，含传统云与AI",
+      "scoreKey": "GOOGL:google-cloud-rpo:2026-scope",
+      "note": "自2026年一季度起纳入原始期限一年或以内合同；仅连接此后同口径Google Cloud分部RPO，不与2025年旧口径拼接。",
+      "updateUrl": "https://abc.xyz/investor/"
     }
   ],
   "observations": [
@@ -586,6 +604,39 @@
       "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000461/coreweave3q26earningspress.htm",
       "sourceTitle": "CoreWeave Q3 2026 Earnings Release",
       "note": "广义积压订单含 1,323 亿美元会计 RPO 和约 2 亿美元其他预计未来收入，仍取决于交付和服务可用性。"
+    },
+    {
+      "id": "google-cloud-rpo-2026-03-31",
+      "seriesId": "google-cloud-rpo",
+      "asOf": "2026-03-31",
+      "value": 462.3,
+      "operator": "=",
+      "publishedAt": "2026-04-30",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000048/goog-20260331.htm",
+      "sourceTitle": "Alphabet 2026 Form 10-Q · Revenue Backlog",
+      "note": "自2026年一季度起纳入原始期限一年或以内合同；仅连接此后同口径Google Cloud分部RPO，不与2025年旧口径拼接。"
+    },
+    {
+      "id": "google-cloud-rpo-2026-06-30",
+      "seriesId": "google-cloud-rpo",
+      "asOf": "2026-06-30",
+      "value": 513.9,
+      "operator": "=",
+      "publishedAt": "2026-07-23",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000071/goog-20260630.htm",
+      "sourceTitle": "Alphabet 2026 Form 10-Q · Revenue Backlog",
+      "note": "自2026年一季度起纳入原始期限一年或以内合同；仅连接此后同口径Google Cloud分部RPO，不与2025年旧口径拼接。"
+    },
+    {
+      "id": "google-cloud-rpo-2026-09-30",
+      "seriesId": "google-cloud-rpo",
+      "asOf": "2026-09-30",
+      "value": 560.8,
+      "operator": "=",
+      "publishedAt": "2026-10-29",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000084/goog-20260930.htm",
+      "sourceTitle": "Alphabet 2026 Form 10-Q · Revenue Backlog",
+      "note": "自2026年一季度起纳入原始期限一年或以内合同；仅连接此后同口径Google Cloud分部RPO，不与2025年旧口径拼接。"
     }
   ],
   "method": "不同口径分别展示，不跨公司加总，不用合同最高额替代已履约收入；先看同公司同口径历史，再判断增长。"

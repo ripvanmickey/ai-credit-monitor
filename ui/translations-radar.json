@@ -49,5 +49,41 @@
   "营收1158.44亿美元；期末应收810.33亿美元；公司DSO为64天，环比增加4天；经营现金流／净利润为73.91%。": {
     "en": "Revenue USD 115.844bn; ending receivables USD 81.033bn; issuer DSO 64 days, up 4 days; operating cash flow / net income 73.91%.",
     "ja": "売上高1158.44億米ドル、期末売掛金810.33億米ドル。会社開示DSOは64日、前四半期比4日増。営業キャッシュフロー／純利益は73.91%。"
+  },
+  "未履约订单历史对比": {
+    "en": "Outstanding order balance history",
+    "ja": "未履行受注残高の推移"
+  },
+  "Google Cloud 剩余履约义务 RPO": {
+    "en": "Google Cloud remaining performance obligations (RPO)",
+    "ja": "Google Cloudの残存履行義務（RPO）"
+  },
+  "Google Cloud，含传统云与AI": {
+    "en": "Google Cloud, including traditional cloud and AI",
+    "ja": "Google Cloud（従来型クラウドとAIを含む）"
+  },
+  "自2026年一季度起纳入原始期限一年或以内合同；仅连接此后同口径Google Cloud分部RPO，不与2025年旧口径拼接。": {
+    "en": "Includes contracts of one year or less from Q1 2026. Only comparable Google Cloud segment RPO from that date is connected; the prior 2025 definition is not spliced.",
+    "ja": "2026年Q1から当初期間1年以下の契約も含む。同定義のGoogle Cloud部門RPOのみ接続し、2025年の旧定義とは接続しません。"
+  },
+  "Google Cloud分部RPO，不使用Alphabet公司总RPO；含传统云与AI，不等于已收现金。": {
+    "en": "Google Cloud segment RPO, excluding Alphabet-wide RPO; includes traditional cloud and AI and is not cash collected.",
+    "ja": "Alphabet全社RPOではなくGoogle Cloud部門RPO。従来型クラウドとAIを含み、現金回収額ではありません。"
+  },
+  "各家公司分别展示同口径未兑现订单余额，不合计金额。微软含商业软件，AWS含传统云，Google Cloud使用分部RPO，SpaceX为集团订单；Nebius与CoreWeave使用会计RPO，不等同于纯AI收入。": {
+    "en": "Each issuer balance is shown separately, without summing. Microsoft includes commercial software, AWS traditional cloud, Google Cloud uses segment RPO, SpaceX group backlog, and Nebius/CoreWeave accounting RPO. These are not pure AI revenues.",
+    "ja": "各社の同定義の残高を個別表示し、合算しません。Microsoftは商用ソフト、AWSは従来型クラウドを含み、Google Cloudは部門RPO、SpaceXはグループ受注残、Nebius・CoreWeaveは会計RPOを使用。純粋なAI売上ではありません。"
+  },
+  "各线采用公司的主要存量口径：微软商业RPO、AWS长期服务承诺、Google Cloud分部RPO、Nebius与CoreWeave会计RPO、SpaceX集团backlog。仅连接相邻季度披露点；缺季断线，不补零、不外推。悬停数据点查看数据截至日和披露日。": {
+    "en": "Series use Microsoft commercial RPO, AWS long-term commitments, Google Cloud segment RPO, Nebius/CoreWeave accounting RPO and SpaceX group backlog. Only adjacent reported quarters are connected; missing periods stay blank. Hover for period-end and publication dates.",
+    "ja": "Microsoft商用RPO、AWS長期契約、Google Cloud部門RPO、Nebius・CoreWeave会計RPO、SpaceXグループ受注残を使用。連続する開示期のみ接続し、欠測期は空欄。観測点で期末・公表日を確認。"
+  },
+  "未履约订单历史对比，亿美元": {
+    "en": "Outstanding order history, USD 100m",
+    "ja": "未履行受注残高（億米ドル）"
+  },
+  "未履约订单历史对比，指数": {
+    "en": "Outstanding order history, indexed",
+    "ja": "未履行受注残高（指数）"
   }
 }

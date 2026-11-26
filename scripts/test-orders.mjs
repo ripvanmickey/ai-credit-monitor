@@ -1,13 +1,13 @@
 import assert from 'node:assert/strict';import{readFile}from'node:fs/promises';
 const seed=JSON.parse(await readFile('order-book-seed.json'));const {analyzeOrders,validateOrders}=new Function('ORDER_SEED',await readFile('worker/market-history.js','utf8')+'\n'+await readFile('worker/order-book.js','utf8')+'\nreturn {analyzeOrders,validateOrders};')(seed);
 const now='2026-11-11T00:00:00Z',a=analyzeOrders(seed,now),get=id=>a.series.find(s=>s.id===id);
-assert.equal(a.companies.length,5);assert.equal(a.summary.stockSeries,5);assert.equal(a.summary.growing,4);assert.equal(a.summary.flat,1);
+assert.equal(a.companies.length,6);assert.equal(a.summary.stockSeries,6);assert.equal(a.summary.growing,5);assert.equal(a.summary.flat,1);
 assert.ok(Math.abs(get('msft-commercial-rpo').qoq.pct+100/678)<1e-8);assert.ok(Math.abs(get('msft-commercial-rpo').yoy.pct-100*(677/392-1))<1e-8);
 assert.ok(Math.abs(get('aws-commitments').qoq.pct-100*(578/496-1))<1e-8);assert.ok(Math.abs(get('spcx-group-backlog').qoq.pct-100*(62.959/47.461-1))<1e-8);
 assert.equal(get('crwv-backlog').qoq.approximate,true);assert.equal(get('crwv-new-commitments').qoq,null);assert.equal(get('crwv-new-commitments').latest.operator,'>');assert.equal(get('crwv-backlog').latest.value,132.5);assert.equal(get('crwv-backlog').rows.find(r=>r.asOf==='2026-06-30').value,104.2);
 assert.equal(get('meta-backstop').latest.operator,'<=');assert.equal(get('meta-backstop').qoq,null);assert.equal(get('meta-dedicated').stale,false);assert.equal(get('meta-backstop').contractId,get('meta-dedicated').contractId);
 assert.deepEqual(get('nbis-new-tcv').chart.map(p=>p.value),[100,400]);assert.ok(get('nbis-new-tcv').chart.every(p=>p.normalized));assert.equal(get('nbis-new-tcv').qoq,null);
-assert.ok(a.scoringObservations.every(o=>['MSFT','AMZN'].includes(o.entityId)));assert.equal(a.scoringObservations.length,10);assert.ok(a.companies.find(c=>c.id==='NBIS').contracts.length===2);
+assert.ok(a.scoringObservations.every(o=>['MSFT','AMZN','GOOGL'].includes(o.entityId)));assert.equal(a.scoringObservations.length,13);assert.ok(a.companies.find(c=>c.id==='NBIS').contracts.length===2);
 assert.equal(analyzeOrders(seed,'2026-03-01').series.find(s=>s.id==='meta-dedicated').latest,null);assert.ok(analyzeOrders(seed,'2027-04-01').summary.stockSeries===0);
 const validatedAt='2026-11-12T15:00:00Z';
 const payload={...seed,revision:'verified',checkedAt:validatedAt};validateOrders(payload,seed,validatedAt);
@@ -16,8 +16,8 @@ const {default:worker}=await import('data:text/javascript;base64,'+(await readFi
 const req=(p,opts)=>worker.fetch(new Request('https://test'+p,opts),env);const raw=await(await req('/api/orders/raw')).json();
 assert.equal((await req('/api/orders',{method:'PUT',headers:{'If-Match':'wrong'},body:JSON.stringify(raw)})).status,409);
 let r=await req('/api/orders',{method:'PUT',headers:{'If-Match':raw.revision},body:JSON.stringify({...raw,revision:'roundtrip',checkedAt:new Date().toISOString()})});assert.equal(r.status,200);assert.equal(store.has('orders.json'),true);assert.equal(store.has('snapshot.json'),false);
-const cycle=await(await req('/api/cycle')).json();assert.equal(cycle.orders.companies.length,5);assert.equal(cycle.dimensions.find(d=>d.id==='orders').level,0);assert.equal(cycle.coverage,4);
-const plan=await(await req('/api/update-instructions')).json();assert.equal(plan.ordersPlan.companies.length,6);assert.ok(plan.ordersPlan.instructions.includes('Meta buyer and Nebius seller twice'));
+const cycle=await(await req('/api/cycle')).json();assert.equal(cycle.orders.companies.length,6);assert.equal(cycle.dimensions.find(d=>d.id==='orders').level,0);
+const plan=await(await req('/api/update-instructions')).json();assert.equal(plan.ordersPlan.companies.length,7);assert.ok(plan.ordersPlan.instructions.includes('Meta buyer and Nebius seller twice'));
 console.log('PASS: five displayed companies, exact stock growth, rounded CoreWeave changes, flow/stock/conditional separation, normalized Nebius non-dollar chart, immutable/future/source gates, isolated persistent writer and cycle scoring integration.');
 
 assert.equal(a.alignment.latestCommon,'2026-06-30');
@@ -34,5 +34,7 @@ assert.equal(nebiusQ3.qoq.approximate,true);
 assert.ok(Math.abs(nebiusQ3.qoq.pct-100*(38.7/37.4906-1))<1e-8);
 assert.equal(q3Cell('CRWV').observation.value,132.3);assert.ok(Math.abs(q3Cell('CRWV').qoq.pct-100*(132.3/103.7-1))<1e-8);assert.ok(Math.abs(q3Cell('CRWV').yoy.pct-164.6)<1e-8);
 assert.equal(get('aws-commitments').rows.length,5);assert.equal(get('nbis-rpo').rows.length,3);assert.equal(get('crwv-rpo').rows.length,5);assert.equal(get('spcx-group-backlog').rows.length,4);
+const google=get('google-cloud-rpo');assert.equal(google.latest.value,560.8);assert.equal(google.rows[0].asOf,'2026-03-31');assert.equal(google.rows.length,3);assert.equal(google.yoy,null);assert.ok(Math.abs(google.qoq.pct-100*(560.8/513.9-1))<1e-8);
+assert(a.scoringObservations.some(o=>o.entityId==='GOOGL'&&o.value===560.8));
 assert.ok(Math.abs(get('nbis-rpo').qoq.pct-100*(37.4906/33.5853-1))<1e-8);assert.equal(a.companies.find(c=>c.id==='NBIS').primarySeries.id,'nbis-rpo');assert.equal(a.companies.find(c=>c.id==='CRWV').primarySeries.id,'crwv-rpo');
 console.log('PASS: aligned Q2 stock coverage for five issuers, pending/NA/history statuses, new Nebius and CoreWeave GAAP RPO, prior backlog retained and deduplicated summary.');
