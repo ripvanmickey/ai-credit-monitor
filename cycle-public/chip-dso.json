@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-27",
+  "checkedAt": "2026-11-28",
   "unit": "USD million",
   "method": "average_ar_actual_quarter_days",
   "companies": [
@@ -94,7 +94,7 @@
           "issuerDso": 64
         }
       ],
-      "checkedAt": "2026-11-27"
+      "checkedAt": "2026-11-28"
     },
     {
       "id": "AMD",
@@ -167,7 +167,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-11-27"
+      "checkedAt": "2026-11-28"
     },
     {
       "id": "AVGO",
@@ -240,7 +240,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-11-27"
+      "checkedAt": "2026-11-28"
     },
     {
       "id": "MRVL",
@@ -313,7 +313,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-11-27"
+      "checkedAt": "2026-11-28"
     },
     {
       "id": "INTC",
@@ -386,14 +386,14 @@
           ]
         }
       ],
-      "checkedAt": "2026-11-27"
+      "checkedAt": "2026-11-28"
     }
   ],
   "checkNote": "NVIDIA FY27 Q3 issuer earnings release verified; other issuers retain their own disclosure dates.",
   "financialChecks": [
     {
       "entityId": "NVDA",
-      "checkedAt": "2026-11-27",
+      "checkedAt": "2026-11-28",
       "status": "partial",
       "sourceUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001045810.json",
       "error": "HTTP Error 403: Forbidden",
@@ -403,7 +403,7 @@
     },
     {
       "entityId": "AMD",
-      "checkedAt": "2026-11-27",
+      "checkedAt": "2026-11-28",
       "status": "partial",
       "sourceUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000002488.json",
       "error": "HTTP Error 403: Forbidden",
@@ -411,7 +411,7 @@
     },
     {
       "entityId": "AVGO",
-      "checkedAt": "2026-11-27",
+      "checkedAt": "2026-11-28",
       "status": "partial",
       "sourceUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001730168.json",
       "error": "HTTP Error 403: Forbidden",
@@ -419,7 +419,7 @@
     },
     {
       "entityId": "MRVL",
-      "checkedAt": "2026-11-27",
+      "checkedAt": "2026-11-28",
       "status": "partial",
       "sourceUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001835632.json",
       "error": "HTTP Error 403: Forbidden",
@@ -427,7 +427,7 @@
     },
     {
       "entityId": "INTC",
-      "checkedAt": "2026-11-27",
+      "checkedAt": "2026-11-28",
       "status": "partial",
       "sourceUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000050863.json",
       "error": "HTTP Error 403: Forbidden",
