@@ -101,5 +101,49 @@
   "2025年谷歌数据为Alphabet整体RPO，旧口径单列，不与2026年Google Cloud分部RPO连线或计算跨口径增幅。": {
     "en": "Google’s 2025 values are Alphabet-wide RPO under the prior definition, shown separately. They are not connected to 2026 Google Cloud segment RPO and no cross-definition growth is calculated.",
     "ja": "2025年の値は旧定義のAlphabet全社RPOとして別表示。2026年のGoogle Cloud部門RPOとは接続せず、定義をまたぐ増減率は算出しません。"
+  },
+  "Reuters 11月26日报道SoftBank Group五年期CDS为534.6bp，属亚洲盘中报道；币种及合约条款未说明，不作为美股日线收盘。": {
+    "en": "Reuters reports SoftBank Group five-year CDS at 534.6bp on Nov 26. This is an Asian intraday media point; currency and contract terms are unspecified, not a US daily close.",
+    "ja": "Reutersは11月26日にソフトバンクGの5年CDSを534.6bpと報道。アジア時間の報道値で、通貨・契約条件は不明。米国市場の日次終値ではありません。"
+  },
+  "ChosunBiz 11月26日引述ICE Data Services：NVIDIA五年期CDS在11月25日盘中触及147.27bp。保存为日内高点；币种及其他合约条款未说明。": {
+    "en": "ChosunBiz on Nov 26 cites ICE Data Services: NVIDIA five-year CDS touched 147.27bp intraday on Nov 25. Saved as an intraday high; currency and other contract terms are unspecified.",
+    "ja": "ChosunBizが11月26日にICE Data Servicesを引用。NVIDIAの5年CDSは11月25日の日中に147.27bp。日中高値として保存し、通貨・その他の契約条件は不明です。"
+  },
+  "ChosunBiz 11月26日报道CoreWeave五年期CDS在11月25日盘中升至年化15.34个百分点（1534bp）。与S&P Global媒体点位分开，不从违约概率或预付款推算。": {
+    "en": "ChosunBiz on Nov 26 reports CoreWeave five-year CDS at an annualized 15.34 percentage points (1534bp) intraday on Nov 25. Kept separate from S&P Global media points; not inferred from default probability or upfront payment.",
+    "ja": "ChosunBizが11月26日に、CoreWeaveの5年CDSが11月25日の日中に年率15.34ポイント（1534bp）に達したと報道。S&P Globalの報道値とは区別し、破綻確率や前払い金から推計していません。"
+  },
+  "已核验全部16家公司，目标美股收盘日为2026-11-27。补入10条公开CDS日线：Oracle至11月26日，AMD、Intel、Microsoft至11月25日，Amazon至11月24日；SpaceX仍至11月23日。另补入SoftBank Group 11月26日534.6bp、NVIDIA 11月25日盘中147.27bp和CoreWeave 1534bp三个独立媒体点位。五组行情及抄底、底背离计算均已覆盖11月27日。日线来源仍滞后，媒体点位与DTCC成交中位数分开。": {
+    "en": "All 16 issuers checked for US close 2026-11-27. Added 10 public CDS daily rows: Oracle through Nov 26; AMD, Intel and Microsoft through Nov 25; Amazon through Nov 24; SpaceX remains Nov 23. Added separate media points: SoftBank Group 534.6bp on Nov 26, NVIDIA 147.27bp and CoreWeave 1534bp intraday on Nov 25. All five price histories and timing/divergence calculations cover Nov 27. Daily sources still lag; media points and DTCC trade medians remain separate.",
+    "ja": "米国終値2026-11-27を対象に全16社を確認。公開CDS日次データを10件追加：Oracleは11月26日、AMD・Intel・Microsoftは25日、Amazonは24日まで。SpaceXは23日のまま。別系列の報道値としてソフトバンクGの26日534.6bp、NVIDIAの25日日中147.27bp、CoreWeaveの1534bpを追加。5系列の株価と押し目買い・ダイバージェンス計算は27日まで。日次ソースには遅れがあり、報道値・DTCC取引中央値は区別しています。"
+  },
+  "公开同规格日线已补齐可核验新增行；来源最新日期仍早于目标收盘日。": {
+    "en": "Verified new rows were appended to the matching public daily series; the source date still precedes the target close.",
+    "ja": "同一仕様の公開日次系列に検証済みの行を追加。ソースの最新日は対象終値日より前です。"
+  },
+  "已检索公开报道；ICE完整报价行仍无法获取，结算价格不转换为CDS利差。": {
+    "en": "Public reports searched; the full ICE quote row remains unavailable. Settlement prices are not converted to CDS spreads.",
+    "ja": "公開報道を検索しましたがICEの完全な行は取得できません。決済価格をCDSスプレッドへ変換していません。"
+  },
+  "已检索本轮公开报道，未取得可核验的新媒体数值；保留原始报价日期，DTCC另行核验。": {
+    "en": "Public reports searched in this review without obtaining a verifiable new media quote. Original quote dates retained; DTCC checked separately.",
+    "ja": "今回の公開報道検索では検証可能な新しい報道値を取得できませんでした。元の観測日を維持しDTCCは別途確認。"
+  },
+  "SoftBank Group五年期CDS升至534.6bp": {
+    "en": "SoftBank Group five-year CDS rises to 534.6bp",
+    "ja": "ソフトバンクGの5年CDSが534.6bpに上昇"
+  },
+  "Reuters报道11月26日软银集团五年期CDS升至四年高位534.6bp。保存为独立亚洲盘中报道值，保留实际报价日期；不作为美股日线收盘。": {
+    "en": "Reuters reports SoftBank Group five-year CDS at a four-year high of 534.6bp on Nov 26. Saved as a separate Asian intraday report with its actual quote date, not a US daily close.",
+    "ja": "Reutersによると、11月26日のソフトバンクGの5年CDSは4年ぶり高水準の534.6bp。実際の観測日を保ち、アジア時間の報道値として米国日次終値と区別。"
+  },
+  "NVIDIA与CoreWeave盘中CDS再创新高": {
+    "en": "NVIDIA and CoreWeave CDS reach new intraday highs",
+    "ja": "NVIDIAとCoreWeaveのCDSが日中新高値"
+  },
+  "ChosunBiz引述ICE Data Services，11月25日NVIDIA五年期CDS盘中达147.27bp；同日报道CoreWeave达1534bp。报道同时提到NVIDIA评级被列入负面观察。各供应商媒体点位分开展示，不转换预付款或违约概率。": {
+    "en": "ChosunBiz cites ICE Data Services for NVIDIA five-year CDS at 147.27bp intraday on Nov 25 and reports CoreWeave at 1534bp. It also reports NVIDIA was placed on CreditWatch Negative. Provider-specific media points are kept separate; no upfront-price or default-probability conversion.",
+    "ja": "ChosunBizはICE Data Servicesを引用し、11月25日日中のNVIDIAの5年CDSを147.27bp、CoreWeaveを1534bpと報道。NVIDIAの信用格付けのネガティブ・ウォッチ入りにも言及。供給元別の報道値を区別し、前払いや破綻確率から変換していません。"
   }
 }
